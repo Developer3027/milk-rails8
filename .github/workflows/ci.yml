@@ -57,12 +57,6 @@ jobs:
     runs-on: ubuntu-latest
 
     # services:
-    #     sqlite:
-    #       image: stagex/sqlite3
-    #       ports:
-    #         - 1433
-
-    # services:
     #  redis:
     #    image: redis
     #    ports:
@@ -85,7 +79,7 @@ jobs:
       - name: Run tests
         env:
           RAILS_ENV: test
-          SQLITE3_URL: sqlite3://localhost:1433
+          # SQLITE3_URL: sqlite3://localhost:1433
           # REDIS_URL: redis://localhost:6379/0
         run: |
           gem install bundler
