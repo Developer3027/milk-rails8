@@ -79,13 +79,11 @@ jobs:
       - name: Run tests
         env:
           RAILS_ENV: test
-          # SQLITE3_URL: sqlite3://localhost:1433
           # REDIS_URL: redis://localhost:6379/0
         run: |
           gem install bundler
           bundle install --jobs 4 --retry 3
           bin/rails db:prepare
-          bin/rails db:migrate
           bin/rails test
 
       - name: Keep screenshots from failed system tests
