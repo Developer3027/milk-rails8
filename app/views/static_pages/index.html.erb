@@ -3,25 +3,30 @@
   <div class="text-center w-full lg:max-w-4xl">
     <%= link_to 'MILK Blog', root_path, class: 'text-3xl font-extrabold' %>
   </div>
-  <div class="flex justify-evenly items-center w-full lg:max-w-4xl">
-    <div class="flex flex-col">
-      <%= link_to 'About Me', root_path, class: 'my-2 font-medium' %>
+  <div class="flex flex-col md:flex-row justify-evenly items-center w-full lg:max-w-4xl">
+    <div class="flex flex-col mb-8 md:hidden">
+      <%= link_to 'About Me', root_path, class: 'font-medium my-2' %>
+      <%= link_to 'Client', root_path, class: 'font-medium my-2' %>
+      <%= link_to 'Employer', root_path, class: 'font-medium my-2' %>
+    </div>
+    <div class="hidden md:flex flex-col">
+      <%= link_to 'About Me', root_path, class: 'font-medium my-2' %>
       <%= link_to 'The Stacks', root_path, class: 'font-medium my-2' %>
       <%= link_to 'Projects', root_path, class: 'font-medium my-2' %>
       <%= link_to 'Code', root_path, class: 'font-medium my-2' %>
     </div>
     <%= image_tag 'MILK8.png', alt: 'Rails logo' %>
-    <div class="flex flex-col">
+    <div class="hidden md:flex flex-col">
       <%= link_to 'Client', root_path, class: 'font-medium my-2' %>
       <%= link_to 'Employer', root_path, class: 'font-medium my-2' %>
       <%= link_to 'Discord', root_path, class: 'font-medium my-6' %>
     </div>
   </div>
-  <div class="flex justify-evenly w-full lg:max-w-4xl">
-    <%= link_to 'Swabbie', root_path, class: 'text-3xl font-bold' %>
-    <%= link_to 'CarCare Compass', root_path, class: 'text-3xl font-bold' %>
-    <%= link_to 'Hermit Plus', root_path, class: 'text-3xl font-bold' %>
-    <%= link_to 'Copywriter', root_path, class: 'text-3xl font-bold' %>
+  <div class="flex flex-col md:flex-row justify-evenly text-center w-full h-full lg:max-w-4xl text-2xl lg:text-3xl">
+    <%= link_to 'Swabbie', root_path, class: 'font-bold my-2 md:my-0' %>
+    <%= link_to 'CarCare Compass', root_path, class: 'font-bold my-2 md:my-0' %>
+    <%= link_to 'Hermit Plus', root_path, class: 'font-bold my-2 md:my-0' %>
+    <%= link_to 'Copywriter', root_path, class: 'font-bold my-2 md:my-0' %>
   </div>
 
 </div>
