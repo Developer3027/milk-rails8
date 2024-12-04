@@ -1,0 +1,6 @@
+## App Flow.
+The app is comprised of several apps in one. The root is a simple layout with links. There is a information page that most of the links will link to. Each section will explain the info it is linked to, including the projects listed at the bottom. The info section will include links to the app and design if any. 
+
+The employer section is for those looking to hire me for employment and will include my resume as well as other information that I need to provide to someone who is looking to hire me for a job.
+
+The Client section is for those who are looking to hire me to build a project for them. This link has a coffee icon that will take them to the information page where links to fivver and upwork as well as reasons to hire me, are located. The Client link will take them to sign in if they are a client. Here there is a dashboard with info on the site build, issues tab where they can create a issue. A internal email where they can email me in house. A chat option if I am logged in.
