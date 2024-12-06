@@ -21,9 +21,10 @@
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <%= render "shared/dark_mode_check" %>
   </head>
 
-  <body class="bg-base-dark text-white">
+  <body class="bg-base-light text-base-dark dark:bg-base-dark dark:text-white">
     <main class="min-h-screen">
       <%= yield %>
     </main>

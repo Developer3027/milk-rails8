@@ -1,6 +1,7 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
+  darkMode: 'selector',
   content: [
     './public/*.html',
     './app/helpers/**/*.rb',
@@ -14,6 +15,8 @@ module.exports = {
       },
       colors: {
         'base-dark': '#1C0F00',
+        'base-light': '#EACAA6',
+        'milk': '#87B5DF'
       },
     },
   },
