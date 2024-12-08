@@ -8,3 +8,5 @@ The employer section is for those looking to hire me for employment and will inc
 
 ### client
 The Client section is for those who are looking to hire me to build a project for them. The info toggle will take them to the information page where links to Fivver and Upwork as well as reasons to hire me, are located or the sign in if they are a client. Here there is a dashboard with info on the site build, issues tab where they can create a issue. A internal email where they can email me in house. A chat option if I am logged in.
+
+You removed the info toggle and added the admin mug icon. Ade devise an ran install. Removed the registerable from the milk_admin model. Need to create seed for milk_admin and create dashboard, fix routeing.
