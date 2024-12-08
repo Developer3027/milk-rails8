@@ -26,6 +26,8 @@
 
   <body class="bg-base-light text-base-dark dark:bg-base-dark dark:text-white">
     <main class="min-h-screen">
+      <%= render "shared/notices" %>
+      <%= render "shared/alerts" %>
       <%= yield %>
     </main>
   </body>

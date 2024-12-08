@@ -1,7 +1,7 @@
 <div class="flex flex-col justify-around items-center h-full w-full min-h-screen" data-controller="dark-mode">
   <!-- top link -->
   <div class="flex justify-evenly items-center w-full lg:max-w-4xl">
-    <!-- bulb-light -->
+    <!-- dark mode toggle -->
     <%= render "shared/darkmode_toggle" %>
     <div class="flex flex-col">
       <div>
@@ -22,14 +22,27 @@
           <path d="M7.2 8.809H4V19.5h3.2V8.809Z"/>
         </svg>
       </div>
+      <div class="flex justify-evenly items-center mt-4">
+        <!-- Fivver Icon -->
+        <svg class="w-[21px] h-6 text-base-dark dark:text-milk" width="21" height="22" viewBox="0 0 21 22" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17.875 17.875V6.875H6.875V6.1875C6.875 5.0501 7.8001 4.125 8.9375 4.125H11V0H8.9375C7.2971 0.00203759 5.72447 0.654587 4.56453 1.81453C3.40459 2.97447 2.75204 4.5471 2.75 6.1875V6.875H0V11H2.75V17.875H0V22H9.625V17.875H6.875V11H13.7885V17.875H11V22H20.625V17.875H17.875Z"/>
+          <path d="M15.8125 4.125C16.9516 4.125 17.875 3.20159 17.875 2.0625C17.875 0.923413 16.9516 0 15.8125 0C14.6734 0 13.75 0.923413 13.75 2.0625C13.75 3.20159 14.6734 4.125 15.8125 4.125Z"/>
+        </svg>
+        <!-- UpWork Icon-->
+        <svg class="w-7 h-6 text-base-dark dark:text-milk" width="28" height="22" viewBox="0 0 28 22" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M21.6556 12.4948C20.3702 12.4948 19.1628 11.8936 18.0691 10.9093L18.3333 9.5207L18.3421 9.46542C18.5835 7.99048 19.3308 5.51091 21.6547 5.51091C23.3959 5.51091 24.8081 7.07701 24.8081 9.00577C24.8081 10.9297 23.395 12.4958 21.6547 12.4958L21.6556 12.4948ZM21.6556 1.97435C18.6938 1.97435 16.3917 4.10579 15.4581 7.61617C14.0363 5.24715 12.9513 2.39908 12.3231 0H9.13296V9.19681C9.12859 11.015 7.80213 12.4851 6.16156 12.49C4.52098 12.4851 3.19453 11.0102 3.19015 9.19681V0H0V9.19681C0 12.9642 2.76579 16.0508 6.16156 16.0508C9.56083 16.0508 12.3231 12.9651 12.3231 9.19681V7.65593C12.9426 9.08529 13.7038 10.5399 14.6287 11.8228L12.674 22H15.9368L17.3542 14.6156C18.594 15.4942 20.0202 16.0498 21.6564 16.0498C25.1563 16.0498 28 12.8779 28 9.00383C28 5.12496 25.1563 1.97338 21.6564 1.97338L21.6556 1.97435Z"/>
+        </svg>
+      </div>
     </div>
-    <!-- info toggle -->
-    <%= image_tag 'info-direct.svg', alt: 'info toggle' %>
+    <!-- Milk Admin sign in -->
+    <%= link_to new_milk_admin_session_path do %>
+      <%= image_tag 'mug.svg', alt: 'admin sign in' %>
+    <% end %>
   </div>
   <!-- center div -->
   <div class="flex flex-col md:flex-row justify-evenly items-center w-full lg:max-w-4xl">
     <!-- mobile upper menu -->
-    <div class="flex flex-col mb-8 md:hidden">
+    <div class="flex flex-col mb-7 md:hidden">
       <%= link_to 'About Me', info_path + "#about-me", class: 'font-medium my-2' %>
       <%= link_to 'Client', root_path, class: 'font-medium my-2' %>
       <%= link_to 'Employer', root_path, class: 'font-medium my-2' %>

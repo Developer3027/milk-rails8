@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  devise_for :milk_admins, skip: [ :registrations ]
+
+  # root for milk admin
+  authenticated :milk_admin do
+    root to: "milk_admin#dashboard", as: :milk_dashboard
+  end
+
   get "static_pages/info", as: :info
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
