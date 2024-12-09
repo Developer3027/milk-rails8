@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  # get "copywriter/index"
   devise_for :milk_admins, skip: [ :registrations ]
 
   # root for milk admin
@@ -7,6 +6,8 @@ Rails.application.routes.draw do
     root to: "milk_admin#dashboard", as: :milk_admin_root
   end
 
+  # root for eastbounds
+  get "eastbound", to: "eastbounds#index", as: :eastbound
   # root for copywriter
   get "copywriter", to: "copywriter#index", as: :copywriter
 
