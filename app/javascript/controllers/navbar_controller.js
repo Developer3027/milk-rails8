@@ -23,7 +23,7 @@ export default class extends Controller {
    */
   open() {
     this.mobileMenuTarget.classList.remove("hidden")
-    let main = document.querySelector("main")
+    let main = document.querySelector("section")
     main.classList.add("blur")
 
     document.body.classList.add("overflow-hidden")
@@ -35,7 +35,7 @@ export default class extends Controller {
    */
   close() {
     this.mobileMenuTarget.classList.add("hidden")
-    let main = document.querySelector("main")
+    let main = document.querySelector("section")
     main.classList.remove("blur")
 
     document.body.classList.remove("overflow-hidden")

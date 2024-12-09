@@ -25,11 +25,13 @@
   </head>
 
   <body class="bg-base-light text-base-dark dark:bg-base-dark dark:text-white">
-    <main class="min-h-screen">
+    <main class="flex justify-center items-center min-h-screen">
       <%= render "shared/notices" %>
       <%= render "shared/alerts" %>
       <% if controller_name == "copywriter" %>
         <%= render "shared/copywriter_nav" %>
+      <% elsif controller_name == "eastbounds" %>
+        <%= render "shared/eastbound_nav" %>
       <% end %>
       <%= yield %>
     </main>
