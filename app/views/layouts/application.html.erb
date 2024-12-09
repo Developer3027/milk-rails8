@@ -28,6 +28,9 @@
     <main class="min-h-screen">
       <%= render "shared/notices" %>
       <%= render "shared/alerts" %>
+      <% if controller_name == "copywriter" %>
+        <%= render "shared/copywriter_nav" %>
+      <% end %>
       <%= yield %>
     </main>
   </body>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  # get "copywriter/index"
   devise_for :milk_admins, skip: [ :registrations ]
 
   # root for milk admin
@@ -6,7 +7,10 @@ Rails.application.routes.draw do
     root to: "milk_admin#dashboard", as: :milk_admin_root
   end
 
-  get "static_pages/info", as: :info
+  # root for copywriter
+  get "copywriter", to: "copywriter#index", as: :copywriter
+
+  get "info", to: "static_pages#info", as: :info
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
