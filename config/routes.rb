@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   # root for milk admin
   authenticated :milk_admin do
-    root to: "milk_admin#dashboard", as: :milk_dashboard
+    root to: "milk_admin#dashboard", as: :milk_admin_root
   end
 
   get "static_pages/info", as: :info
