@@ -14,3 +14,106 @@
 .img-half-size {
   background-size: 1000px;
 }
+
+.st__body {
+  @apply bg-st-drk-primary flex flex-col items-center w-full;
+}
+
+.st__header__section {
+  @apply mt-8 w-96 sm:w-[640px] lg:w-[950px] xl:w-[1024px];
+}
+
+.st__header {
+  @apply static max-w-5xl;
+}
+
+.st__navbar {
+  @apply block rounded-t-lg bg-white;
+}
+
+.st__nav__container {
+  @apply block max-w-5xl
+}
+
+.st__brand {
+  @apply relative mt-1 ml-1;
+}
+
+.st__nav__logo {
+  @apply block ml-5;
+}
+
+.st__container {
+  @apply flex items-center justify-between bg-white w-96 sm:w-[640px] lg:w-[950px] xl:w-[1024px];
+}
+
+.st__navbar {
+  @apply flex ;
+}
+
+.st__logo {
+  @apply bg-st-logo w-[100px] h-[100px];
+}
+
+.mobile {
+  @apply flex justify-center items-center w-16 h-16 rounded-lg cursor-pointer z-10 mr-4;
+}
+
+.st__sr__only {
+  @apply invisible;
+}
+
+.st__menu__show {
+  @apply opacity-100 transition-all;
+}
+
+.st__menu__hide {
+  @apply animate-pulse;
+}
+
+.st__wrap__video {
+  @apply flex items-center justify-center w-full mt-4 mb-44 bg-[url('saltandtar/Group_30.svg')]
+}
+
+.st__title__info {
+  @apply flex flex-col items-center justify-center;
+}
+
+
+.st__hero__actions {
+  @apply flex justify-around my-16 w-full;
+}
+
+
+.st__arrow {
+  position: absolute;
+  left: 0;
+  margin-top: -1.5rem;
+  filter: drop-shadow(3px 3px 2px rgb(177, 177, 177));
+}
+
+.st__wave1__wrap {
+  @apply flex justify-center border-2 border-red-600;
+}
+
+.st__wave1 {
+  position: absolute;
+  z-index: 5;
+  width: 100%;
+  left: 0;
+  bottom: 3%;
+}
+
+.st__wave2 {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  left: 0;
+  bottom: 0px;
+}
+
+#lght-blue-wave{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
