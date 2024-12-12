@@ -1,4 +1,220 @@
-<section>
-  <h1 class="font-bold text-4xl">Copywriter Coming Soon</h1>
-  <p>Mix of my design and popular Copywriter team found on Fivver!</p>
-</section>
+<div class="flex flex-col">
+  <section id="hero" class="mt-20 w-full bg-white text-base-dark">
+    <!-- Alerts and notices for copywriter -->
+    <% if notice || alert  %>
+      <span class="mt-24 w-full mx-auto text-center text-blue-400 font-semibold"><%= notice %></span>
+      <span class="mt-24 w-full mx-auto text-center text-red-400 font-semibold"><%= alert %></span>
+    <% end %>
+    <div class="max-w-[85rem] w-full h-full mx-auto p-4">
+      <!-- 2 col section on desktop-->
+      <div class="flex-col md:flex md:flex-row w-full justify-center md:justify-around">
+        <!--Copywriter intro block-->
+        <div class="flex justify-center items-center w-full md:w-1/2">
+          <div class="hidden lg:flex min-w-fit ms-12 xl:ms-0">
+            <%= image_tag("copywriter/svg456.svg", style: "width: 225px; height: 231px;", alt: "copywriter illustration") %>
+          </div>
+          <div class="lg:ms-3">
+            <h1 class="text-6xl pb-4 sm:px-2">
+              Copywriter
+            </h1>
+            <span class="text-2xl ps-1 sm:px-2">
+              Writing WORDS that SELL!
+            </span>
+            <div class="bg-green-200 p-2">
+              <p class="py-2 mb-2">
+                We write copy that sells like toilet paper in a pandemic. Could you be our next success story?
+              </p>
+              <%= link_to "LKM Creative", "https://www.lkmcreative.com", target: "_blank", rel: "alternate", class: "p-2 font-bold bg-[#faff00] rounded-e-full" %>
+              <p class="py-2 mt-2">
+                Changing the way companies grow forever. Gone are the days of working with old-school agencies with outdated mindsets and slow processes.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Founder image / intro -->
+        <div class="flex-col w-full md:w-1/2 justify-center items-center mt-4 md:mt-0">
+          <div class="w-80 mx-auto">
+            <h2 class="text-3xl font-semibold w-full text-end py-4">
+              Lauren Gouws
+            </h2>
+          </div>
+          <div class="flex w-80 mx-auto">
+            <div class="w-full">
+              <%= image_tag("copywriter/frame9.png", style: "width: 185px; height: 185px;", alt: "founder image") %>
+            </div>
+            <p class="w-48 ms-2">
+              10 years. 13,000 clients. Lauren is a passionate wordsmith and Entrepreneur cover girl.
+            </p>
+          </div>
+          <div class="flex justify-end -mt-8 w-80 mx-auto">
+              <%= image_tag("copywriter/star-press.svg", style: "width: 311px; height: 212px;", alt: "Stop the Press") %>
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="quicklinks" class="w-full bg-white text-base-dark">
+    <div class="max-w-[85rem] w-full mx-auto my-auto md:p-4">
+      <div class="flex-col md:flex md:flex-row w-full justify-center md:justify-around">
+        <!-- Left links wrapper-->
+        <div class="flex-col w-full md:w-1/2 justify-center items-center">
+          <!-- link block for info / service-->
+          <div class="flex justify-center items-center lg:justify-start lg:items-start">
+            <div class="flex lg:ms-6 xl:ms-12">
+              <%= link_to root_path do %>
+                <div class="flex flex-col border border-sky-400 rounded-s-lg rounded-e-lg p-2 w-80">
+                  <h3 class="text-xl font-medium">Learn More -</h3>
+                  <span class="ms-8 text-sky-700">Xtra, Xtra. Read all about it.</span>
+                </div>
+              <% end %>
+              <div class="hidden lg:flex items-center ms-16 xl:ms-20">
+                <%= image_tag("copywriter/bluediamond.svg", style: "width: 30px; height: 30px;", alt: "blue diamond illustration") %>
+              </div>
+            </div>
+          </div>
+          <div class="flex justify-center items-center lg:justify-start lg:items-start">
+            <div class="flex py-4 lg:ms-6 xl:ms-16">
+              <%= link_to root_path + "#team" do %>
+                <div class="flex flex-col border border-sky-400 rounded-s-lg rounded-e-lg p-2 w-80">
+                  <h3 class="text-xl font-medium">The Team -</h3>
+                  <span class="ms-8 text-sky-700">See who are you working with?</span>
+                </div>
+              <% end %>
+              <div class="hidden lg:flex items-center ms-20 xl:ms-24">
+                <%= image_tag("copywriter/redcircle.svg", style: "width: 30px; height: 30px;", alt: "red circle illustration") %>
+              </div>
+            </div>
+          </div>
+          <div class="flex justify-center items-center lg:justify-start lg:items-start">
+            <div class="flex lg:ms-6 xl:ms-20">
+              <%= link_to "https://www.fiverr.com/lkmcreative", target: "_blank", rel: "alternate" do %>
+                <div class="flex flex-col border border-sky-400 rounded-s-lg rounded-e-lg p-2 w-80">
+                  <h3 class="text-xl font-medium">Order on Fiverr -</h3>
+                  <span class="ms-8 text-sky-700">Professional, secure and perfect.</span>
+                </div>
+              <% end %>
+              <div class="hidden lg:flex items-center ms-24 xl:ms-28">
+                <%= image_tag("copywriter/purpledodad.svg", style: "width: 30px; height: 30px;", alt: "purple polygon illustration") %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Copywrite desc intro block -->
+        <div class="flex-col w-full md:w-1/2 justify-center items-center">
+          <div class="my-12 px-4 sm:my-8 md:my-4 lg:my-0 lg:px-10">
+            <p class="text-center font-medium lg:text-xl xl:text-2xl">
+              What copywriting services team...can say they served 9,000+ clients?
+            </p>
+            <div class="flex justify-center items-center my-2">
+              <span class="text-center lg:text-xl xl:text-2xl py-2 px-6 font-bold bg-[#faff00] rounded-e-full border">
+                We can!
+              </span>
+            </div>
+            <p class="text-center lg:text-xl xl:text-2xl">
+              <%= link_to "LKM Creative", "https://www.lkmcreative.com", target: "_blank", rel: "alternate", class: "text-orange-600 font-medium" %> is changing the way companies grow forever. Gone are the days of working with old-school agencies with outdated mindsets and slow processes.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="" class="flex justify-center items-center w-full bg-yellow-500 px-4 text-base-dark">
+    <div class="max-w-[45rem] w-full bg-white my-16 p-4 2xl:px-24 xl:py-16 rounded-lg">
+      <!-- YouTube video iframe-->
+      <div class="flex justify-center items-center border rounded shadow-lg max-w-full h-auto aspect-video p-2 bg-[url('https://images.pexels.com/photos/21380/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')]">
+        <iframe class="w-full h-full" src="https://www.youtube.com/embed/RBtq_s91KAE?si=qHs3HFoKXE8eaaWW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <p class="text-center lg:text-xl py-2">
+        We deliver 1000s of professional copywriting projects a year - from <span class="text-amber-600 font-medium">website copy</span> to <span class="text-amber-600 font-medium">brochure copy, blogs, articles, crowdfunding campaign copy, billboards, video scripts, TV ads, radio spots, explainer videos, mailers,</span> and so much <strong>more</strong> - with <strong>FAST</strong> turnarounds and unprecedented <strong>quality</strong>.
+      </p>
+      <p class="text-center lg:text-xl py-2">
+        We <span class="font-medium">GUARANTEE</span> <strong>professionalism, creativity,</strong> and 100% <strong>originality</strong>.
+      </p>
+      <!---- Producer block -->
+      <div class="flex flex-col justify-center items-center py-2">
+        <div>
+          <h2 class="text-3xl text-purple-700 font-semibold w-full text-end py-4">Shawn Gouws</h2>
+        </div>
+        <div>
+          <%= image_tag("copywriter/producer.png", style: "width: 185px; height: 185px;", alt: "Shawn Gouws") %>
+        </div>
+        <div>
+          <span class="text-3xl text-purple-800 font-semibold w-full text-end py-4">The Producer</span>
+        </div>
+      </div>
+      <p class="text-center lg:text-xl py-2">
+        Since 2015, we have worked with <span class="font-medium">THOUSANDS</span> of companies worldwide. No matter your business or industry, contact Shaun at shaun@lkmcreative.com to start your journey with <span class="text-orange-600 font-medium">LKM</span>. You'll soon see why we've worked with over 9,000+ clients and counting.
+      </p>
+      <p class="text-center lg:text-xl py-2">
+        The world <em>loves</em> <span class="text-orange-600 font-medium">LKM's</span> professional copywriting services, and it's not hard to see why...
+      </p>
+      <!-- Highlighted link -->
+      <div class="flex justify-center items-center py-2">
+        <span class="before:block before:absolute before:-inset-1 before:-start-2 before:-end-2 before:rounded-sm before:bg-yellow-200 relative inline-block">
+          <span class="relative border border-slate-600 rounded-sm py-2 px-4">
+            <%= link_to "Ask a question", root_path, class: "font-medium" %>
+          </span>
+        </span>
+      </div>
+    </div>
+  </section>
+  <section id="" class="w-full bg-white text-base-dark">
+    <div class="max-w-[85rem] w-full mx-auto pt-6 lg:p-4">
+      <!-- dots seperator-->
+      <div class="flex justify-evenly items-center w-full">
+        <div class="w-5 h-5 bg-blue-700 rounded-full"></div>
+        <div class="w-5 h-5 bg-blue-700 rounded-full"></div>
+        <div class="w-5 h-5 bg-blue-700 rounded-full"></div>
+        <div class="w-5 h-5 bg-blue-700 rounded-full"></div>
+      </div>
+    </div>
+    <div class="flex flex-wrap justify-around my-8">
+      <div class="hidden lg:flex items-end">
+        <%= image_tag("copywriter/lady.svg", style: "width: 176px; height: 272px;", alt: "stick figure lady illustration") %>
+      </div>
+      <!--What-->
+      <div class="flex flex-col rounded-md border-4 border-teal-400 w-72 my-2 p-4">
+        <h3 class="text-xl font-medium">What we do!</h3>
+        <ul class="list-disc list-inside">
+          <li>Website Copy</li>
+          <li>Landing Page Copy</li>
+          <li>Sales Page Copy</li>
+          <li>ClickFunnel Copywriting</li>
+          <li>Professional Video Scripting</li>
+          <li>Radio Ad Scripting</li>
+          <li>Email Copy</li>
+          <li>Email Funnel Campaigns</li>
+          <li>Crowdfunding Campaign Copy</li>
+          <li>(Kickstarter, Indiegogo, etc.)</li>
+          <li>Brochure and Pamphlet Copy</li>
+          <li>In-store signage Copy</li>
+          <li>Coupon and Voucher Copy</li>
+          <li>And More!</li>
+        </ul>
+      </div>
+      <!--Who-->
+      <div class="flex flex-col rounded-md border-4 border-rose-600 w-72 my-2 p-4">
+        <h3 class="text-xl font-medium">Who we've helped!</h3>
+        <ul class="list-disc list-inside">
+          <li>Emirates New Zealand</li>
+          <li>Ford</li>
+          <li>Barry Manilow</li>
+          <li>Raymond Crowe</li>
+          <li>RE/MAX</li>
+          <li>Old El Paso</li>
+          <li>BabySense</li>
+          <li>Without Music</li>
+          <li>Balinoff Vodka</li>
+          <li>Bawk Coffee</li>
+          <li>3-Dapter</li>
+          <li>Brampton Proud</li>
+          <li>Basilica Dancewear</li>
+          <li>+ 1000s More!</li>
+        </ul>
+      </div>
+      <div class="hidden lg:flex items-end">
+        <%= image_tag("copywriter/man.svg", style: "width: 128px; height: 252px;", alt: "stick figure man illustration") %>
+      </div>
+    </div>
+  </section>
+</div>
