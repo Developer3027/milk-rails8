@@ -1,11 +1,11 @@
-<div class="flex flex-col justify-around items-center h-full w-full min-h-screen" data-controller="dark-mode">
+<div class="flex flex-col justify-around items-center h-full w-full min-h-screen mt-4" data-controller="dark-mode">
   <!-- top link -->
   <div class="flex justify-evenly items-center w-full lg:max-w-4xl">
     <!-- dark mode toggle -->
     <%= render "shared/darkmode_toggle" %>
     <div class="flex flex-col">
       <div>
-        <%= link_to 'MILK Blog', root_path, class: 'text-3xl font-extrabold' %>
+        <%= link_to 'MILK Blog', root_path, class: 'text-3xl font-extrabold text-milk' %>
       </div>
       <div class="flex justify-between items-center mt-4">
         <!-- github icon -->
@@ -22,7 +22,7 @@
           <path d="M7.2 8.809H4V19.5h3.2V8.809Z"/>
         </svg>
       </div>
-      <div class="flex justify-evenly items-center mt-4">
+      <div class="hidden md:flex justify-evenly items-center mt-4">
         <!-- Fivver Icon -->
         <svg class="w-[21px] h-6 text-base-dark dark:text-milk" width="21" height="22" viewBox="0 0 21 22" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           <path d="M17.875 17.875V6.875H6.875V6.1875C6.875 5.0501 7.8001 4.125 8.9375 4.125H11V0H8.9375C7.2971 0.00203759 5.72447 0.654587 4.56453 1.81453C3.40459 2.97447 2.75204 4.5471 2.75 6.1875V6.875H0V11H2.75V17.875H0V22H9.625V17.875H6.875V11H13.7885V17.875H11V22H20.625V17.875H17.875Z"/>
@@ -39,14 +39,47 @@
       <%= image_tag 'mug.svg', alt: 'admin sign in' %>
     <% end %>
   </div>
+  <!-- Mobile Only -->
+  <div class="md:hidden flex flex-col w-full max-w-80">
+    <div class="flex justify-between items-center w-full mt-4">
+      <span>Info</span>
+      <%= link_to 'About', root_path, class: 'my-3 text-milk' %>
+    </div>
+    <div class="text-right text-milk w-full my-3">
+      <span>Tech Stacks</span>
+    </div>
+    <div class="text-right text-milk w-full my-3">
+      <span>Build your project</span>
+    </div>
+    <div class="flex justify-between items-center w-full mt-4">
+      <span>Employers</span>
+      <%= link_to 'Resume', root_path, class: 'my-3 text-milk' %>
+    </div>
+    <div class="flex justify-between items-center w-full mt-4">
+      <span>Clients</span>
+      <%= link_to 'Log In', root_path, class: 'my-3 text-milk' %>
+    </div>
+    <div class="text-right text-milk w-full my-3">
+      <span>Up Work</span>
+    </div>
+    <div class="text-right text-milk w-full my-3">
+      <span>Fiverr</span>
+    </div>
+    <div class="flex justify-between items-center w-full mt-4">
+      <span>Favorites</span>
+      <%= link_to 'Swabbie', swabbies_path, class: 'my-3 text-milk' %>
+    </div>
+    <%= link_to 'Hermit Plus', hermits_path, class: 'text-right text-milk w-full my-3' %>
+    <%= link_to 'East Bound', eastbound_path, class: 'text-right text-milk w-full my-3' %>
+    <%= link_to 'Copywriter', copywriter_path, class: 'text-right text-milk w-full my-3' %>
+    <%= link_to 'Projects', root_path, class: 'text-right text-milk w-full my-3' %>
+
+    <div class="w-24 mb-4">
+      <%= image_tag 'MILK8.png', alt: 'Rails logo' %>
+    </div>
+  </div>
   <!-- center div -->
   <div class="flex flex-col md:flex-row justify-evenly items-center w-full lg:max-w-4xl">
-    <!-- mobile upper menu -->
-    <div class="flex flex-col mb-7 md:hidden">
-      <%= link_to 'About Me', info_path + "#about-me", class: 'font-medium my-2' %>
-      <%= link_to 'Client', root_path, class: 'font-medium my-2' %>
-      <%= link_to 'Employer', root_path, class: 'font-medium my-2' %>
-    </div>
     <!-- desktop upper menu -->
     <div class="hidden md:flex flex-col">
       <%= link_to 'About Me', info_path + "#about-me", class: 'font-medium my-2' %>
@@ -55,7 +88,9 @@
       <%= link_to 'Code', root_path, class: 'font-medium my-2' %>
     </div>
     <!-- logo -->
-    <%= image_tag 'MILK8.png', alt: 'Rails logo' %>
+    <div class="hidden md:block">
+      <%= image_tag 'MILK8.png', alt: 'Rails logo' %>
+    </div>
     <!-- lower menu -->
     <div class="hidden md:flex flex-col">
       <%= link_to 'Client', root_path, class: 'font-medium my-2' %>
@@ -64,7 +99,7 @@
     </div>
   </div>
   <!-- project links -->
-  <div class="flex flex-col md:flex-row justify-evenly text-center w-full h-full lg:max-w-4xl text-2xl lg:text-3xl">
+  <div class="hidden md:flex flex-col md:flex-row justify-evenly text-center w-full h-full lg:max-w-4xl text-2xl lg:text-3xl">
     <%= link_to 'Swabbie', swabbies_path, class: 'font-bold my-2 md:my-0' %>
     <%= link_to 'EastBound', eastbound_path, class: 'font-bold my-2 md:my-0' %>
     <%= link_to 'Hermit Plus', hermits_path, class: 'font-bold my-2 md:my-0' %>
