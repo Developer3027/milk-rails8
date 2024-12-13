@@ -24,7 +24,8 @@ module.exports = {
       colors: {
         'base-dark': '#1C0F00',
         'base-light': '#EACAA6',
-        'milk': '#87B5DF',
+        'milk-light': '#87B5DF',
+        'milk-dark': '#026BCD',
         'hermit': {
           'yellow': '#FAF231',
           'orange': '#FDB600',
