@@ -12,7 +12,7 @@ module.exports = {
   theme: {
     extend: {
       dropShadow: {
-        'dark': '4px 4px 1px rgba(0, 0, 0, 0.8)',
+        'dark': '4px 4px 2px rgba(50, 50, 50, 0.5)',
       },
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
