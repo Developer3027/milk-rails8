@@ -12,7 +12,7 @@ module.exports = {
   theme: {
     extend: {
       dropShadow: {
-        'dark': '4px 4px 1px rgba(0, 0, 0, 0.5)',
+        'dark': '4px 4px 1px rgba(0, 0, 0, 0.8)',
       },
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
@@ -24,7 +24,8 @@ module.exports = {
       colors: {
         'base-dark': '#1C0F00',
         'base-light': '#EACAA6',
-        'milk': '#87B5DF',
+        'milk-light': '#87B5DF',
+        'milk-dark': '#026BCD',
         'hermit': {
           'yellow': '#FAF231',
           'orange': '#FDB600',
