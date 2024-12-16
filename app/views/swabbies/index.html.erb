@@ -1,209 +1,44 @@
-<section class="bg-swabbie-st-drk-primary flex flex-col justify-center items-center w-full text-base-dark">
-
-  <!-- Fake nav -->
-  <div id="home" class="mt-8 w-96 sm:w-[640px] lg:w-[950px] xl:w-[1024px]">
-    <header class="static max-w-5xl">
-      <div class="block rounded-t-lg bg-white">
-        <div class="block max-w-5xl">
-          <%= link_to root_path, class: "relative mt-1 ml-1" do %>
-            <%= image_tag('https://milk-blog.s3.us-east-2.amazonaws.com/saltandtar/logo.svg', class: 'block ml-5') %>
-          <% end %>
-        </div>
-      </div>
-    </header>
+<section class="flex flex-col items-center bg-white rounded-md", data-controller="swab-slides">
+  <div class="flex justify-evenly items-center w-[100vw] md:w-[90vw] my-4">
+    <%= link_to 'MILK', root_path, class: "text-3xl font-extrabold text-base-dark" %>
   </div>
-
-  <!-- Hero -->
-  <div id="home" class="flex items-center justify-between bg-white w-96 sm:w-[640px] lg:w-[950px] xl:w-[1024px]">
-    <div class="flex flex-col items-center justify-center w-full">
-      <div class="flex flex-col sm:flex-row justify-evenly w-full">
-        <div class="flex flex-col items-center justify-center">
-          <h1 class="text-center font-fell mt-10 text-5xl lg:text-7xl drop-shadow-dark">Salt and Tar</h1>
-          <h3 class="text-center font-Inconsolata text-xl lg:text-2xl">
-            Journey of a wooden boat
-          </h3>
-          <div class="flex justify-around my-16 w-full">
-            <a href="#about" class="flex justify-center items-center h-12 w-32 mx-1 text-swabbie-st-drk-primary bg-white border-2 border-swabbie-st-drk-primary rounded font-Inconsolata drop-shadow-lg hover:drop-shadow-none ">
-              Videos
-            </a>
-            <a href="#support" class="flex justify-center items-center h-12 w-32 mx-1 text-white bg-swabbie-st-drk-primary border-2 border-swabbie-st-drk-primary rounded font-Inconsolata drop-shadow-lg hover:drop-shadow-none">
-              Social
-            </a>
-          </div>
-        </div>
-        <div class="flex justify-center items-center">
-          <%= image_tag('https://milk-blog.s3.us-east-2.amazonaws.com/saltandtar/Group+8.png', class: 'w-[15rem] drop-shadow-dark') %>
-        </div>
-      </div>
-      <div class="mt-4">
-        <%= image_tag('https://milk-blog.s3.us-east-2.amazonaws.com/saltandtar/Group+28.svg', alt: "border bottom") %>
-      </div>
+  <div class="flex w-[100vw] md:w-[90vw] py-4">
+    <div class="swab-panel bg-[url('https://milk-blog.s3.us-east-2.amazonaws.com/saltandtar/rediviva.png')]", data-swab-slides-target="panel",  data-action="click->swab-slides#expand", data-id="panel1">
+      <%= link_to saltandtar_path do %>
+        <h3 class="font-fell text-3xl absolute bottom-6 left-6 opacity-0">Salt and Tar</h3>
+      <% end %>
+      <p class="absolute lg:top-4 lg:right-8 w-full lg:w-1/2 lg:m-2 p-2 rounded-t lg:rounded bg-base-dark opacity-0">
+        Meet an incredible cruising couple who crafted their wooden boat from the ground up in the lush woods of Washington State. Their love story and passion for sailing began long before this channel ever existed. With his deep obsession for woodworking and her unwavering affection for him and their vessel, their journey is nothing short of inspiring. I’ve binge-watched this series countless times, captivated by their dedication and the beauty of their adventure on the open sea.
+      <%= link_to "MILKs Salt and Tar remake.", saltandtar_path, class: "text-milk-light font-bold"%>
+      </p>
     </div>
-  </div>
-
-  <!-- promo div -->
-  <div id="promotion" class="flex items-center justify-between bg-swabbie-st-lt-primary py-4 w-96 sm:w-[640px] lg:w-[950px] xl:w-[1024px]">
-    <div class="flex flex-col items-center justify-center w-full rounded-lg mx-2 bg-white">
-      <div class="flex justify-between items-center mt-4">
-        <div class="text-center font-fell text-4xl md:text-6xl drop-shadow-dark">
-          <h1>New</h1>
-        </div>
-        <div>
-          <%= image_tag('https://milk-blog.s3.us-east-2.amazonaws.com/saltandtar/logo.svg', class: 'block ml-5') %>
-        </div>
-        <div class="text-center font-fell text-4xl md:text-6xl drop-shadow-dark">
-          <h1 class="">Wind</h1>
-        </div>
-      </div>
-      <div class="max-w-md px-2 mb-3">
-        <p class="text-center font-Inconsolata text-base">
-          This is a fan site built by me, Developer3027. Below you can
-          find different ways to help Salt and Tar build Rediviva.
-        </p>
-      </div>
-      <div class="flex mb-4 w-full">
-        <div class="md:flex flex-col justify-evenly w-full md:w-1/2 hidden">
-          <div class="md:flex justify-evenly hidden my-3 w-full">
-            <div class="flex flex-col items-end px-3 w-36  border border-swabbie-st-secondary rounded-lg bg-[url('https://milk-blog.s3.us-east-2.amazonaws.com/saltandtar/youtube.png')] bg-no-repeat bg-left">
-              <h1 class="font-Inconsolata text-xl text-swabbie-st-primary font-bold">YouTube</h1>
-              <p class="font-Inconsolata text-4xl font-bold">69K</p>
-              <small class="font-Inconsolata text-base font-semibold">
-                subscribers
-              </small>
-            </div>
-            <div class="flex flex-col items-end px-3 w-36  border border-swabbie-st-secondary rounded-lg bg-[url('https://milk-blog.s3.us-east-2.amazonaws.com/saltandtar/insta.png')] bg-no-repeat bg-left">
-              <h1 class="font-Inconsolata text-xl text-swabbie-st-primary font-bold">Instagram</h1>
-              <p class="font-Inconsolata text-4xl font-bold">6K</p>
-              <small class="font-Inconsolata text-base font-semibold">
-                followers
-              </small>
-            </div>
-          </div>
-
-          <div class="md:flex justify-evenly hidden my-3 w-full">
-            <div class="flex flex-col items-end px-3 w-36  border border-swabbie-st-secondary rounded-lg bg-[url('https://milk-blog.s3.us-east-2.amazonaws.com/saltandtar/patreon.png')] bg-no-repeat bg-left">
-              <h1 class="font-Inconsolata text-xl text-swabbie-st-primary font-bold">Patreon</h1>
-              <p class="font-Inconsolata text-4xl font-bold">283</p>
-              <small class="font-Inconsolata text-base font-semibold">
-                members
-              </small>
-            </div>
-            <div class="flex flex-col items-end px-3 w-36  border border-swabbie-st-secondary rounded-lg bg-[url('https://milk-blog.s3.us-east-2.amazonaws.com/saltandtar/support.png')] bg-no-repeat bg-left">
-              <h1 class="font-Inconsolata text-xl text-swabbie-st-primary font-bold">Supporters</h1>
-              <p class="font-Inconsolata text-4xl font-bold">100%</p>
-              <small class="font-Inconsolata text-base font-semibold">
-                satisfied
-              </small>
-            </div>
-          </div>
-        </div>
-        <div class="flex flex-col justify-around w-full md:w-1/2 px-3">
-          <div class="flex flex-col w-full pl-2 border-l-4 border-swabbie-st-secondary mx-1 my-2 bg-swabbie-st-lt-secondary bg-opacity-30 rounded-r-lg">
-            <h1 class="font-Inconsolata text-2xl text-swabbie-st-primary font-bold">Patreon</h1>
-            <p class="text-center font-Inconsolata text-base px-2">
-              A membership platform used to provide rewards and perks to
-              subscribers.
-            </p>
-          </div>
-          <div class="flex flex-col w-full pl-2 border-l-4 border-swabbie-st-secondary mx-1 my-2 bg-swabbie-st-lt-secondary bg-opacity-30 rounded-r-lg">
-            <h1 class="font-Inconsolata text-2xl text-swabbie-st-primary font-bold">YouTube</h1>
-            <p class="text-center font-Inconsolata text-base px-2">
-              A video sharing platform used to share the journey of
-              building Rediviva.
-            </p>
-          </div>
-          <div class="flex flex-col w-full pl-2 border-l-4 border-swabbie-st-secondary mx-1 my-2 bg-swabbie-st-lt-secondary bg-opacity-30 rounded-r-lg">
-            <h1 class="font-Inconsolata text-2xl text-swabbie-st-primary font-bold">Instagram</h1>
-            <p class="text-center font-Inconsolata text-base px-2">
-              A image sharing platform used to share pictures of the
-              adventures in building Rediviva.
-            </p>
-          </div>
-          <div class="flex flex-col w-full pl-2 border-l-4 border-swabbie-st-secondary mx-1 my-2 bg-swabbie-st-lt-secondary bg-opacity-30 rounded-r-lg">
-            <h1 class="font-Inconsolata text-2xl text-swabbie-st-primary font-bold">GoFundMe</h1>
-            <p class="text-center font-Inconsolata text-base px-2">
-              A crowdfunding platform used to raise funding for building
-              Rediviva.
-            </p>
-          </div>
-        </div>
-      </div>
+    <div class="swab-panel bg-[url('https://milk-blog.s3.us-east-2.amazonaws.com/saltandtar/birb.png')]", data-swab-slides-target="panel", data-action="click->swab-slides#expand", data-id="panel2">
+      <h3 class="font-fell text-3xl absolute bottom-6 left-6 opacity-0">Emma Builds Birbie</h3>
+      <p class="absolute lg:top-4 lg:right-8 w-full lg:w-1/2 lg:m-2 p-2 rounded-t lg:rounded bg-base-dark opacity-0">
+        This young lady is impressively resourceful. After successfully converting a bus, she’s now diving headfirst into building a houseboat. It’s a delightful journey as she navigates the ups and downs of her DIY adventure, stumbling her way toward perfection. Despite moments of frustration and self-doubt, her determination shines through as she pursues her dream. I can’t wait to see her creation on the water—her boat build is truly one to watch!
+      <%= link_to "Coming Soon.", swabbies_path, class: "text-milk-light font-bold"%>
+      </p>
     </div>
-  </div>
-
-  <div id="video" class="flex flex-col justify-center items-center bg-swabbie-st-lt-primary h-[700px] w-96 sm:pb-16 sm:w-[640px] lg:w-[950px] xl:w-[1024px] rounded-b-lg border-yellow-500">
-    <%# <div class="h-4 bg-swabbie-st-lt-primary rounded-b-md w-96 sm:w-[640px] lg:w-[950px] xl:w-[1024px]"></div> %>
-    <div class="flex flex-col items-center justify-between bg-swabbie-st-lt-primary w-96 sm:w-[640px] lg:w-[950px] xl:w-[1024px]">
-      <div class="flex items-center justify-center w-full h-[508px] bg-[url('https://milk-blog.s3.us-east-2.amazonaws.com/saltandtar/blue-st-banner.svg')]">
-        <div class="flex flex-col m-2 justify-evenly items-center md:items-end w-full pt-8">
-          <div class="flex justify-center items-center w-full md:w-[603px] h-full m-6 rounded-lg bg-swabbie-st-drk-primary">
-            <div class="flex">
-              <p class="flex flex-col bg-white text-base-dark p-2 m-3 rounded text-sm w-1/2">As the developer and designer of this app, I’m thrilled to feature Salt and Tar, the inspiring duo behind the handcrafted sailing vessel, Rediviva. <span class="hidden md:inline-block mt-2">Their passion for sailing and craftsmanship shines through every video and story shared within our community. With a nostalgic polaroid feel, each clip captures the essence of their adventures on the open water, mirroring the content from their beloved YouTube channel.</span></p>
-              <div class="flex justify-center items-center w-1/2">
-              <%= image_tag('https://milk-blog.s3.us-east-2.amazonaws.com/saltandtar/card 163.jpg', class: 'drop-shadow-dark w-[10rem] md:w-full rotate-45 md:transform-none md:p-4') %>
-              </div>
-            </div>
-          </div>
-          <div class="flex justify-center items-center w-full md:w-[603px] h-full m-6 rounded-lg bg-swabbie-st-drk-primary">
-            <div class="flex">
-              <div class="flex justify-center items-center w-1/2">
-              <%= image_tag('https://milk-blog.s3.us-east-2.amazonaws.com/saltandtar/player.png', class: 'drop-shadow-dark w-[10rem] md:w-full -rotate-45 md:transform-none md:p-4') %>
-              </div>
-              <p class="flex flex-col bg-white text-base-dark p-2 m-3 rounded text-sm w-1/2">Swabbie is your gateway to a vibrant community of passionate sailing content creators who embody the spirit of the sea.  <span class="hidden md:inline-block mt-2">Connect with fellow enthusiasts who share your love for the sailing lifestyle, from breathtaking sunsets on the water to expert tips on navigating the waves. Join us to celebrate the thrill of adventure, the beauty of nature, and the camaraderie of those who cherish sun, sand, wind, and water.</span></p>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="swab-panel bg-[url('https://milk-blog.s3.us-east-2.amazonaws.com/saltandtar/sailingyaba.png')]", data-swab-slides-target="panel", data-action="click->swab-slides#expand", data-id="panel3">
+      <h3 class="font-fell text-3xl absolute bottom-6 left-6 opacity-0">Sailing Yaba</h3>
+      <p class="absolute lg:top-4 lg:right-8 w-full lg:w-1/2 lg:m-2 p-2 rounded-t lg:rounded bg-base-dark opacity-0">
+        They took the plunge on a boat that was literally sinking. Sure, it had stunning lines and a personality that could charm anyone, but let’s be real—buying a sinking boat isn’t exactly smart. Yet, their unwavering belief in each other, deep passion for the ocean, and relentless determination make their journey a captivating experience. Join them as they navigate the highs and lows of sailing life, proving that love and grit can conquer even the roughest waters.
+      <%= link_to "Coming Soon", swabbies_path, class: "text-milk-light font-bold"%>
+      </p>
     </div>
-  </div>
-
-  <!-- video div -->
-  <div id="video" class="flex flex-col items-center justify-between bg-swabbie-st-drk-primary w-96 sm:pb-16 sm:w-[640px] lg:w-[950px] xl:w-[1024px]">
-    <div class="h-4 bg-st-lt-primary rounded-b-md w-96 sm:w-[640px] lg:w-[950px] xl:w-[1024px]"></div>
-    <div class="flex flex-col items-center justify-between bg-swabbie-st-drk-primary w-96 sm:w-[640px] lg:w-[950px] xl:w-[1024px]">
-      <div class="flex items-center justify-center w-full mt-4 mb-44 bg-[url('https://milk-blog.s3.us-east-2.amazonaws.com/saltandtar/Group_30.svg')]">
-        <div class="flex flex-col justify-center md:justify-normal mt-4 w-full md:w-1/2">
-          <div class="flex flex-col items-center">
-            <div class="flex flex-col items-center w-[320px]">
-              <div class="flex w-full justify-end -mb-5 pr-3">
-                <span class="font-fell text-4xl text-white text-end">
-                  Salt and Tar
-                </span>
-              </div>
-              <div class="flex justify-start w-full">
-                <h1 class="font-fell text-9xl text-white">Video</h1>
-              </div>
-            </div>
-          </div>
-
-          <div class="flex flex-col items-center md:hidden bg-white rounded-xl w-full my-2 md:w-[350px] h-full">
-            <p class="px-3 py-7">
-              The videos here are the same ones found on the YouTube
-              channel and use the same url. They are just presented in a
-              different style here. I wanted to enjoy my favorite sailors in a less distracting environment. Please enjoy and don't forget to visit those links, like, subscribe and such.
-            </p>
-            <button class="border-2 border-swabbie-st-secondary rounded-lg mb-4 px-6 py-2">
-              Videos
-            </button>
-          </div>
-          <div class="md:relative my-8 z-10 lg:ml-32">
-            <%= image_tag('https://milk-blog.s3.us-east-2.amazonaws.com/saltandtar/Video_Home.png', alt: "video review", class: 'border-4 border-swabbie-st-secondary rounded-lg md:absolute top-0 left-8') %>
-          </div>
-        </div>
-
-        <div class="hidden md:flex justify-center md:w-1/2">
-          <div class="hidden md:flex flex-col items-center bg-white rounded-xl w-[350px] h-full">
-            <p class="px-3 py-7">
-              The videos here are the same ones found on the YouTube
-              channel and use the same url. They are just presented in a
-              different style here. I wanted to enjoy my favorite sailors in a less distracting environment. Please enjoy and don't forget to visit those links, like, subscribe and such.
-            </p>
-            <button class="border-2 border-swabbie-st-secondary rounded-lg mb-4 px-6 py-2">
-              Videos
-            </button>
-          </div>
-        </div>
-      </div>
+    <div class="swab-panel bg-[url('https://milk-blog.s3.us-east-2.amazonaws.com/saltandtar/sampsonboat.png')]", data-swab-slides-target="panel", data-action="click->swab-slides#expand", data-id="panel4">
+      <h3 class="font-fell text-3xl absolute bottom-6 left-6 opacity-0">Sampson Boat Co.</h3>
+      <p class="absolute lg:top-4 lg:right-8 w-full lg:w-1/2 lg:m-2 p-2 rounded-t lg:rounded bg-base-dark opacity-0">
+        Leo is an exceptional craftsman and an absolute joy to watch. His channel is both entertaining and educational, making it a must-see for anyone curious about the art of boat building. If you’ve ever wondered what goes into constructing a ship of the line, the terminology behind a vessel’s anatomy, or how those precise angles are expertly crafted, look no further. With his charming British accent and genuine passion for his craft, Leo brings the world of boat building to life.
+      <%= link_to "Coming Soon", swabbies_path, class: "text-milk-light font-bold"%>
+      </p>
+    </div>
+    <div class="swab-panel bg-[url('https://milk-blog.s3.us-east-2.amazonaws.com/saltandtar/sailingartha.png')]", data-swab-slides-target="panel", data-action="click->swab-slides#expand", data-id="panel4">
+      <h3 class="font-fell text-3xl absolute bottom-6 left-6 opacity-0">Sailing Artha</h3>
+      <p class="absolute lg:top-4 lg:right-8 w-full lg:w-1/2 lg:m-2 p-2 rounded-t lg:rounded bg-base-dark opacity-0">
+        If a mermaid had legs, ( or a college dorm was a boat ), she would embody the spirit of Sailing Artha. This free-spirited sailor embraces the challenges of living on a boat with grace and determination. While life at sea can be tough, she navigates the ups and downs with a vibrant energy that’s truly inspiring. Join her as she transforms the trials of boat life into adventures, showcasing her resilience and love for the ocean. Her journey is a celebration of freedom and the beauty of sailing!
+      <%= link_to "Coming Soon", swabbies_path, class: "text-milk-light font-bold"%>
+      </p>
     </div>
   </div>
 </section>
