@@ -82,9 +82,9 @@ production:
 # for a full overview on how database connection configuration can be specified.
 #
 # production:
-#   primary: &primary_production
-#     <<: *default
-#     database: milk_lab_production
+  primary: &primary_production
+    <<: *default
+    database: milk_lab_production
 #     username: milk_lab
 #     password: <%= ENV["MILK_LAB_DATABASE_PASSWORD"] %>
   cache:
