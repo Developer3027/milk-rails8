@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   # root for milk admin
   authenticated :milk_admin do
     root to: "milk_admin#dashboard", as: :milk_admin_root
+    get "milk_blog", to: "milk_admin#admin_milk_blog", as: :milk_blog
   end
 
   # root for hermits
