@@ -9,6 +9,9 @@ Rails.application.routes.draw do
     get "milk_blog", to: "milk_admin#admin_milk_blog", as: :milk_blog
   end
 
+  # resume route
+  get "resume", to: "static_pages#resume", as: :resume
+
   # root for hermits
   get "hermits", to: "hermits#index", as: :hermits
   # root for swabbies

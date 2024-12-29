@@ -70,3 +70,6 @@ group :test do
 end
 
 gem "aws-sdk-s3", "~> 1.176"
+
+# ViewComponents
+gem "view_component"
