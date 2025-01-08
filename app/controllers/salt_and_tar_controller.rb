@@ -1,0 +1,2 @@
+class SaltAndTarController < ApplicationController
+end

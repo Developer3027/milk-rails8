@@ -1,0 +1,27 @@
+current directory: /home/masonroberts/dev/develop/rails8/milk_lab/vendor/bundle/ruby/3.3.0/gems/rbs-3.8.1/ext/rbs_extension
+/home/masonroberts/.rbenv/versions/3.3.0/bin/ruby extconf.rb
+checking for whether -std=gnu99 is accepted as CFLAGS... yes
+creating Makefile
+
+current directory: /home/masonroberts/dev/develop/rails8/milk_lab/vendor/bundle/ruby/3.3.0/gems/rbs-3.8.1/ext/rbs_extension
+make DESTDIR\= sitearchdir\=./.gem.20250106-108122-821d2i sitelibdir\=./.gem.20250106-108122-821d2i clean
+
+current directory: /home/masonroberts/dev/develop/rails8/milk_lab/vendor/bundle/ruby/3.3.0/gems/rbs-3.8.1/ext/rbs_extension
+make DESTDIR\= sitearchdir\=./.gem.20250106-108122-821d2i sitelibdir\=./.gem.20250106-108122-821d2i
+compiling ./../../src/constants.c
+compiling ./../../src/ruby_objs.c
+compiling lexer.c
+compiling lexstate.c
+compiling location.c
+compiling main.c
+compiling parser.c
+compiling parserstate.c
+compiling unescape.c
+linking shared-object rbs_extension.so
+
+current directory: /home/masonroberts/dev/develop/rails8/milk_lab/vendor/bundle/ruby/3.3.0/gems/rbs-3.8.1/ext/rbs_extension
+make DESTDIR\= sitearchdir\=./.gem.20250106-108122-821d2i sitelibdir\=./.gem.20250106-108122-821d2i install
+/usr/bin/install -c -m 0755 rbs_extension.so ./.gem.20250106-108122-821d2i
+
+current directory: /home/masonroberts/dev/develop/rails8/milk_lab/vendor/bundle/ruby/3.3.0/gems/rbs-3.8.1/ext/rbs_extension
+make DESTDIR\= sitearchdir\=./.gem.20250106-108122-821d2i sitelibdir\=./.gem.20250106-108122-821d2i clean

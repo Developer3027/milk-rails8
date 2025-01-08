@@ -69,6 +69,7 @@ group :test do
   gem "selenium-webdriver"
 end
 
+# Store images in S3
 gem "aws-sdk-s3", "~> 1.176"
 
 # ViewComponents

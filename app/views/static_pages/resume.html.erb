@@ -2,7 +2,7 @@
   <div class="w-[68px] h-[22px] left-[966px] top-[370px] absolute bg-[#787878] rounded-tl-[5px] rounded-bl-[5px]"></div>
   <div class="left-[971px] top-[374px] absolute text-white text-xs font-semibold font-['Albert Sans']">NodeJs</div>
   <div class="w-32 h-[22px] left-[1034px] top-[370px] absolute bg-[#15bdff] rounded-tr-[5px] rounded-br-[5px]"></div>
-  <%= render PillComponent.new(skill: 'HTML', version: 'Semantic V5', version_color: 'bg-pill-green') %>
+  <%= render PillComponent.new(skill: @pills[0].skill, version: @pills[0].version, version_color: @pills[0].version_color) %>
   <div class="w-[196px] h-[22px] left-[966px] top-[280px] absolute">
     <div class="w-[68px] h-[22px] left-0 top-0 absolute bg-[#787878] rounded-tl-[5px] rounded-bl-[5px]"></div>
     <div class="left-[5px] top-[4px] absolute text-white text-xs font-semibold font-['Albert Sans']">CSS</div>

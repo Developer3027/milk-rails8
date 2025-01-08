@@ -1,0 +1,30 @@
+<div class="flex flex-col justify-center items-center w-full mt-4">
+  <div class="w-fit bg-slate-800 rounded-md p-4">
+    <h1 class="text-3xl text-green-100 align-middle text-center bg-green-900 rounded-md mb-2 p-2">Edit that Pill</h1>
+
+   <%= render "shared/pill_map", colors_groups: @colors_groups %>
+   
+    <%= form_with(model: @pill, local: true) do |form| %>
+      <div class="flex justify-between items-center my-2">
+        <%= form.label :skill %>
+        <%= form.text_field :skill, class: "rounded-md border border-slate-600 bg-slate-700 text-white" %>
+      </div>
+      <div class="flex justify-between items-center my-2">
+        <%= form.label :version %>
+        <%= form.text_field :version, class: "rounded-md border border-slate-600 bg-slate-700 text-white" %>
+      </div>
+      <div class="flex justify-between items-center my-2">
+        <%= form.label :group %>
+        <%= form.text_field :group, class: "rounded-md border border-slate-600 bg-slate-700 text-white" %>
+      </div>
+      <div class="flex justify-between items-center my-2">
+        <%= form.label :version_color, class: "me-2" %>
+        <%= form.text_field :version_color, class: "rounded-md border border-slate-600 bg-slate-700 text-white" %>
+      </div>
+
+
+      <%= form.submit "Update Pill", class: "border border-pill-blue rounded-md px-4 py-1 mt-2" %>
+    <% end %>
+    </div>
+  </div>
+</div>

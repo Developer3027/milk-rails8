@@ -1,23 +1,40 @@
 Rails.application.routes.draw do
   # get "hermits/index"
   # get "swabbies/home"
+  get "static_pages/plan"
   devise_for :milk_admins, skip: [ :registrations ]
 
   # root for milk admin
   authenticated :milk_admin do
     root to: "milk_admin#dashboard", as: :milk_admin_root
     get "milk_blog", to: "milk_admin#admin_milk_blog", as: :milk_blog
+    get "admin_resume", to: "milk_admin#admin_resume", as: :admin_resume
+    post "admin_resume", to: "milk_admin#create_resume", as: :create_admin_resume
   end
 
-  # resume route
+  resources :projects, only: [ :new, :create, :index, :edit, :update, :destroy ], controller:
+  "milk_admin/projects" do
+    member do
+      delete :destroy_image
+    end
+  end
+
+  resources :pills, only: [ :new, :create, :index, :edit, :update, :destroy ], controller: "milk_admin/pills"
+
+
+  # public resume route
   get "resume", to: "static_pages#resume", as: :resume
+  # resources :resumes do
+  #   resources :projects
+  #   resources :pills
+  # end
 
   # root for hermits
-  get "hermits", to: "hermits#index", as: :hermits
+  get "hermit-plus", to: "hermit_plus#index", as: :hermits
   # root for swabbies
   get "swabbies", to: "swabbies#index", as: :swabbies
   # root for saltandtar
-  get "saltandtar", to: "swabbies#saltandtar", as: :saltandtar
+  get "salt-and-tar", to: "salt_and_tar#index", as: :saltandtar
   # root for eastbounds
   get "eastbound", to: "eastbounds#index", as: :eastbound
   # root for copywriter
