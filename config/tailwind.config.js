@@ -3,11 +3,11 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 module.exports = {
   darkMode: 'selector',
   content: [
+    './node_modules/flowbite/**/*.js',
     './public/*.html',
     './app/helpers/**/*.rb',
     './app/javascript/**/*.js',
     './app/views/**/*.{erb,haml,html,slim}',
-    './node_modules/flowbite/**/*.js'
   ],
   theme: {
     extend: {
@@ -26,6 +26,15 @@ module.exports = {
         'base-light': '#EACAA6',
         'milk-light': '#87B5DF',
         'milk-dark': '#026BCD',
+        'pill': {
+          'base': '#787878',
+          'blue': '#15bdff',
+          'green': '#03b743',
+          'lime': '#9effc4',
+          'plum': '#d98aff',
+          'rust': '#ff7a7a',
+          'orange': '#ffb248',
+        },
         'hermit': {
           'yellow': '#FAF231',
           'orange': '#FDB600',
@@ -54,9 +63,10 @@ module.exports = {
     },
   },
   plugins: [
+    require('flowbite/plugin'),
     require('@tailwindcss/forms'),
     require('@tailwindcss/typography'),
     require('@tailwindcss/container-queries'),
-    require('flowbite/plugin')
+    
   ]
 }

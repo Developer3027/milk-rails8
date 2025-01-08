@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_12_09_143215) do
+ActiveRecord::Schema[8.0].define(version: 2025_01_01_193558) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -64,6 +64,46 @@ ActiveRecord::Schema[8.0].define(version: 2024_12_09_143215) do
     t.index ["reset_password_token"], name: "index_milk_admins_on_reset_password_token", unique: true
   end
 
+  create_table "pills", force: :cascade do |t|
+    t.string "skill"
+    t.string "version"
+    t.string "version_color"
+    t.bigint "resume_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "group"
+    t.index ["resume_id"], name: "index_pills_on_resume_id"
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "code_url"
+    t.string "design_url"
+    t.string "live_url"
+    t.bigint "resume_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "short_title"
+    t.text "short_description"
+    t.index ["resume_id"], name: "index_projects_on_resume_id"
+  end
+
+  create_table "resumes", force: :cascade do |t|
+    t.string "title"
+    t.string "full_name"
+    t.string "addr"
+    t.string "citystatezip"
+    t.string "email"
+    t.string "linkedin"
+    t.string "code_1"
+    t.string "code_2"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "pills", "resumes"
+  add_foreign_key "projects", "resumes"
 end

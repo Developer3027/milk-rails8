@@ -1,113 +1,75 @@
-<div class="flex flex-col justify-around items-center h-full w-full min-h-screen mt-4" data-controller="dark-mode">
-  <!-- top link -->
-  <div class="flex justify-evenly items-center w-full lg:max-w-4xl">
-    <!-- dark mode toggle -->
-    <%= render "shared/darkmode_toggle" %>
-    <div class="flex flex-col">
-      <div>
-        <%= link_to "MILK Blog", root_path, class: "text-3xl font-extrabold text-milk-dark dark:text-milk-light" %>
-      </div>
-      <div class="flex justify-between items-center mt-4">
-        <!-- github icon -->
-        <svg class="w-6 h-6 text-base-dark dark:text-milk-light" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-          <path fill-rule="evenodd" d="M12.006 2a9.847 9.847 0 0 0-6.484 2.44 10.32 10.32 0 0 0-3.393 6.17 10.48 10.48 0 0 0 1.317 6.955 10.045 10.045 0 0 0 5.4 4.418c.504.095.683-.223.683-.494 0-.245-.01-1.052-.014-1.908-2.78.62-3.366-1.21-3.366-1.21a2.711 2.711 0 0 0-1.11-1.5c-.907-.637.07-.621.07-.621.317.044.62.163.885.346.266.183.487.426.647.71.135.253.318.476.538.655a2.079 2.079 0 0 0 2.37.196c.045-.52.27-1.006.635-1.37-2.219-.259-4.554-1.138-4.554-5.07a4.022 4.022 0 0 1 1.031-2.75 3.77 3.77 0 0 1 .096-2.713s.839-.275 2.749 1.05a9.26 9.26 0 0 1 5.004 0c1.906-1.325 2.74-1.05 2.74-1.05.37.858.406 1.828.101 2.713a4.017 4.017 0 0 1 1.029 2.75c0 3.939-2.339 4.805-4.564 5.058a2.471 2.471 0 0 1 .679 1.897c0 1.372-.012 2.477-.012 2.814 0 .272.18.592.687.492a10.05 10.05 0 0 0 5.388-4.421 10.473 10.473 0 0 0 1.313-6.948 10.32 10.32 0 0 0-3.39-6.165A9.847 9.847 0 0 0 12.007 2Z" clip-rule="evenodd"/>
-        </svg>
-        <!-- gitlab icon -->
-        <svg class="w-6 h-6 text-base-dark dark:text-milk-light" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-          <path fill="currentColor" d="m20.7011 10.1255-.0253-.0672-2.4501-6.63953c-.0498-.13013-.1381-.24053-.2521-.31534-.1141-.07354-.2472-.10896-.3812-.10147-.1341.00748-.2628.05751-.3686.14332-.1047.08828-.1806.2079-.2175.34259l-1.6543 5.2556H8.65334l-1.65429-5.2556c-.03588-.13542-.11197-.25564-.21745-.34356-.10584-.08582-.23449-.13584-.36857-.14333-.13409-.00748-.26716.02794-.38125.10148-.11376.07511-.20195.18541-.25213.31534l-2.45472 6.6367-.02437.0671c-.35269.9569-.39623 2.007-.12404 2.9918.27219.9849.84535 1.8511 1.63305 2.4682l.00844.0068.02249.0166 3.73223 2.9022 1.84647 1.4512 1.1247.8817c.1316.1037.2922.1599.4574.1599.1652 0 .3258-.0562.4574-.1599l1.1247-.8817 1.8464-1.4512 3.7548-2.9198.0093-.0077c.786-.6172 1.3578-1.4826 1.6296-2.4661.2717-.9835.2288-2.0321-.1224-2.9881Z"/>
-        </svg>
-        <!-- linked in icon -->
-        <svg class="w-6 h-6 text-base-dark dark:text-milk-light" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-          <path fill-rule="evenodd" d="M12.51 8.796v1.697a3.738 3.738 0 0 1 3.288-1.684c3.455 0 4.202 2.16 4.202 4.97V19.5h-3.2v-5.072c0-1.21-.244-2.766-2.128-2.766-1.827 0-2.139 1.317-2.139 2.676V19.5h-3.19V8.796h3.168ZM7.2 6.106a1.61 1.61 0 0 1-.988 1.483 1.595 1.595 0 0 1-1.743-.348A1.607 1.607 0 0 1 5.6 4.5a1.601 1.601 0 0 1 1.6 1.606Z" clip-rule="evenodd"/>
-          <path d="M7.2 8.809H4V19.5h3.2V8.809Z"/>
-        </svg>
-      </div>
-      <div class="hidden md:flex justify-evenly items-center mt-4">
+<section>
+  <!-- Header navigation -->
+  <div class="flex justify-between items-center max-w-5xl my-4">
+    <div><h1 class="text-5xl font-bold dark:text-milk-light text-base-dark px-3 xl:p-0">MILK-00</h1></div>
+    <div class="flex items-center gap-1" data-controller="dark-mode">
+      <div class="hidden md:flex justify-evenly items-center mt-4 gap-4">
+        <%= link_to "Client", root_path %>
         <!-- Fiverr Icon -->
         <svg class="w-[21px] h-6 text-base-dark dark:text-milk-light" width="21" height="22" viewBox="0 0 21 22" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           <path d="M17.875 17.875V6.875H6.875V6.1875C6.875 5.0501 7.8001 4.125 8.9375 4.125H11V0H8.9375C7.2971 0.00203759 5.72447 0.654587 4.56453 1.81453C3.40459 2.97447 2.75204 4.5471 2.75 6.1875V6.875H0V11H2.75V17.875H0V22H9.625V17.875H6.875V11H13.7885V17.875H11V22H20.625V17.875H17.875Z"/>
           <path d="M15.8125 4.125C16.9516 4.125 17.875 3.20159 17.875 2.0625C17.875 0.923413 16.9516 0 15.8125 0C14.6734 0 13.75 0.923413 13.75 2.0625C13.75 3.20159 14.6734 4.125 15.8125 4.125Z"/>
         </svg>
         <!-- UpWork Icon-->
-        <svg class="w-7 h-6 text-base-dark dark:text-milk-light" width="28" height="22" viewBox="0 0 28 22" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <svg class="w-7 h-6 mt-3 text-base-dark dark:text-milk-light" width="28" height="22" viewBox="0 0 28 22" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           <path d="M21.6556 12.4948C20.3702 12.4948 19.1628 11.8936 18.0691 10.9093L18.3333 9.5207L18.3421 9.46542C18.5835 7.99048 19.3308 5.51091 21.6547 5.51091C23.3959 5.51091 24.8081 7.07701 24.8081 9.00577C24.8081 10.9297 23.395 12.4958 21.6547 12.4958L21.6556 12.4948ZM21.6556 1.97435C18.6938 1.97435 16.3917 4.10579 15.4581 7.61617C14.0363 5.24715 12.9513 2.39908 12.3231 0H9.13296V9.19681C9.12859 11.015 7.80213 12.4851 6.16156 12.49C4.52098 12.4851 3.19453 11.0102 3.19015 9.19681V0H0V9.19681C0 12.9642 2.76579 16.0508 6.16156 16.0508C9.56083 16.0508 12.3231 12.9651 12.3231 9.19681V7.65593C12.9426 9.08529 13.7038 10.5399 14.6287 11.8228L12.674 22H15.9368L17.3542 14.6156C18.594 15.4942 20.0202 16.0498 21.6564 16.0498C25.1563 16.0498 28 12.8779 28 9.00383C28 5.12496 25.1563 1.97338 21.6564 1.97338L21.6556 1.97435Z"/>
         </svg>
+        <!-- dark mode toggle -->
+        <%= render "shared/darkmode_toggle" %>
+        <!-- Milk Admin sign in -->
+        <%= link_to new_milk_admin_session_path do %>
+          <%= image_tag "mug.svg", alt: "admin sign in" %>
+        <% end %>
+      </div>
+      
+    </div>
+  </div>
+  <!-- Welcome Hero with navigation -->
+  <div class="flex flex-col-reverse md:flex-row justify-center items-start gap-2 max-w-5xl mt-4 mb-2">
+    <div class="flex flex-col justify-start items-start w-full px-3 md:w-3/4 xl:p-0">
+      <h2 class="text-3xl font-bold dark:text-milk-light text-base-dark">Welcome</h2>
+      <hr class="my-4 w-full dark:border-white border-base-dark">
+      <div>
+        <p class="mb-4">
+          Mason’s Informational Little Kyst is built on Rails by Developer3027. By day I am an automotive technician training shop employees and management while tending to customers auto service needs. By night I am a designer and developer who enjoys learning and building the services I want. There is something for everyone here.
+        </p>
+        <p class="mb-4">
+          If you have an idea for an app or site and are looking to research what I can do, this site certainly showcases my skills in both design and development. Welcome and enjoy. If you decide to inquire as to how I can help you, be sure to check out Fiverr and UpWork.
+        </p>
+        <p class="mb-4">
+          If you are a client, please proceed to the client login. There you can get updates, see progress, see issues and chat with me.
+        </p>
+        <p class="mb-4">
+          If you are researching me for potential employment, everything here was considered and built by me. Built on Rails 8 and Ruby 3, this app utilizes Stimulus for interaction, Tailwind and Flowbite for style, PostgreSQL for data, Devise for authentication and authorization, with the code in Gitlab and running on Heroku. Be sure to ask to see the admin side.
+        </p>
+        <p class="mb-4">
+          I you have found me through social interaction, welcome and enjoy. I built this place for me and I enjoy a wide range of things from cars and music to sailing and Minecraft. I hope you enjoy your stay.</p>
       </div>
     </div>
-    <!-- Milk Admin sign in -->
-    <%= link_to new_milk_admin_session_path do %>
-      <%= image_tag "mug.svg", alt: "admin sign in" %>
-    <% end %>
-  </div>
-
-  <!-- Mobile Only -->
-  <div class="md:hidden flex flex-col w-full max-w-80">
-    <div class="flex justify-between items-center w-full mt-4">
-      <span>Info</span>
-      <%= link_to "About", root_path, class: "my-3 text-milk-dark dark:text-milk-light" %>
-    </div>
-    <div class="text-right text-milk-dark dark:text-milk-light w-full my-3">
-      <span>Tech Stacks</span>
-    </div>
-    <div class="text-right text-milk-dark dark:text-milk-light w-full my-3">
-      <span>Build your project</span>
-    </div>
-
-    <div class="flex justify-between items-center w-full mt-4">
-      <span>Employers</span>
-      <%= link_to "Resume", root_path, class: "text-milk-dark dark:text-milk-light my-3" %>
-    </div>
-
-    <div class="flex justify-between items-center w-full mt-4">
-      <span>Clients</span>
-      <%= link_to "Log In", root_path, class: "text-milk-dark dark:text-milk-light my-3" %>
-    </div>
-    <div class="text-right text-milk-dark dark:text-milk-light w-full my-3">
-      <span>Up Work</span>
-    </div>
-    <div class="text-right text-milk-dark dark:text-milk-light w-full my-3">
-      <span>Fiverr</span>
-    </div>
-
-    <div class="flex justify-between items-center w-full mt-4">
-      <span>Favorites</span>
-      <%= link_to "Swabbie", swabbies_path, class: "text-milk-dark dark:text-milk-light my-3" %>
-    </div>
-    <%= link_to "Hermit Plus", hermits_path, class: "text-right text-milk-dark dark:text-milk-light w-full my-3" %>
-    <%= link_to "East Bound", eastbound_path, class: "text-right text-milk-dark dark:text-milk-light w-full my-3" %>
-    <%= link_to "Copywriter", copywriter_path, class: "text-right text-milk-dark dark:text-milk-light w-full my-3" %>
-    <%= link_to "Projects", root_path, class: "text-right text-milk-dark dark:text-milk-light w-full my-3" %>
-
-    <div class="w-24 mb-4">
-      <%= image_tag "MILK8.png", alt: "Rails logo" %>
+    <div class="flex flex-col w-full px-3 md:w-1/4 md:p-0">
+      <h2 class="text-3xl font-bold dark:text-milk-light text-base-dark">Info</h2>
+      <hr class="my-4 w-full dark:border-white border-base-dark">
+      <%= link_to "Client", root_path, class: "md:hidden border dark:border-milk-light border-base-dark rounded-md p-2 w-full mb-4" %>
+      <%= link_to "About Me", "#{info_path}#about-me", class: "border dark:border-milk-light border-base-dark rounded-md p-2 w-full mb-4" %>
+      <%= link_to "Contact", "#{info_path}#contact", class: "border dark:border-milk-light border-base-dark rounded-md p-2 w-full mb-4" %>
+      <%= link_to "Code - GitHub", "https://github.com/Developer3027", class: "border dark:border-milk-light border-base-dark rounded-md p-2 w-full mb-4", target: "_blank" %>
+      <%= link_to "Resume", resume_path, class: "border dark:border-milk-light border-base-dark rounded-md p-2 w-full mb-4" %>
+      <%= link_to "Projects", "#{info_path}#projects", class: "border dark:border-milk-light border-base-dark rounded-md p-2 w-full mb-4" %>
     </div>
   </div>
-  <!-- center div -->
-  <div class="flex flex-col md:flex-row justify-evenly items-center w-full lg:max-w-4xl">
-    <!-- desktop upper menu -->
-    <div class="hidden md:flex flex-col">
-      <%= link_to "About Me", info_path + "#about-me", class: "font-medium my-2" %>
-      <%= link_to "The Stacks", root_path, class: "font-medium my-2" %>
-      <%= link_to "Projects", root_path, class: "font-medium my-2" %>
-      <%= link_to "Code", root_path, class: "font-medium my-2" %>
-    </div>
-    <!-- logo -->
-    <div class="hidden md:block">
-      <%= image_tag "MILK8.png", alt: "Rails logo" %>
-    </div>
-    <!-- lower menu -->
-    <div class="hidden md:flex flex-col">
-      <%= link_to "Client", root_path, class: "font-medium my-2" %>
-      <%= link_to "Employer", root_path, class: "font-medium my-2" %>
-      <%= link_to "Discord", root_path, class: "font-medium my-6" %>
+  <!-- Featured projects -->
+  <div class="px-3 xl:p-0">
+    <h2 class="text-3xl font-bold dark:text-milk-light text-base-dark">Featured</h2>
+    <hr class="my-4 w-full dark:border-white border-base-dark">
+      <div class="flex justify-center items-center max-w-5xl flex-wrap w-full">
+        <% @small_projects.each do |project| %>
+          <%= link_to project[:path] do %>
+            <div class="flex flex-col justify-center items-center border border-gray-600 rounded-md w-full md:w-[230px] h-[140px] p-4 m-1 ">
+              <h2 class="font-semibold text-2xl mb-2"><%= project[:title] %></h2>
+              <p class="text-xs w-full md:w-[212px] px-4"><%= project[:description] %></p>
+            </div>
+          <% end %>
+        <% end %>
     </div>
   </div>
-  <!-- project links -->
-  <div class="hidden md:flex flex-col md:flex-row justify-evenly text-center w-full h-full lg:max-w-4xl text-2xl lg:text-3xl">
-    <%= link_to "Swabbie", swabbies_path, class: "font-bold my-2 md:my-0" %>
-    <%= link_to "EastBound", eastbound_path, class: "font-bold my-2 md:my-0" %>
-    <%= link_to "Hermit Plus", hermits_path, class: "font-bold my-2 md:my-0" %>
-    <%= link_to "Copywriter", copywriter_path, class: "font-bold my-2 md:my-0" %>
-  </div>
-
-</div>
+</section>

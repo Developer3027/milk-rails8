@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  skill: MyString
+  version: MyString
+  version_color: MyString
+  resume: one
+
+two:
+  skill: MyString
+  version: MyString
+  version_color: MyString
+  resume: two

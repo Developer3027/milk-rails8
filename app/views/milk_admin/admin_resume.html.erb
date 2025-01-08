@@ -1,0 +1,102 @@
+<h1>Resume</h1>
+<h1>Create Resume</h1>
+
+<%= form_with(model: @resume, url: create_admin_resume_path, local: true) do |form| %>
+  <div>
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :full_name %>
+    <%= form.text_field :full_name %>
+  </div>
+
+  <div>
+    <%= form.label :addr %>
+    <%= form.text_field :addr %>
+  </div>
+
+  <div>
+    <%= form.label :citystatezip %>
+    <%= form.text_field :citystatezip %>
+  </div>
+
+  <div>
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div>
+    <%= form.label :linkedin %>
+    <%= form.text_field :linkedin %>
+  </div>
+
+  <div>
+    <%= form.label :code_1 %>
+    <%= form.text_field :code_1 %>
+  </div>
+
+  <div>
+    <%= form.label :code_2 %>
+    <%= form.text_field :code_2 %>
+  </div>
+
+  <h3>Projects</h3>
+  <div id="projects">
+    <%= form.fields_for :projects do |project_form| %>
+      <div class="project-fields">
+        <div>
+          <%= project_form.label :title %>
+          <%= project_form.text_field :title %>
+        </div>
+        <div>
+          <%= project_form.label :description %>
+          <%= project_form.text_area :description %>
+        </div>
+        <div>
+          <%= project_form.label :code_url %>
+          <%= project_form.text_field :code_url %>
+        </div>
+        <div>
+          <%= project_form.label :design_url %>
+          <%= project_form.text_field :design_url %>
+        </div>
+        <div>
+          <%= project_form.label :live_url %>
+          <%= project_form.text_field :live_url %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= link_to 'Add Project', '#', id: 'add_project' %>
+  </div>
+
+  <h3>Pills</h3>
+  <div id="pills">
+    <%= form.fields_for :pills do |pill_form| %>
+      <div class="pill-fields">
+        <div>
+          <%= pill_form.label :skill %>
+          <%= pill_form.text_field :skill %>
+        </div>
+        <div>
+          <%= pill_form.label :version %>
+          <%= pill_form.text_field :version %>
+        </div>
+        <div>
+          <%= pill_form.label :version_color %>
+          <%= pill_form.text_field :version_color %>
+      </div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= link_to 'Add Pill', '#', id: 'add_pill' %>
+  </div>
+
+  <%= form.submit "Create Resume" %>
+<% end %>
+
