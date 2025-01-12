@@ -2,6 +2,10 @@ class Blog < ApplicationRecord
   belongs_to :milk_admin
   belongs_to :blog_category
 
+  # before update or create run process_body
+  before_save :process_body
+
+  has_rich_text :toc
   has_rich_text :content
 
   has_one_attached :blog_image, dependent: :destroy
@@ -39,5 +43,21 @@ class Blog < ApplicationRecord
   # that date is in the future.
   def scheduled?
     published_at? && published_at > Time.current
+  end
+
+  # Process the body content of a blog post by extracting the HTML content
+  # from the rich text body, generating a table of contents from any headings,
+  # and modifying the body content by adding ids to the headings so that they
+  # can be linked to from the table of contents.
+  # This process_body method is handled by the TocGenerator service.
+  def process_body
+    # Extract the HTML content from the rich text body
+    body_content = content.to_trix_html
+
+    # Use the service to generate TOC and modify body content
+    result = TocGenerator.new(body_content).generate
+
+    self.toc = result[:toc]  # Update the TOC
+    self.content = result[:body]  # Update the :content with modified body
   end
 end
