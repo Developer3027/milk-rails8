@@ -7,9 +7,15 @@ Rails.application.routes.draw do
   # root for milk admin
   authenticated :milk_admin do
     root to: "milk_admin#dashboard", as: :milk_admin_root
-    get "milk_blog", to: "milk_admin#admin_milk_blog", as: :milk_blog
-    get "admin_resume", to: "milk_admin#admin_resume", as: :admin_resume
-    post "admin_resume", to: "milk_admin#create_resume", as: :create_admin_resume
+    resources :blog_categories
+    # resources :blogs
+  end
+
+  resources :blogs, only: [ :index, :new, :create, :edit, :update, :destroy ], controller:
+  "milk_admin/blogs" do
+    member do
+      delete :destroy_image
+    end
   end
 
   resources :projects, only: [ :new, :create, :index, :edit, :update, :destroy ], controller:

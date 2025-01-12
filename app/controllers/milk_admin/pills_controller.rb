@@ -5,6 +5,12 @@ class MilkAdmin::PillsController < ApplicationController
 
   def index
     @pills = Pill.all.group_by(&:group)
+    @plain_pills = Pill.all
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @plain_pills.as_json(only: [ :id, :group, :skill, :version, :version_color ]) }
+    end
   end
 
   def new

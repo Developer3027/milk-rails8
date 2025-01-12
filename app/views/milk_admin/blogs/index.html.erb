@@ -1,0 +1,43 @@
+<section class="flex flex-col justify-center items-center w-full mt-4">
+  <div class="w-fit p-4">
+    <div class="flex justify-between items-center">
+      <h1 class="text-3xl text-left my-2">Blog Post</h1>
+
+      <%= link_to "Create New Blog Post", new_blog_path, class: "flex justify-center items-center border border-pill-blue h-fit w-fit rounded-md px-4 py-1" %>
+    </div>
+    <div class="flex flex-col justify-center items-center">
+      <% @blogs.each do |blog| %>
+        <div class="flex flex-col bg-slate-800 rounded-t-md my-4">
+          <div class="flex w-[575px] h-[280px] p-1 my-2">
+            <% if blog.blog_image.present? %>
+              <%= image_tag blog.blog_image, class: "rounded-md object-cover w-[200px] h-[275px]", alt: "Image for the project" %>
+            <% end %>
+            <div class="flex flex-col justify-items-start ml-2 py-4 w-[370px]">
+              <div class="text-white text-2xl font-semibold font-['Albert Sans'] w-fit"><%= blog.title %></div>
+              <div class="text-white text-sm font-normal font-['Albert Sans'] w-fit"><%= truncate(blog.content.to_plain_text || '', length: 500) %></div>
+            </div>
+          </div>
+          <% if blog.draft? %>
+              <div class="text-base-dark font-bold rounded bg-green-400 p-2 w-full text-center">Draft</div>
+          <% elsif blog.scheduled? %>
+              <div class="text-base-dark font-bold rounded bg-yellow-400 p-2 w-full text-center">Scheduled</div>
+          <% end %>
+          <div class="flex justify-evenly bg-gray-700 rounded-b-md w-full p-2">
+            <!--Edit link-->
+            <%= link_to edit_blog_path(blog), class: "inline-flex items-center py-2 px-3 text-sm font-medium text-center text-gray-200 rounded-lg bg-blue-600 hover:bg-blue-700 border border-gray-200" do %>
+              <svg class="w-6 h-6 text-gray-200" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.779 17.779 4.36 19.918 6.5 13.5m4.279 4.279 8.364-8.643a3.027 3.027 0 0 0-2.14-5.165 3.03 3.03 0 0 0-2.14.886L6.5 13.5m4.279 4.279L6.499 13.5m2.14 2.14 6.213-6.504M12.75 7.04 17 11.28"/>
+              </svg>
+            <% end %>
+            <!--Delete Button-->
+            <%= button_to blog_path(blog), class: "inline-flex items-center px-3 py-2 text-sm font-medium text-center text-gray-200 rounded-lg bg-red-600 hover:bg-red-700 border border-gray-200", method: :delete, data: { turbo_confirm: "Are you sure?" } do %>
+              <svg class="w-6 h-6 text-gray-200" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 7h14m-9 3v8m4-8v8M10 3h4a1 1 0 0 1 1 1v3H9V4a1 1 0 0 1 1-1ZM6 7h12v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7Z"/>
+              </svg>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>

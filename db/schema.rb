@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_01_01_193558) do
+ActiveRecord::Schema[8.0].define(version: 2025_01_11_144829) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -50,6 +50,26 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_01_193558) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "blog_categories", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "blogs", force: :cascade do |t|
+    t.string "title"
+    t.string "subtitle"
+    t.datetime "published_at"
+    t.bigint "milk_admin_id", null: false
+    t.bigint "blog_category_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "image_url"
+    t.index ["blog_category_id"], name: "index_blogs_on_blog_category_id"
+    t.index ["milk_admin_id"], name: "index_blogs_on_milk_admin_id"
   end
 
   create_table "milk_admins", force: :cascade do |t|
@@ -104,6 +124,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_01_193558) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "blogs", "blog_categories"
+  add_foreign_key "blogs", "milk_admins"
   add_foreign_key "pills", "resumes"
   add_foreign_key "projects", "resumes"
 end

@@ -50,6 +50,7 @@
       <h2 class="text-3xl font-bold dark:text-milk-light text-base-dark">Info</h2>
       <hr class="my-4 w-full dark:border-white border-base-dark">
       <%= link_to "Client", root_path, class: "md:hidden border dark:border-milk-light border-base-dark rounded-md p-2 w-full mb-4" %>
+      <%= link_to "Blog", root_path, class: "border dark:border-milk-light border-base-dark rounded-md p-2 w-full mb-4" %>
       <%= link_to "About Me", "#{info_path}#about-me", class: "border dark:border-milk-light border-base-dark rounded-md p-2 w-full mb-4" %>
       <%= link_to "Contact", "#{info_path}#contact", class: "border dark:border-milk-light border-base-dark rounded-md p-2 w-full mb-4" %>
       <%= link_to "Code - GitHub", "https://github.com/Developer3027", class: "border dark:border-milk-light border-base-dark rounded-md p-2 w-full mb-4", target: "_blank" %>
@@ -58,10 +59,10 @@
     </div>
   </div>
   <!-- Featured projects -->
-  <div class="px-3 xl:p-0">
+  <div class="px-3 xl:p-0 my-6">
     <h2 class="text-3xl font-bold dark:text-milk-light text-base-dark">Featured</h2>
     <hr class="my-4 w-full dark:border-white border-base-dark">
-      <div class="flex justify-center items-center max-w-5xl flex-wrap w-full">
+      <div class="flex justify-center items-center max-w-5xl flex-wrap w-full my-2">
         <% @small_projects.each do |project| %>
           <%= link_to project[:path] do %>
             <div class="flex flex-col justify-center items-center border border-gray-600 rounded-md w-full md:w-[230px] h-[140px] p-4 m-1 ">
