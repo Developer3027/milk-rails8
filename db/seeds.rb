@@ -4,11 +4,11 @@
 
 # Destroy Milk Admin
 MilkAdmin.destroy_all
-p "#{MilkAdmin.count} MilkAdmins left"
+p "#{MilkAdmin.count} Admins left"
 
 # Log Milk Admin
-MilkAdmin.create!(email: "milk_admin@localhost", password: "password", password_confirmation: "password")
-p "Created MilkAdmin"
+MilkAdmin.create!(email: "admin@example.com", password: "admin456", password_confirmation: "admin456")
+p "Created Admin"
 
 # Delete all pills
 Pill.destroy_all
