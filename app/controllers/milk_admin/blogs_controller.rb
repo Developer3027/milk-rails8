@@ -59,7 +59,7 @@ class MilkAdmin::BlogsController < ApplicationController
       if @blog.save
         @blog.process_body  # Call process_body to ensure TOC and body are updated
         set_image_url(@blog)
-        format.html { redirect_to blogs_path, notice: "Blog was successfully created." }
+        format.html { redirect_to milk_admin_blogs_path, notice: "Blog was successfully created." }
         format.json { render json: @blog }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -87,7 +87,7 @@ class MilkAdmin::BlogsController < ApplicationController
       if @blog.update(blog_params)
         @blog.process_body  # Call process_body to ensure TOC and body are updated
         set_image_url(@blog) if @blog.blog_image.attached?
-        format.html { redirect_to blogs_path, notice: "Blog was successfully updated." }
+        format.html { redirect_to milk_admin_blogs_path, notice: "Blog was successfully updated." }
         format.json { render :show, status: :created, location: @blog }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -110,10 +110,10 @@ class MilkAdmin::BlogsController < ApplicationController
   def destroy
     respond_to do |format|
       if @blog.destroy
-        format.html { redirect_to blogs_path, status: :see_other, notice: "Blog and image were successfully destroyed." }
+        format.html { redirect_to milk_admin_blogs_path, status: :see_other, notice: "Blog and image were successfully destroyed." }
         format.json { head :no_content }
       else
-        format.html { redirect_to blogs_path, alert: "Failed to destroy the blog." }
+        format.html { redirect_to milk_admin_blogs_path, alert: "Failed to destroy the blog." }
         format.json { render json: @blog.errors, status: :unprocessable_entity }
       end
     end
@@ -136,10 +136,10 @@ class MilkAdmin::BlogsController < ApplicationController
     respond_to do |format|
       if @blog.blog_image.attached?
         @blog.update(image_url: nil)
-        format.html { redirect_to edit_blog_path(@blog) }
+        format.html { redirect_to edit_milk_admin_blog_path(@blog) }
         format.turbo_stream { render turbo_stream: turbo_stream.remove(dom_id(@blog, "blog_image")) }
       else
-        format.html { redirect_to edit_blog_path(@blog), alert: "No image to remove." }
+        format.html { redirect_to edit_milk_admin_blog_path(@blog), alert: "No image to remove." }
       end
     end
   end

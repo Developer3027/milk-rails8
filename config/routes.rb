@@ -7,26 +7,30 @@ Rails.application.routes.draw do
   # root for milk admin
   authenticated :milk_admin do
     root to: "milk_admin#dashboard", as: :milk_admin_root
-    resources :blog_categories
     # resources :blogs
   end
 
-  resources :blogs, only: [ :index, :new, :create, :edit, :update, :destroy ], controller:
-  "milk_admin/blogs" do
-    member do
-      delete :destroy_image
+  # Admin Routes
+  namespace :milk_admin do
+    resources :blog_categories
+
+    resources :blogs, only: [ :index, :new, :create, :edit, :update, :destroy ] do
+      member do
+        delete :destroy_image
+      end
     end
+
+    resources :projects, only: [ :index, :new, :create, :edit, :update, :destroy ] do
+      member do
+        delete :destroy_image
+      end
+    end
+
+    resources :pills, only: [ :index, :new, :create, :edit, :update, :destroy ]
   end
 
-  resources :projects, only: [ :new, :create, :index, :edit, :update, :destroy ], controller:
-  "milk_admin/projects" do
-    member do
-      delete :destroy_image
-    end
-  end
-
-  resources :pills, only: [ :new, :create, :index, :edit, :update, :destroy ], controller: "milk_admin/pills"
-
+  # Public Blog Routes
+  resources :blogs, only: [ :index, :show ], controller: "blogs"
 
   # public resume route
   get "resume", to: "static_pages#resume", as: :resume

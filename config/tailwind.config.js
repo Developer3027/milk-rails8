@@ -3,7 +3,7 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 module.exports = {
   darkMode: 'selector',
   content: [
-    './node_modules/flowbite/**/*.js',
+    // './node_modules/flowbite/**/*.js',
     './public/*.html',
     './app/helpers/**/*.rb',
     './app/javascript/**/*.js',
@@ -63,7 +63,7 @@ module.exports = {
     },
   },
   plugins: [
-    require('flowbite/plugin'),
+    // require('flowbite/plugin'),
     require('@tailwindcss/forms'),
     require('@tailwindcss/typography'),
     require('@tailwindcss/container-queries'),
