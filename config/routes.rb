@@ -29,8 +29,13 @@ Rails.application.routes.draw do
     resources :pills, only: [ :index, :new, :create, :edit, :update, :destroy ]
   end
 
-  # Public Blog Routes
-  resources :blogs, only: [ :index, :show ], controller: "blogs"
+# Public Blog Routes
+resources :blogs, only: [ :index, :show ], controller: "blogs" do
+  collection do
+    get "feature"  # This creates the route for /blogs/feature
+  end
+end
+
 
   # public resume route
   get "resume", to: "static_pages#resume", as: :resume

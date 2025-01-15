@@ -1,0 +1,45 @@
+<section class="w-full text-terminal-window-100 bg-slate-200 text-base-dark py-4">
+  <div class="flex justify-center items-center max-w-4xl bg-slate-50 mx-auto my-6">
+    <div class="flex flex-col items-center">
+      <!-- Blog Header -->
+      <div class="border-b-4 border-base-dark bg-slate-200 w-full py-5 px-3 mb-4">
+        <%= link_to blogs_path do %>
+          <h1 class="font-bold text-xl">
+            MILK-00 Feature Article
+          </h1>
+        <% end %>
+        <p>
+          Find me on <%= link_to "SubStack", "https://masonroberts.substack.com/", target: "_blank", class: "font-medium text-milk-dark underline" %>
+        </p>
+        <p>
+          <i>Welcome to the ramblings of my learning journey.</i>
+        </p>
+      </div>
+      <h1 class="font-bold text-xl md:text-2xl p-4">
+          What is this, why, what is going on here?!
+      </h1>
+      <%= image_tag("https://milk-blog.s3.us-east-2.amazonaws.com/railamellon.jpg", class: "md:rounded md:w-3/4 lg:w-4/5 h-96 object-cover") %>
+      <div class="flex justify-between md:w-3/4 lg:w-4/5 my-3 md:mx-1 w-full px-1">
+        <span>Author: Mason Roberts</span>
+        <span class="bg-input-border rounded-full px-5">Category: General</span>
+      </div>
+      <div class="flex justify-start md:w-3/4 lg:w-4/5 my-3 mx-1">
+        <span>Created: Mon, 15 Apr 2024</span>
+      </div>
+      <!-- content -->
+      <div class="md:w-3/4 lg:w-4/5 mx-2">
+        <p class="py-2" class="py-1">Welcome to the MILK-00 blog. This is a personal project of mine that I have been interested in for quit some time. This is several years in the making and today you have found it! Just a bit about me and this blog. In 2019 I decided to dive into the wonderful world of web development. Well that was not where I started. I started with my computer career and received several certification through them. I fell in love with Linux while going through certifications.</p>
+
+        <p class="py-2">From there I dove into Lambda School and got through the first half which was web development. Due to some family issues I was not able to complete the software engineering half. I am frustrated over it but would not give the time I spent with my father back for anything. Gone but not forgotten, love ya pop. It was a trying time in my life but I came out the other side with a deeper respect for my father and my family.</p>
+
+        <p class="py-2">Through my journey I have learned so many thing and continue to push forward today. Learning is a never ending journey and I have been having a ball. This blog is created for a few reasons. One, I use it to help cement the what I have learned. Two, you can use it to learn a few things. I brings a smile to my face to think of those on the same journey I am, learning from the work I have put into this.</p>
+
+        <p class="py-2">I have built various versions of this app in several languages. Never to this extent though. I found Rails at the beginning of this year, 2024. In January I dove into Ruby with code academy. In February is when I began to play with Rails. I have to say I have truly enjoyed this journey so far. Rails and the Ruby language are magical. This project is another portfolio project that aims to wrap all my best project concepts in one nice package. I want my own little place on the internet.</p>
+
+        <p class="py-2">
+          This article is intended to be a fixed feature for the blog. It will be updated now and then as I remember things to add. It is, very much, a work in progress. It is intended to give information about me, the site, and the project. Today I have this project live on Heroku. I have to say I am very proud of it. I have a lot of things to learn but I am a very determined person. Stay, enjoy, learn a thing and tell a friend.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

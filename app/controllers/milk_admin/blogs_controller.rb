@@ -57,7 +57,7 @@ class MilkAdmin::BlogsController < ApplicationController
 
     respond_to do |format|
       if @blog.save
-        @blog.process_body  # Call process_body to ensure TOC and body are updated
+        # @blog.process_body  # Call process_body to ensure TOC and body are updated
         set_image_url(@blog)
         format.html { redirect_to milk_admin_blogs_path, notice: "Blog was successfully created." }
         format.json { render json: @blog }

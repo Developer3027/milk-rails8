@@ -1,25 +1,38 @@
-<section class="w-full text-base-dark bg-slate-50 mt-2 py-4">
-    <div class="flex justify-center items-center">
-        <div class="flex flex-col items-center">
-            <h1 class="font-bold text-xl md:text-2xl p-4">
-                <%= @blog.title %>
-            </h1>
-            <% if @blog.blog_image.present? %>
-                <%= image_tag @blog.blog_image, class: "md:rounded md:w-3/4 lg:w-4/5 h-96 object-cover" %>
-            <% end %>
-            <div class="flex justify-between md:w-3/4 lg:w-4/5 my-3 md:mx-1 w-full px-1">
-                <span>Author: <%= @blog.milk_admin.email %></span>
-                <span class="bg-input-border rounded-full px-5"><%= @blog.blog_category.title %></span>
-            </div>
-            <div class="flex justify-start md:w-3/4 lg:w-4/5 my-3 mx-1">
-                <span>Created: <%= @blog.created_at.to_date.inspect %></span>
-            </div>
-            <div>
-                <%= @blog.toc %>
-            </div>
-            <div class="md:w-3/4 lg:w-4/5 mx-2">
-                <%= @blog.content.to_s %>
-            </div>
+<section class="w-full text-base-dark bg-slate-200 py-4">
+  <div class="max-w-4xl mx-auto">
+    <div class="flex flex-col items-center bg-slate-50 rounded-md px-2">
+      <!-- Blog Header -->
+      <div class="border-b-4 border-base-dark w-full py-5">
+        <%= link_to blogs_path do %>
+          <h1 class="font-bold text-xl">
+            MILK-00 Blog Articles
+          </h1>
+        <% end %>
+        <p>
+          Find me on <%= link_to "SubStack", "https://masonroberts.substack.com/", target: "_blank", class: "font-medium text-milk-dark underline" %>
+        </p>
+        <p>
+          <i>Welcome to the ramblings of my learning journey.</i>
+        </p>
+      </div>
+      <h1 class="font-bold text-xl md:text-2xl p-4">
+        <%= @blog.title %>
+      </h1>
+      <% if @blog.blog_image.present? %>
+        <%= image_tag @blog.blog_image, class: "rounded-md w-full object-cover" %>
+      <% end %>
+      <div class="flex justify-between w-full my-3">
+        <div class="flex flex-col justify-between font-medium w-1-2 m-1 p-1">
+          <span>Author: <%= @blog.milk_admin.email %></span>
+          <span>Created: <%= @blog.created_at.to_date.inspect %></span>
         </div>
+        <div class="flex justify-start w-1/2 font-medium m-1 p-1">
+          <span class="bg-input-border rounded-full px-5">Category: <%= @blog.blog_category.title %></span>
+        </div>
+      </div>
+      <div class="max-w-4xl my-3 mx-1 px-1">
+        <%= @blog.content %>
+      </div>
     </div>
+  </div>
 </section>

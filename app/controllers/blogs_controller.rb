@@ -1,6 +1,7 @@
 class BlogsController < ApplicationController
+  def feature; end
   def index
-    @blogs = Blog.all
+    @blogs = Blog.published
     @categories = BlogCategory.all
   end
 
