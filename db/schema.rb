@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_01_11_144829) do
+ActiveRecord::Schema[8.0].define(version: 2025_01_17_164008) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -70,6 +70,15 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_11_144829) do
     t.string "image_url"
     t.index ["blog_category_id"], name: "index_blogs_on_blog_category_id"
     t.index ["milk_admin_id"], name: "index_blogs_on_milk_admin_id"
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.string "f_name"
+    t.string "l_name"
+    t.string "email"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "milk_admins", force: :cascade do |t|

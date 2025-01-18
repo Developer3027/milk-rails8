@@ -3,6 +3,7 @@ class MilkAdminController < ApplicationController
 
   def dashboard
     @milk_admin = current_milk_admin
+    @contacts = Contact.all
   end
 
   def admin_milk_blog; end

@@ -39,11 +39,6 @@ end
 
   # public resume route
   get "resume", to: "static_pages#resume", as: :resume
-  # resources :resumes do
-  #   resources :projects
-  #   resources :pills
-  # end
-
   # root for hermits
   get "hermit-plus", to: "hermit_plus#index", as: :hermits
   # root for swabbies
@@ -56,6 +51,9 @@ end
   get "copywriter", to: "copywriter#index", as: :copywriter
 
   get "info", to: "static_pages#info", as: :info
+
+  post "contact", to: "static_pages#create_contact", as: :contact
+  delete "contacts/:id", to: "static_pages#destroy_contact", as: "delete_contact"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

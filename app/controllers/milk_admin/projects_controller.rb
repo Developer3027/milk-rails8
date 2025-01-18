@@ -34,7 +34,7 @@ class MilkAdmin::ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.save
-        format.html { redirect_to projects_path, notice: "Project was successfully created." }
+        format.html { redirect_to milk_admin_projects_path, notice: "Project was successfully created." }
         format.json { render :show, status: :created, location: @project }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -53,7 +53,7 @@ class MilkAdmin::ProjectsController < ApplicationController
   def update
     respond_to do |format|
       if @project.update(project_params)
-        format.html { redirect_to projects_path, notice: "Project was successfully updated." }
+        format.html { redirect_to milk_admin_projects_path, notice: "Project was successfully updated." }
         format.json { render :show, status: :ok, location: @project }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -70,7 +70,7 @@ class MilkAdmin::ProjectsController < ApplicationController
     respond_to do |format|
     @project.project_image.purge_later
     @project.destroy!
-      format.html { redirect_to projects_path, status: :see_other, notice: "Project was successfully destroyed." }
+      format.html { redirect_to milk_admin_projects_path, status: :see_other, notice: "Project was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -85,10 +85,10 @@ class MilkAdmin::ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.project_image.attached?
-        format.html { redirect_to edit_project_path(@project) }
+        format.html { redirect_to edit_ilk_admin_project_path(@project) }
         format.turbo_stream { render turbo_stream: turbo_stream.remove(dom_id(@project, "project_image")) }
       else
-        format.html { redirect_to edit_project_path(@project), alert: "No image to remove." }
+        format.html { redirect_to edit_milk_admin_project_path(@project), alert: "No image to remove." }
       end
     end
   end

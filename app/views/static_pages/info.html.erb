@@ -1,26 +1,124 @@
-<section id="about-me" class="bg-white dark:bg-gray-900">
-    <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 z-10 relative">
-        <a href="#" class="inline-flex justify-between items-center py-1 px-1 pe-4 mb-7 text-sm text-blue-700 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300 hover:bg-blue-200 dark:hover:bg-blue-800">
-            <span class="text-xs bg-blue-600 rounded-full text-white px-4 py-1.5 me-3">New</span> <span class="text-sm font-medium">Jumbotron component was launched! See what's new</span> 
-            <svg class="w-2.5 h-2.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-            </svg>
-        </a>
-        <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">We invest in the world’s potential</h1>
-        <p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 lg:px-48 dark:text-gray-200">Here at Flowbite we focus on markets where technology, innovation, and capital can unlock long-term value and drive economic growth.</p>
-        <form class="w-full max-w-md mx-auto">   
-            <label for="default-email" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Email sign-up</label>
-            <div class="relative">
-                <div class="absolute inset-y-0 rtl:inset-x-0 start-0 flex items-center ps-3.5 pointer-events-none">
-                    <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
-                        <path d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z"/>
-                        <path d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z"/>
-                    </svg>
-                </div>
-                <input type="email" id="default-email" class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter your email here..." required />
-                <button type="submit" class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Sign up</button>
-            </div>
-        </form>
+<section class="flex justify-center items-center w-full">
+  <!-- Header navigation -->
+  <div class="flex justify-between items-center max-w-5xl w-full py-4">
+    <div>
+      <%= link_to root_path do %>
+        <h1 class="text-5xl font-bold dark:text-milk-light text-base-dark px-3 xl:p-0">
+          MILK-00
+        </h1>
+      <% end %>
     </div>
-    <div class="bg-gradient-to-b from-blue-50 to-transparent dark:from-blue-900 w-full h-full absolute top-0 left-0 z-0"></div>
+    <div class="flex items-center gap-1" data-controller="dark-mode">
+      <div class="hidden md:flex justify-evenly items-center mt-4 gap-4">
+        <%= link_to "Client", root_path %>
+        <!-- Fiverr Icon -->
+        <svg class="w-[21px] h-6 text-base-dark dark:text-milk-light" width="21" height="22" viewBox="0 0 21 22" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17.875 17.875V6.875H6.875V6.1875C6.875 5.0501 7.8001 4.125 8.9375 4.125H11V0H8.9375C7.2971 0.00203759 5.72447 0.654587 4.56453 1.81453C3.40459 2.97447 2.75204 4.5471 2.75 6.1875V6.875H0V11H2.75V17.875H0V22H9.625V17.875H6.875V11H13.7885V17.875H11V22H20.625V17.875H17.875Z"/>
+          <path d="M15.8125 4.125C16.9516 4.125 17.875 3.20159 17.875 2.0625C17.875 0.923413 16.9516 0 15.8125 0C14.6734 0 13.75 0.923413 13.75 2.0625C13.75 3.20159 14.6734 4.125 15.8125 4.125Z"/>
+        </svg>
+        <!-- UpWork Icon-->
+        <svg class="w-7 h-6 mt-3 text-base-dark dark:text-milk-light" width="28" height="22" viewBox="0 0 28 22" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M21.6556 12.4948C20.3702 12.4948 19.1628 11.8936 18.0691 10.9093L18.3333 9.5207L18.3421 9.46542C18.5835 7.99048 19.3308 5.51091 21.6547 5.51091C23.3959 5.51091 24.8081 7.07701 24.8081 9.00577C24.8081 10.9297 23.395 12.4958 21.6547 12.4958L21.6556 12.4948ZM21.6556 1.97435C18.6938 1.97435 16.3917 4.10579 15.4581 7.61617C14.0363 5.24715 12.9513 2.39908 12.3231 0H9.13296V9.19681C9.12859 11.015 7.80213 12.4851 6.16156 12.49C4.52098 12.4851 3.19453 11.0102 3.19015 9.19681V0H0V9.19681C0 12.9642 2.76579 16.0508 6.16156 16.0508C9.56083 16.0508 12.3231 12.9651 12.3231 9.19681V7.65593C12.9426 9.08529 13.7038 10.5399 14.6287 11.8228L12.674 22H15.9368L17.3542 14.6156C18.594 15.4942 20.0202 16.0498 21.6564 16.0498C25.1563 16.0498 28 12.8779 28 9.00383C28 5.12496 25.1563 1.97338 21.6564 1.97338L21.6556 1.97435Z"/>
+        </svg>
+        <!-- dark mode toggle -->
+        <%= render "shared/darkmode_toggle" %>
+        <!-- Milk Admin sign in -->
+        <%= link_to new_milk_admin_session_path do %>
+          <%= image_tag "mug.svg", alt: "admin sign in" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="about-me" class="bg-base-light text-base-dark dark:bg-base-dark dark:text-gray-50">
+  <!-- component -->
+  <div class="h-vh pt-10 sm:pt-0 mb-10 mx-auto max-w-5xl">
+    <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 items-center md:gap-20">
+      <div class="px-4 xl:px-0">
+        <p class="text-2xl font-bold leading-tight mt-5 sm:mt-0 ">
+          Mason Roberts - Developer3027 <br />
+          Designer And Developer 
+        </p>
+        <p class="mt-5 md:text-md ">
+          I am a web engineer. I prefer Ruby on Rails these days, but know and work with React systems. I fancy myself a full stack developer and work with React, Next, Node and all those great javascript frameworks and systems. I have been into design and development for many years now. Started at a young age but it wasn't until the past several years that it became a focus. I have several IT certifications, love Linux and Git, design mainly with Figma and build with VS Code.
+        </p>
+        <div class="flex gap-4 mt-10">
+          <%= link_to "#contact" do %>
+          <button class="font-medium text-[16px] flex items-center px-5 py-3 md:py-4 md:px-8 rounded-md capitalize bg-gradient-to-r from-orange-300 to-orange-500 hover:from-pink-500 hover:to-yellow-500 relative gap-2 transition duration-300 hover:scale-105 text-white shadow-glass ">Get In Touch
+            <span class="animate-ping absolute right-0 top-0 w-3 h-3 rounded-full bg-gradient-to-r from-orange -400 to-orange-700 "></span>
+          </button>
+          <% end %>
+        </div>
+      </div>
+      <div class="sm:mt-0 mt-10 px-6 sm:px-0 bg-black sm:bg-transparent sm:bg-gradient-to-l sm:from-black from-60% to-transparent sm:rounded-e-full sm:border-e-4 border-base-dark">
+        <%= image_tag "mason_roberts_3.png", class: "w-full rounded-e-full", alt: "Mason Roberts" %>
+      </div>
+    </div>
+  </div>
+  <div class="flex flex-col justify-between items-center max-w-5xl w-full my-4 px-4 xl:px-0">
+    <p class="mb-4">
+      You can find me on Fiverr and on UpWork for Freelance projects. I am always looking to learn and grow so I am known to take on projects for free. If you are in need, it never hurts to reach out. I will say though, there are plenty of WordPress developers out there, I am not that. I tend to store code on GitHub or GitLab and use a PaaS like Render, Digital Ocean or Heroku for hosting.
+    </p>
+    <p class="mb-4">
+      If you are wanting a system that you will use in house on your own hardware, I would recommend Ruby on Rails. The new version 8 is designed specifically to run local or in the cloud, out of the box. When it comes to the Could, I prefer AWS but have experience with Azure and Google.
+    </p>
+  </div>
+</section>
+<section id="projects">
+    <div class="flex flex-col justify-center items-center">
+      <h2 class="font-semibold text-2xl text-white text-left w-full">Projects</h2>
+      <hr class="border border-white w-full my-3">
+      <% @projects.each do |project| %>
+        <div class="flex flex-col bg-slate-800 rounded-t-md my-4">
+          <div class="flex flex-col sm:flex-row w-full sm:w-[575px] sm:h-[280px] p-1 my-2">
+            <% if project.project_image.present? %>
+              <%= image_tag project.project_image, class: "rounded-md object-cover w-full sm:w-[200px] sm:h-[275px]", alt: "Image for the project" %>
+            <% end %>
+            <div class="flex flex-col justify-items-start ml-2 py-4 w-[370px]">
+              <div class="text-white text-2xl font-semibold font-['Albert Sans'] w-fit"><%= project.title %></div>
+              <div class="text-white text-sm font-normal font-['Albert Sans'] w-fit"><%= project.description %></div>
+              <% if project.code_url.present? %>
+                <%= link_to "Click for Code", project.code_url, class: "text-white text-sm font-semibold font-['Albert Sans'] my-2" %>
+              <% end %>
+              <% if project.design_url.present? %>
+                <%= link_to "Click for Design", project.design_url, class: "text-white text-sm font-semibold font-['Albert Sans'] my-2" %>
+              <% end %>
+              <% if project.live_url.present? %>
+                <%= link_to "Click for Live site", project.live_url, class: "text-white text-sm font-semibold font-['Albert Sans'] my-2" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+</section>
+<section id="contact">
+  <div class="flex flex-col items-center max-w-xl w-svw h-svh text-base-dark my-6">
+    <h2 class="text-3xl font-bold text-base-light my-2">Contact Me</h2>
+    <hr class="border border-white w-full my-3">
+    <p class="text-base-light py-6">I would love to hear from you! Please fill out the form below and I will get back to you as soon as possible.</p>
+    <%= form_with model: @contact, url: contact_path, local: true do |form| %>
+      <div class="flex flex-col justify-between items-center gap-4 w-full">
+        <div class="flex justify-between items-center w-full gap-2">
+          <%= form.label :f_name, "First Name", class: "text-base-light w-full" %>
+          <%= form.text_field :f_name, class: "w-full rounded-md" %>
+        </div>
+        <div class="flex justify-between items-center w-full gap-2">
+          <%= form.label :l_name, "Last Name", class: "text-base-light w-full" %>
+          <%= form.text_field :l_name, class: "w-full rounded-md" %>
+        </div>
+        <div class="flex justify-between items-center w-full gap-2">
+          <%= form.label :email, "Email", class: "text-base-light" %>
+          <%= form.email_field :email, class: "w-full rounded-md" %>
+        </div>
+        <div class="flex flex-col justify-between items-center w-full gap-2">
+          <%= form.label :description, "How can I help?", class: "text-base-light" %>
+          <%= form.text_area :description, class: "w-full rounded-md" %>
+        </div>
+        <div>
+          <%= form.submit "Send", class: "text-base-light py-2 px-6 border border-base-light-500 rounded-md" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </section>
