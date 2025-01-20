@@ -12,6 +12,7 @@ class StaticPagesController < ApplicationController
   def info
     @projects = Project.all
     @contact = Contact.new
+    @pills = Pill.all.group_by(&:group)
   end
 
   def create_contact

@@ -30,6 +30,7 @@
     </div>
   </div>
 </section>
+<!-- About -->
 <section id="about-me" class="bg-base-light text-base-dark dark:bg-base-dark dark:text-gray-50">
   <!-- component -->
   <div class="h-vh pt-10 sm:pt-0 mb-10 mx-auto max-w-5xl">
@@ -42,16 +43,9 @@
         <p class="mt-5 md:text-md ">
           I am a web engineer. I prefer Ruby on Rails these days, but know and work with React systems. I fancy myself a full stack developer and work with React, Next, Node and all those great javascript frameworks and systems. I have been into design and development for many years now. Started at a young age but it wasn't until the past several years that it became a focus. I have several IT certifications, love Linux and Git, design mainly with Figma and build with VS Code.
         </p>
-        <div class="flex gap-4 mt-10">
-          <%= link_to "#contact" do %>
-          <button class="font-medium text-[16px] flex items-center px-5 py-3 md:py-4 md:px-8 rounded-md capitalize bg-gradient-to-r from-orange-300 to-orange-500 hover:from-pink-500 hover:to-yellow-500 relative gap-2 transition duration-300 hover:scale-105 text-white shadow-glass ">Get In Touch
-            <span class="animate-ping absolute right-0 top-0 w-3 h-3 rounded-full bg-gradient-to-r from-orange -400 to-orange-700 "></span>
-          </button>
-          <% end %>
-        </div>
       </div>
-      <div class="sm:mt-0 mt-10 px-6 sm:px-0 bg-black sm:bg-transparent sm:bg-gradient-to-l sm:from-black from-60% to-transparent sm:rounded-e-full sm:border-e-4 border-base-dark">
-        <%= image_tag "mason_roberts_3.png", class: "w-full rounded-e-full", alt: "Mason Roberts" %>
+      <div class="flex justify-center items-center w-full">
+        <%= image_tag "mason_roberts_3.png", class: "bg-black rounded-full w-[200px]", alt: "Mason Roberts" %>
       </div>
     </div>
   </div>
@@ -64,6 +58,27 @@
     </p>
   </div>
 </section>
+<!-- Skills -->
+<section id="skills">
+  <div class="flex flex-col justify-center items-center">
+    <h2 class="font-semibold text-2xl text-white text-left w-full">Skills</h2>
+    <hr class="border border-white w-full my-3">
+    <div class="flex flex-col sm:flex-row sm:flex-wrap w-fit max-w-5xl">
+      <% @pills.each do |group, pills| %>
+        <div class="flex flex-col items-center sm:flex-grow bg-slate-700 rounded-md m-4 p-2">
+          <h3><%= group %></h3>
+          <% pills.each do |pill| %>
+            <div class="bg-slate-800 w-fit rounded-md m-2 p-4">
+              <!--Pill component-->
+              <%= render PillComponent.new(skill: pill.skill, version: pill.version, version_color: pill.version_color) %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
+<!-- Projects -->
 <section id="projects">
     <div class="flex flex-col justify-center items-center">
       <h2 class="font-semibold text-2xl text-white text-left w-full">Projects</h2>
@@ -92,6 +107,7 @@
       <% end %>
     </div>
 </section>
+<!-- Contact -->
 <section id="contact">
   <div class="flex flex-col items-center max-w-xl w-svw h-svh text-base-dark my-6">
     <h2 class="text-3xl font-bold text-base-light my-2">Contact Me</h2>

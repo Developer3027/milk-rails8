@@ -3,40 +3,40 @@
     <h1 class="text-3xl text-left my-2">
       Skills
     </h1>
-    <%= link_to "Create Pill", new_pill_path, class: "flex justify-center items-center border border-pill-blue h-fit w-fit rounded-md px-4 py-1" %>
+    <%= link_to "Create Pill", new_milk_admin_pill_path, class: "flex justify-center items-center border border-pill-blue h-fit w-fit rounded-md px-4 py-1" %>
   </div>
 
   <p class="w-fit my-2">
     Create and manage your skills and versions.
   </p>
   <div class="flex justify-center w-full">
-  <div class="flex flex-col sm:flex-row sm:flex-wrap w-fit">
-    <% @pills.each do |group, pills| %>
-      <div class="flex flex-col items-center sm:flex-grow bg-slate-700 rounded-md m-4 p-2">
-        <h3><%= group %></h3>
-        <% pills.each do |pill| %>
-          <div class="bg-slate-800 w-fit rounded-md m-2 p-4">
-            <!--Pill component-->
-            <%= render PillComponent.new(skill: pill.skill, version: pill.version, version_color: pill.version_color) %>
-            <div class="flex justify-between pt-2">
-              <!--Edit link-->
-              <%= link_to edit_pill_path(pill), class: "inline-flex items-center py-2 px-3 text-sm font-medium text-center text-gray-200 rounded-lg bg-blue-600 hover:bg-blue-700" do %>
-                <svg class="w-6 h-6 text-gray-200" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.779 17.779 4.36 19.918 6.5 13.5m4.279 4.279 8.364-8.643a3.027 3.027 0 0 0-2.14-5.165 3.03 3.03 0 0 0-2.14.886L6.5 13.5m4.279 4.279L6.499 13.5m2.14 2.14 6.213-6.504M12.75 7.04 17 11.28"/>
-                </svg>
-              <% end %>
-              <!--Delete Button-->
-              <%= button_to pill_path(pill), class: "inline-flex items-center px-3 py-2 text-sm font-medium text-center text-gray-200 rounded-lg bg-red-600 hover:bg-red-700", method: :delete, data: { turbo_confirm: "Are you sure?" } do %>
-                <svg class="w-6 h-6 text-gray-200" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 7h14m-9 3v8m4-8v8M10 3h4a1 1 0 0 1 1 1v3H9V4a1 1 0 0 1 1-1ZM6 7h12v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7Z"/>
-                </svg>
-              <% end %>
+    <div class="flex flex-col sm:flex-row sm:flex-wrap w-fit">
+      <% @pills.each do |group, pills| %>
+        <div class="flex flex-col items-center sm:flex-grow bg-slate-700 rounded-md m-4 p-2">
+          <h3><%= group %></h3>
+          <% pills.each do |pill| %>
+            <div class="bg-slate-800 w-fit rounded-md m-2 p-4">
+              <!--Pill component-->
+              <%= render PillComponent.new(skill: pill.skill, version: pill.version, version_color: pill.version_color) %>
+              <div class="flex justify-between pt-2">
+                <!--Edit link-->
+                <%= link_to edit_milk_admin_pill_path(pill), class: "inline-flex items-center py-2 px-3 text-sm font-medium text-center text-gray-200 rounded-lg bg-blue-600 hover:bg-blue-700" do %>
+                  <svg class="w-6 h-6 text-gray-200" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.779 17.779 4.36 19.918 6.5 13.5m4.279 4.279 8.364-8.643a3.027 3.027 0 0 0-2.14-5.165 3.03 3.03 0 0 0-2.14.886L6.5 13.5m4.279 4.279L6.499 13.5m2.14 2.14 6.213-6.504M12.75 7.04 17 11.28"/>
+                  </svg>
+                <% end %>
+                <!--Delete Button-->
+                <%= button_to milk_admin_pill_path(pill), class: "inline-flex items-center px-3 py-2 text-sm font-medium text-center text-gray-200 rounded-lg bg-red-600 hover:bg-red-700", method: :delete, data: { turbo_confirm: "Are you sure?" } do %>
+                  <svg class="w-6 h-6 text-gray-200" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 7h14m-9 3v8m4-8v8M10 3h4a1 1 0 0 1 1 1v3H9V4a1 1 0 0 1 1-1ZM6 7h12v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7Z"/>
+                  </svg>
+                <% end %>
+              </div>
             </div>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
   </div>
 
 
