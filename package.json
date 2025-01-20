@@ -1,7 +1,7 @@
 {
   "name": "milk_lab",
   "engines": {
-    "node": "22.x"
+    "node": "18.x"
   },
   "dependencies": {
     "@rails/actiontext": "^8.0.0",
