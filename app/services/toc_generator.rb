@@ -27,7 +27,7 @@ class TocGenerator
     toc = generate_toc(headings)
     modified_body = modify_headings_with_ids(headings, doc)
 
-    { toc: toc.html_safe, body: modified_body.html_safe }
+    { toc: toc.to_s, body: modified_body.to_s }
   end
 
   private
@@ -64,6 +64,6 @@ class TocGenerator
       id = heading.text.gsub(/\s+/, "-").downcase
       heading["id"] = id unless heading["id"] # Only set id if it doesn't exist
     end
-    doc.to_html
+    doc.to_s
   end
 end

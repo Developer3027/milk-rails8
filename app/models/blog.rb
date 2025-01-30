@@ -52,7 +52,7 @@ class Blog < ApplicationRecord
   # This process_body method is handled by the TocGenerator service.
   def process_body
     # Extract the HTML content from the rich text body
-    body_content = content.to_trix_html
+    body_content = content.to_s
 
     # Use the service to generate TOC and modify body content
     result = TocGenerator.new(body_content).generate

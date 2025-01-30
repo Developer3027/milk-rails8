@@ -36,6 +36,9 @@ resources :blogs, only: [ :index, :show ], controller: "blogs" do
   end
 end
 
+# Music Found routes
+resources :music_found, only: [ :index ], controller: "music_found"
+
 
   # public resume route
   get "resume", to: "static_pages#resume", as: :resume

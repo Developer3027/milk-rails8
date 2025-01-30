@@ -85,7 +85,7 @@ class MilkAdmin::BlogsController < ApplicationController
     @blog.milk_admin_id = current_milk_admin.id
     respond_to do |format|
       if @blog.update(blog_params)
-        @blog.process_body  # Call process_body to ensure TOC and body are updated
+        # @blog.process_body  # Call process_body to ensure TOC and body are updated
         set_image_url(@blog) if @blog.blog_image.attached?
         format.html { redirect_to milk_admin_blogs_path, notice: "Blog was successfully updated." }
         format.json { render :show, status: :created, location: @blog }

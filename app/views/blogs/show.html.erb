@@ -30,6 +30,9 @@
           <span class="bg-input-border rounded-full px-5">Category: <%= @blog.blog_category.title %></span>
         </div>
       </div>
+      <div>
+        <%= @blog.toc %>
+      </div>
       <div class="max-w-4xl my-3 mx-1 px-1">
         <%= @blog.content %>
       </div>
