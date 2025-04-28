@@ -16,6 +16,9 @@
 # Ignore all environment files.
 /.env*
 
+# Ignore the notes file.
+/notes.md
+
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*

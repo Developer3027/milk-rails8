@@ -5,7 +5,10 @@
     <div class="flex justify-evenly items-center w-full lg:max-w-4xl">
       <!-- //? Left section links home -->
       <div class="flex justify-center items-center ms-4">
-        <%= link_to root_path do %>
+        <%= link_to root_path, class: "p-2 rounded-full bg-base-dark items-center me-2" do %>
+          <%= image_tag "MILK8.png", alt: "hermit plus logo", class: "w-10" %>
+        <% end %>
+        <%= link_to hermits_path do %>
           <span class="w-1/2 md:w-4/6 lg:w-full font-kanit text-3xl font-extrabold text-hermit-yellow drop-shadow-dark">Hermit Plus</span>
         <% end %>
       </div>
@@ -13,7 +16,6 @@
       <div class="flex flex-grow justify-end items-center me-4">
         <ul class="flex space-x-4 font-kanit text-hermit-yellow">
           <li class="hidden md:flex"><%= link_to "Season 8", root_path %></li>
-          <li class="hidden md:flex"><%= link_to "Sign In", root_path %></li>
         </ul>
         <button class="md:hidden pb-1 w-6" role="button" aria-label="menu" data-action="click->navbar#toggleMenu">&#9776</button>
       </div>
@@ -24,9 +26,6 @@
     <ul class="flex flex-col py-2 px-3">
       <%= link_to root_path do %>
         <li class="flex border p-2 my-1 rounded-sm">Season 8</li>
-      <% end %>
-      <%= link_to root_path + "#contact" do %>
-        <li class="flex border p-2 my-1 rounded-sm">Sign In</li>
       <% end %>
     </ul>
   </nav>

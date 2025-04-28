@@ -96,3 +96,53 @@ BlogCategory.create!(title: "Base Web", description: "Base Web is a set of speci
 
 # Log Categories
 p "Created #{BlogCategory.count} Categories"
+
+# Delete Hermits
+Hermit.destroy_all
+p "#{Hermit.count} Hermits left"
+
+# Path to the seed images
+image_path = Rails.root.join("db", "images")
+
+# Seed some Hermits
+bdub_hermit = Hermit.create!(
+  first_name: "John",
+  last_name: "Booko",
+  alias: "bdouble100",
+  alias_image_alt: "B dubs info banner",
+  nick_name: "bdubs",
+  subs: "1.73",
+  quote: "Gotta Shweep",
+  info: "Bdouble0100, otherwise known as Bdouble0 or Bdubs, has been a hermit since 2013 when he joined up in season 5. Part of the B-Team, and NHO, Bdubs had a great season. He really took to the jungle and built an amazing tree with a massive glass dome. His builds  are just as impressive as the mayhem he brings. An amazing builder who is always up for anything. He has an obession with sleeping at dusk and always knows the time.",
+  youtube: "https://youtube.com/bdoubleo",
+  twitch: "https://www.twitch.tv/BdoubleO100",
+  instagram: "https://www.instagram.com/bdoubleoinsta/",
+  patreon: "https://www.patreon.com/BdoubleO100",
+  skin_alt: "B dubs minecraft skin",
+  face_alt: "That big eye, anime face we love",
+  avatar_url:
+    "https://yt3.ggpht.com/ytc/AKedOLQS_kfkNT9Sq16v8aFJhEDE65vjCYNy9s0DjT5zGg=s88-c-k-c0x00ffffff-no-rj",
+  banner_url:
+    "https://yt3.ggpht.com/R53VE4obsKPmDY_xPTfIKyeh3Z7IezoNQ2SNqTlVc6lbFXA12j3CLxIySPTh4WHgX_r-qJwU=w1060-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj"
+)
+
+# Attach images
+bdub_hermit.alias_image.attach(io: File.open(image_path.join("bdubsInfoBannerText.png")), filename: "bdubsInfoBannerText.png", content_type: "image/png")
+bdub_hermit.skin_image.attach(io: File.open(image_path.join("bdouble_minecraft_skin.png")), filename: "bdouble_minecraft_skin.png", content_type: "image/png")
+bdub_hermit.face_image.attach(io: File.open(image_path.join("bdouble-face.png")), filename: "bdouble-face.png", content_type: "image/png")
+
+# Video for specific hermit
+HermitVideo.create!(
+  hermit: bdub_hermit,
+  thumbnail_url: "https://i.ytimg.com/vi/JK7tfMkMYmQ/maxresdefault.jpg",
+  youtube_video_id: "JK7tfMkMymQ",
+  title: "Bdouble O, Season 8, Episode 1",
+  season: 8,
+  episode: 1
+)
+
+# Save the record with attachments
+bdub_hermit.save!
+
+# Log Hermits
+p "Created #{Hermit.count} Hermits"

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   # get "hermits/index"
   # get "swabbies/home"
   get "static_pages/plan"
@@ -7,7 +8,6 @@ Rails.application.routes.draw do
   # root for milk admin
   authenticated :milk_admin do
     root to: "milk_admin#dashboard", as: :milk_admin_root
-    # resources :blogs
   end
 
   # Admin Routes
@@ -26,6 +26,12 @@ Rails.application.routes.draw do
       end
     end
 
+    resources :songs, only: [ :index, :new, :create, :edit, :update, :destroy ] do
+      member do
+        delete [ :destroy_image, :destroy_file ]
+      end
+    end
+
     resources :pills, only: [ :index, :new, :create, :edit, :update, :destroy ]
   end
 
@@ -36,14 +42,18 @@ resources :blogs, only: [ :index, :show ], controller: "blogs" do
   end
 end
 
-# Music Found routes
-resources :music_found, only: [ :index ], controller: "music_found"
+# Public Zuke routes
+resources :zuke, only: [ :index ], controller: "zuke" do
+  collection do
+    get "music", to: "zuke#music", as: :music_list  # This creates the route for /zuke/music
+  end
+end
 
 
-  # public resume route
-  get "resume", to: "static_pages#resume", as: :resume
+  # public music found for projects route
+  # get "music-found", to: "music_found#index", as: :musicfound
   # root for hermits
-  get "hermit-plus", to: "hermit_plus#index", as: :hermits
+  get "hermit-plus", to: "hermit_plus#landing", as: :hermits
   # root for swabbies
   get "swabbies", to: "swabbies#index", as: :swabbies
   # root for saltandtar
