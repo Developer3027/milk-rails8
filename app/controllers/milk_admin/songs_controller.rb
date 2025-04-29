@@ -198,7 +198,7 @@ class MilkAdmin::SongsController < ApplicationController
   # @note The default host url is set in the application controller.
   def set_image_url(song)
     if song.song_image.attached?
-      song.update(image_url: Rails.application.routes.url_helpers.url_for(song.song_image))
+      song.update(image_url: song.song_image.url)
     end
   end
 
@@ -212,7 +212,7 @@ class MilkAdmin::SongsController < ApplicationController
   # @note The default host url is set in the application controller.
   def set_file_url(song)
     if song.song_file.attached?
-      song.update(file_url: Rails.application.routes.url_helpers.url_for(song.song_file))
+      song.update(file_url: song.song_file.url)
     end
   end
 end

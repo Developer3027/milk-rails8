@@ -3,6 +3,16 @@ require "active_support/core_ext/integer/time"
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  # Configure default URL options for route helpers
+  config.action_controller.default_url_options = {
+    host: ENV.fetch("HOST", "milk-00-aa48920a95b8.herokuapp.com"),
+    protocol: "https"
+  }
+  Rails.application.routes.default_url_options = config.action_controller.default_url_options
+
+  # Add this for asset hosting if you want to serve assets directly from S3
+  config.action_controller.asset_host = "https://#{ENV.fetch('AWS_BUCKET')}.s3.#{ENV.fetch('AWS_REGION')}.amazonaws.com"
+
   # Code is not reloaded between requests.
   config.enable_reloading = false
 

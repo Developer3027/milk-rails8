@@ -3,7 +3,7 @@
     <% @songs.each do |song| %>
       <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 m-2 w-48">
           <a href="#">
-              <%= image_tag song.song_image, class: "rounded-t-lg w-48", alt: song.title if song.song_image.present? %>
+              <%= image_tag song.song_image, class: "rounded-t-lg w-48", alt: song.title if song.song_image.attached? %>
           </a>
           <div class="flex justify-between item-center p-2">
               <a href="#">
@@ -11,7 +11,7 @@
                   <%= song.title %>
                 </p>
               </a>
-              <%= render partial: "zuke/partial/play", locals: { controller_name: "music", song: song } %>
+              <%= render partial: "zuke/partial/play", locals: { controller_name: "music", song: song } if song.song_file.attached? %>
               <%= song.id %>
           </div>
       </div>
