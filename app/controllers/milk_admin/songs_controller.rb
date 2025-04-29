@@ -198,7 +198,9 @@ class MilkAdmin::SongsController < ApplicationController
   # @note The default host url is set in the application controller.
   def set_image_url(song)
     if song.song_image.attached?
-      song.update(image_url: song.song_image.url)
+      blob = song.song_image.blob
+      s3_url = "https://milk-blog.s3.us-east-2.amazonaws.com/#{blob.key}"
+      song.update(image_url: s3_url)
     end
   end
 
@@ -212,7 +214,9 @@ class MilkAdmin::SongsController < ApplicationController
   # @note The default host url is set in the application controller.
   def set_file_url(song)
     if song.song_file.attached?
-      song.update(file_url: song.song_file.url)
+      blob = song.song_file.blob
+      s3_url = "https://milk-blog.s3.us-east-2.amazonaws.com/#{blob.key}"
+      song.update(file_url: s3_url)
     end
   end
 end
