@@ -11,7 +11,7 @@ Rails.application.configure do
   Rails.application.routes.default_url_options = config.action_controller.default_url_options
 
   # Add this for asset hosting if you want to serve assets directly from S3
-  config.action_controller.asset_host = "https://milk-blog.s3.us-east-2.amazonaws.com"
+  # config.action_controller.asset_host = "https://milk-blog.s3.us-east-2.amazonaws.com"
 
   # Code is not reloaded between requests.
   config.enable_reloading = false
