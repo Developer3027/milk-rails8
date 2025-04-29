@@ -1,20 +1,6 @@
 <section class="w-full text-base-dark bg-slate-200 py-4">
   <div class="max-w-4xl mx-auto">
     <div class="flex flex-col items-center bg-slate-50 rounded-md px-2">
-      <!-- Blog Header -->
-      <div class="border-b-4 border-base-dark w-full py-5">
-        <%= link_to blogs_path do %>
-          <h1 class="font-bold text-xl">
-            MILK-00 Blog Articles
-          </h1>
-        <% end %>
-        <p>
-          Find me on <%= link_to "SubStack", "https://masonroberts.substack.com/", target: "_blank", class: "font-medium text-milk-dark underline" %>
-        </p>
-        <p>
-          <i>Welcome to the ramblings of my learning journey.</i>
-        </p>
-      </div>
       <h1 class="font-bold text-xl md:text-2xl p-4">
         <%= @blog.title %>
       </h1>
