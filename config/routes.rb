@@ -28,7 +28,8 @@ Rails.application.routes.draw do
 
     resources :songs, only: [ :index, :new, :create, :edit, :update, :destroy ] do
       member do
-        delete [ :destroy_image, :destroy_file ]
+        delete :destroy_image
+        delete :destroy_file
       end
     end
 
