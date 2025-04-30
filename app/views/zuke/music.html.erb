@@ -1,17 +1,16 @@
 <section class="mt-14 text-zinc-100 pb-16">
-  <div class="flex flex-wrap justify-center items-center min-h-screen">
-    <% @songs.each do |song| %>
-      <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 m-1 w-48">
-          <a href="#">
-              <%= image_tag song.song_image, class: "rounded-t-lg w-48", alt: song.title if song.song_image.attached? %>
-          </a>
-          <div class="flex justify-between item-center p-2">
-              <a href="#" class="flex text-sm font-normal tracking-tight text-gray-400 items-center">
-                <%= song.title %>
-              </a>
-              <%= render partial: "zuke/partial/play", locals: { controller_name: "music", song: song } if song.song_file.attached? %>
-          </div>
-      </div>
-    <% end %>
-  </div>
+  <% if @view_mode == 'list' %>
+    <div class="max-w-4xl mx-auto">
+      <% @songs.each do |song| %>
+        <%= render partial: "zuke/partial/song_display", locals: { song: song, view_mode: @view_mode } %>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="flex flex-wrap justify-center items-center min-h-screen">
+      <% @songs.each do |song| %>
+        <%= render partial: "zuke/partial/song_display", locals: { song: song, view_mode: @view_mode } %>
+      <% end %>
+    </div>
+  <% end %>
 </section>
+
