@@ -155,3 +155,5 @@ Do you need to organize your data? Do you need a better way to search within you
 **blog** - standard, advanced, professional RoR / React, Express / React, Rails
 
 Do you love to write or perhaps teach? Do you need a better way to communicate with your fans, group, loved ones, or maybe you just need a better way to collect those thoughts. There is a lot to do here. This will require a frontend and backend with database integration. Lot's of functionality for both the customer and the admin.
+
+ 

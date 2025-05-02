@@ -195,7 +195,7 @@ class MilkAdmin::SongsController < ApplicationController
   # @note This method is called after creating or updating a song when the song has an associated image.
   # @note This method is called by the before_action callback in the SongController and is used by
   # multiple actions in the controller to fetch the song related to the current request.
-  # @note The default host url is set in the application controller.
+  # @note The default host url is still set in the application controller.
   def set_image_url(song)
     if song.song_image.attached?
       blob = song.song_image.blob
