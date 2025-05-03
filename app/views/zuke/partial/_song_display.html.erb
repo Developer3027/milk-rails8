@@ -9,7 +9,7 @@
         <p class="text-xs text-gray-500 truncate"><%= song.album %></p>
       </div>
     </div>
-    <%= render partial: "zuke/partial/play", locals: { controller_name: "music", song: song } if song.song_file.attached? %>
+    <%= render partial: "zuke/partial/play", locals: { controller_name: "music--song", song: song } if song.song_file.attached? %>
   </div>
 <% else %>
   <!-- Card View -->
@@ -21,7 +21,7 @@
       <a href="#" class="flex text-sm font-normal tracking-tight text-gray-400 items-center">
         <%= song.title %>
       </a>
-      <%= render partial: "zuke/partial/play", locals: { controller_name: "music", song: song } if song.song_file.attached? %>
+      <%= render partial: "zuke/partial/play", locals: { controller_name: "music--song", song: song } if song.song_file.attached? %>
     </div>
   </div>
 <% end %>
