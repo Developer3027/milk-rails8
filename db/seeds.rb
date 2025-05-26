@@ -1,10 +1,7 @@
 # Seed file for music production
 
 # Clear existing data (optional - only if you want to start fresh)
-# Artist.destroy_all
-# Album.destroy_all
-# Song.destroy_all
-# Genre.destroy_all
+[ SongGenre, Song, Album, Artist, Genre ].each(&:destroy_all)
 
 artists_data = [
   {
@@ -88,30 +85,44 @@ artists_data = [
       }
     ]
   },
-  {
-    name: "Heavy Metal",
-    image_url: "https://milk-blog.s3.us-east-2.amazonaws.com/a8d3na2ck8ao25xbt1jfx0bxr8qa",
-    albums: [
-      {
-        title: "Heavy Metal",
-        release_year: 2016,
-        genre_name: "Rock",
-        cover_art_url: "https://milk-blog.s3.us-east-2.amazonaws.com/hhlnkt4rcmk2w36xe9nfp7z05dqk",
-        songs: [
-          {
-            title: "Blue Lamp",
-            song_image_url: "https://milk-blog.s3.us-east-2.amazonaws.com/njwo4meuarhaoun0tg29vlgveetf",
-            song_file_url: "https://milk-blog.s3.us-east-2.amazonaws.com/41spw5lzx1s1t34yf1ovpdqkqyag"
-          },
-          {
-            title: "All-Of-You",
-            song_image_url: "https://milk-blog.s3.us-east-2.amazonaws.com/qan4gq6qwmay9jmlsvdwaigc379z",
-            song_file_url: "https://milk-blog.s3.us-east-2.amazonaws.com/y8w4cbxk1u7vxhlni9or0al6i32v"
-          }
-        ]
-      }
-    ]
-  },
+  # {
+  #   name: "Stevie Nicks",
+  #   image_path: "stevie_nicks/stevie_nicks-artist.jpeg",
+  #   albums: [
+  #     {
+  #       title: "Heavy Metal",
+  #       release_year: 2016,
+  #       genre_name: "Rock",
+  #       cover_art_path: "stevie_nicks/heavy_metal-album.jpeg",
+  #       songs: [
+  #         {
+  #           title: "Blue Lamp",
+  #           song_image_path: "stevie_nicks/heavy-metal.jpg",
+  #           song_file_path: "stevie_nicks/blue-lamp.mp3"
+  #         }
+  #       ]
+  #     }
+  #   ]
+  # },
+  # {
+  #   name: "Don Felder",
+  #   image_path: "don_felder/don_felder-artist.jpeg",
+  #   albums: [
+  #     {
+  #       title: "Heavy Metal",
+  #       release_year: 2016,
+  #       genre_name: "Rock",
+  #       cover_art_path: "don_felder/heavy_metal-album.jpeg",
+  #       songs: [
+  #         {
+  #           title: "All-Of-You",
+  #           song_image_path: "don_felder/heavy-metal.jpg",
+  #           song_file_path: "don_felder/All-Of-You.mp3"
+  #         }
+  #       ]
+  #     }
+  #   ]
+  # },
   {
     name: "Kaskade",
     image_url: "https://milk-blog.s3.us-east-2.amazonaws.com/b0vjjnk5xf9a2kbpwgf6zgwp8qxh",
@@ -171,12 +182,15 @@ artists_data.each do |artist_data|
 
     album_data[:songs].each do |song_data|
       # Create the song
-      Song.find_or_create_by!(title: song_data[:title], album: album, artist: artist) do |s|
+      song = Song.find_or_create_by!(title: song_data[:title], album: album, artist: artist) do |s|
         s.song_image_url = song_data[:song_image_url]
         s.song_file_url = song_data[:song_file_url]
       end
+
+      # Create SongGenre association
+      SongGenre.find_or_create_by!(song: song, genre: genre)
     end
   end
 end
 
-puts "Seeded #{Artist.count} artists, #{Album.count} albums, and #{Song.count} songs"
+puts "Seeded #{Artist.count} artists, #{Album.count} albums, and #{Song.count} songs with #{Genre.count} genres."
