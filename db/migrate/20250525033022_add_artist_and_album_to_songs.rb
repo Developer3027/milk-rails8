@@ -1,5 +1,6 @@
-# db/migrate/XXXXXX_add_artist_and_album_to_songs.rb
-def change
-  add_reference :songs, :artist, foreign_key: true, null: true  # Allow null temporarily
-  add_reference :songs, :album, foreign_key: true, null: true  # Allow null temporarily
+class AddArtistAndAlbumToSongs < ActiveRecord::Migration[8.0]
+  def change
+    add_reference :songs, :artist, null: true, foreign_key: true
+    add_reference :songs, :album, null: true, foreign_key: true
+  end
 end
