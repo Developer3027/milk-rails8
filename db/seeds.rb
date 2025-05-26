@@ -1,10 +1,10 @@
 # Seed file for music production
 
 # Clear existing data (optional - only if you want to start fresh)
-Artist.destroy_all
-Album.destroy_all
-Song.destroy_all
-Genre.destroy_all
+# Artist.destroy_all
+# Album.destroy_all
+# Song.destroy_all
+# Genre.destroy_all
 
 artists_data = [
   {
