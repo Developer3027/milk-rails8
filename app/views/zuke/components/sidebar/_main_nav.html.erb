@@ -1,0 +1,22 @@
+<div class="flex flex-col p-4">
+  <h2 class="kanit">Menu</h2>
+  <hr class="mb-3">
+  <ul class="kanit">
+    <!-- Uses sidebar_link_to helper -->
+    <%= sidebar_link_to "Home", # Link text
+                        music_list_zuke_index_path,
+                        "home", # Icon name
+                        data: { turbo_frame: "music-frame" } %>
+    
+    <%= sidebar_link_to "Artist", 
+                        music_artists_zuke_index_path, 
+                        "crown", 
+                        data: { turbo_frame: "music-frame" } %>
+
+    <%= sidebar_link_to "Genres", 
+                        music_genres_zuke_index_path, 
+                        "tag", 
+                        data: { turbo_frame: "music-frame" } %>
+
+  </ul>
+</div>

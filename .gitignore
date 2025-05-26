@@ -10,6 +10,9 @@
 # Ignore vendor/bundle
 /vendor/bundle/*
 
+# ignore music files
+/db/music_files/*
+
 # Ignore bundler config.
 /.bundle
 

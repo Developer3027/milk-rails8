@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_02_18_021513) do
+ActiveRecord::Schema[8.0].define(version: 2025_05_25_033022) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -52,6 +52,25 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_18_021513) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "albums", force: :cascade do |t|
+    t.string "title"
+    t.integer "release_year"
+    t.string "cover_art_url"
+    t.bigint "genre_id", null: false
+    t.bigint "artist_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["artist_id"], name: "index_albums_on_artist_id"
+    t.index ["genre_id"], name: "index_albums_on_genre_id"
+  end
+
+  create_table "artists", force: :cascade do |t|
+    t.string "name"
+    t.string "image_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "blog_categories", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -81,6 +100,12 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_18_021513) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "genres", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "hermit_videos", force: :cascade do |t|
     t.string "youtube_video_id"
     t.string "thumbnail_url"
@@ -97,7 +122,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_18_021513) do
     t.string "first_name"
     t.string "last_name"
     t.string "alias"
-    t.string "alias_image_url"
     t.string "alias_image_alt"
     t.string "nick_name"
     t.float "subs"
@@ -113,6 +137,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_18_021513) do
     t.string "banner_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "alias_image_url"
   end
 
   create_table "milk_admins", force: :cascade do |t|
@@ -165,14 +190,23 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_18_021513) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "song_genres", force: :cascade do |t|
+    t.bigint "song_id", null: false
+    t.bigint "genre_id", null: false
+    t.index ["genre_id"], name: "index_song_genres_on_genre_id"
+    t.index ["song_id"], name: "index_song_genres_on_song_id"
+  end
+
   create_table "songs", force: :cascade do |t|
-    t.string "artist"
-    t.string "album"
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "image_url"
-    t.string "file_url"
+    t.string "song_image_url"
+    t.string "song_file_url"
+    t.bigint "artist_id", null: false
+    t.bigint "album_id", null: false
+    t.index ["album_id"], name: "index_songs_on_album_id"
+    t.index ["artist_id"], name: "index_songs_on_artist_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -189,9 +223,15 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_18_021513) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "albums", "artists"
+  add_foreign_key "albums", "genres"
   add_foreign_key "blogs", "blog_categories"
   add_foreign_key "blogs", "milk_admins"
   add_foreign_key "hermit_videos", "hermits"
   add_foreign_key "pills", "resumes"
   add_foreign_key "projects", "resumes"
+  add_foreign_key "song_genres", "genres"
+  add_foreign_key "song_genres", "songs"
+  add_foreign_key "songs", "albums"
+  add_foreign_key "songs", "artists"
 end

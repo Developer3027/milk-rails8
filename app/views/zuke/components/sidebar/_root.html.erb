@@ -1,0 +1,9 @@
+<div data-controller="music--sidebar" 
+     data-action="click@window->music--sidebar#closeMenu"
+     class="w-40 min-h-screen bg-[#91A2B4] text-[#1E1E1E] top-0 left-0 relative" >
+  <nav class="flex flex-col justify-between h-fit">
+    <%= render "zuke/components/sidebar/header" %>
+    <%= render "zuke/components/sidebar/dropdown_menu" %>
+    <%= render "zuke/components/sidebar/main_nav" %>
+  </nav>
+</div>
