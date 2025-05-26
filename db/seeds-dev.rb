@@ -299,24 +299,38 @@ artists_data = [
     ]
   },
   {
-    name: "Heavy Metal",
-    image_path: "heavy_metal/heavy_metal-artist.jpeg",
+    name: "Stevie Nicks",
+    image_path: "stevie_nicks/stevie_nicks-artist.jpeg",
     albums: [
       {
         title: "Heavy Metal",
         release_year: 2016,
         genre_name: "Rock",
-        cover_art_path: "heavy_metal/heavy-metal.jpg",
+        cover_art_path: "stevie_nicks/heavy_metal-album.jpeg",
         songs: [
           {
             title: "Blue Lamp",
-            song_image_path: "heavy_metal/heavy-metal.jpg",
-            song_file_path: "heavy_metal/blue-lamp.mp3"
-          },
+            song_image_path: "stevie_nicks/heavy-metal.jpg",
+            song_file_path: "stevie_nicks/blue-lamp.mp3"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    name: "Don Felder",
+    image_path: "don_felder/don_felder-artist.jpeg",
+    albums: [
+      {
+        title: "Heavy Metal",
+        release_year: 2016,
+        genre_name: "Rock",
+        cover_art_path: "don_felder/heavy_metal-album.jpeg",
+        songs: [
           {
             title: "All-Of-You",
-            song_image_path: "heavy_metal/heavy-metal.jpg",
-            song_file_path: "heavy_metal/All-Of-You.mp3"
+            song_image_path: "don_felder/heavy-metal.jpg",
+            song_file_path: "don_felder/All-Of-You.mp3"
           }
         ]
       }
