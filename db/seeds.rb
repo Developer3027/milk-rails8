@@ -171,7 +171,7 @@ artists_data.each do |artist_data|
 
     album_data[:songs].each do |song_data|
       # Create the song
-      Song.find_or_create_by!(title: song_data[:title], album: album) do |s|
+      Song.find_or_create_by!(title: song_data[:title], album: album, artist: artist) do |s|
         s.song_image_url = song_data[:song_image_url]
         s.song_file_url = song_data[:song_file_url]
       end
