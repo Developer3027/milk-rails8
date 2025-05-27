@@ -115,7 +115,7 @@ artists_data = [
         cover_art_path: "https://milk-blog.s3.us-east-2.amazonaws.com/music/don_felder/heavy_metal-album.jpeg",
         songs: [
           {
-            title: "All-Of-You",
+            title: "All Of You",
             song_image_path: "https://milk-blog.s3.us-east-2.amazonaws.com/music/don_felder/heavy-metal.jpg",
             song_file_path: "https://milk-blog.s3.us-east-2.amazonaws.com/music/don_felder/All-Of-You.mp3"
           }
