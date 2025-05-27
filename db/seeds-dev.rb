@@ -361,14 +361,27 @@ artists_data = [
     albums: [
       {
         title: "The Paradigm Shift",
-        release_year: 2014,
-        genre_name: "Rock",
-        cover_art_path: "Korn/paradigm-shift.jpg",
+        release_year: 2013,
+        genre_name: "Metal",
+        cover_art_path: "Korn/The Paradigm Shift/spike in my veins.jpeg",
         songs: [
           {
             title: "Spike in My Veins",
-            song_image_path: "Korn/spike in my veins.jpeg",
-            song_file_path: "Korn/Spike in My Veins.mp3"
+            song_image_path: "Korn/The Paradigm Shift/spike in my veins.jpeg",
+            song_file_path: "Korn/The Paradigm Shift/Spike in My Veins.mp3"
+          }
+        ]
+      },
+      {
+        title: "Untitled",
+        release_year: 2007,
+        genre_name: "RMetal",
+        cover_art_path: "Korn/untitled/evolution.png",
+        songs: [
+          {
+            title: "Evolution",
+            song_image_path: "Korn/untitled/evolution.png",
+            song_file_path: "Korn/untitled/evolution.mp3"
           }
         ]
       }
@@ -394,6 +407,63 @@ artists_data = [
     ]
   },
   {
+    name: "Linkin Park",
+    image_path: "linkin park/Linkin_Park-artist.jpeg",
+    albums: [
+      {
+        title: "From Zero",
+        release_year: 2024,
+        genre_name: "Alt Rock",
+        cover_art_path: "linkin park/From Zero/from zero.jpeg",
+        songs: [
+          {
+            title: "heavy is the crown",
+            song_image_path: "linkin park/from zero/from zero.jpeg",
+            song_file_path: "linkin park/from zero/heavy is the crown.mp3"
+          },
+          {
+            title: "tow faced",
+            song_image_path: "linkin park/from zero/from zero.jpeg",
+            song_file_path: "linkin park/from zero/two faced.mp3"
+          }
+        ]
+      },
+      {
+        title: "Reanimation",
+        release_year: 2002,
+        genre_name: "Alt Rock",
+        cover_art_path: "linkin park/reanimation/reanimation.png",
+        songs: [
+          {
+            title: "Frgt/10",
+            song_image_path: "linkin park/reanimation/reanimation.png",
+            song_file_path: "linkin park/reanimation/Frgt10.mp3"
+          },
+          {
+            title: "My<Dsmbr",
+            song_image_path: "linkin park/reanimation/reanimation.png",
+            song_file_path: "linkin park/reanimation/My<Dsmbr.mp3"
+          },
+          {
+            title: "opening",
+            song_image_path: "linkin park/reanimation/reanimation.png",
+            song_file_path: "linkin park/reanimation/opening.mp3"
+          },
+          {
+            title: "P5hng Mie A*wy",
+            song_image_path: "linkin park/reanimation/reanimation.png",
+            song_file_path: "linkin park/reanimation/P5hng Mie A*wy.mp3"
+          },
+          {
+            title: "ppr:kut",
+            song_image_path: "linkin park/reanimation/reanimation.png",
+            song_file_path: "linkin park/reanimation/ppr:kut.mp3"
+          }
+        ]
+      }
+    ]
+  },
+  {
     name: "Motley_Crue",
     image_path: "motley_crue/dr_feelgood-artist.jpeg",
     albums: [
@@ -407,6 +477,25 @@ artists_data = [
             title: "Dr. Feelgood",
             song_image_path: "motley_crue/Motley_Crue_-_Dr_Feelgood-front.jpg",
             song_file_path: "motley_crue/dr-feelgood.mp3"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    name: "Nevertel",
+    image_path: "nevertel/nevertel-artist.jpeg",
+    albums: [
+      {
+        title: "Sacrifice",
+        release_year: 2024,
+        genre_name: "Heavy Metal",
+        cover_art_path: "nevertel/nevertel_sacrifice.jpeg",
+        songs: [
+          {
+            title: "Sacrifice",
+            song_image_path: "nevertel/nevertel_sacrifice.jpeg",
+            song_file_path: "nevertel/sacrifice.mp3"
           }
         ]
       }
