@@ -493,7 +493,7 @@ artists_data = [
         cover_art_path: "nevertel/nevertel_sacrifice.jpeg",
         songs: [
           {
-            title: "Sacrifice",
+            title: "Sacrfice",
             song_image_path: "nevertel/nevertel_sacrifice.jpeg",
             song_file_path: "nevertel/sacrifice.mp3"
           }
