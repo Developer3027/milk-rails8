@@ -87,18 +87,18 @@ artists_data = [
   },
   {
     name: "Stevie Nicks",
-    image_path: "https://milk-blog.s3.us-east-2.amazonaws.com/music/stevie_nicks/stevie_nicks-artist.jpeg",
+    image_url: "https://milk-blog.s3.us-east-2.amazonaws.com/music/stevie_nicks/stevie_nicks-artist.jpeg",
     albums: [
       {
         title: "Heavy Metal",
         release_year: 2016,
         genre_name: "Rock",
-        cover_art_path: "https://milk-blog.s3.us-east-2.amazonaws.com/music/stevie_nicks/heavy_metal-album.jpeg",
+        cover_art_url: "https://milk-blog.s3.us-east-2.amazonaws.com/music/stevie_nicks/heavy_metal-album.jpeg",
         songs: [
           {
             title: "Blue Lamp",
-            song_image_path: "https://milk-blog.s3.us-east-2.amazonaws.com/music/stevie_nicks/heavy-metal.jpg",
-            song_file_path: "https://milk-blog.s3.us-east-2.amazonaws.com/music/stevie_nicks/blue-lamp.mp3"
+            song_image_url: "https://milk-blog.s3.us-east-2.amazonaws.com/music/stevie_nicks/heavy-metal.jpg",
+            song_file_url: "https://milk-blog.s3.us-east-2.amazonaws.com/music/stevie_nicks/blue-lamp.mp3"
           }
         ]
       }
@@ -106,18 +106,18 @@ artists_data = [
   },
   {
     name: "Don Felder",
-    image_path: "https://milk-blog.s3.us-east-2.amazonaws.com/music/don_felder/don_felder-artist.jpeg",
+    image_url: "https://milk-blog.s3.us-east-2.amazonaws.com/music/don_felder/don_felder-artist.jpeg",
     albums: [
       {
         title: "Heavy Metal",
         release_year: 2016,
         genre_name: "Rock",
-        cover_art_path: "https://milk-blog.s3.us-east-2.amazonaws.com/music/don_felder/heavy_metal-album.jpeg",
+        cover_art_url: "https://milk-blog.s3.us-east-2.amazonaws.com/music/don_felder/heavy_metal-album.jpeg",
         songs: [
           {
             title: "All Of You",
-            song_image_path: "https://milk-blog.s3.us-east-2.amazonaws.com/music/don_felder/heavy-metal.jpg",
-            song_file_path: "https://milk-blog.s3.us-east-2.amazonaws.com/music/don_felder/All-Of-You.mp3"
+            song_image_url: "https://milk-blog.s3.us-east-2.amazonaws.com/music/don_felder/heavy-metal.jpg",
+            song_file_url: "https://milk-blog.s3.us-east-2.amazonaws.com/music/don_felder/All-Of-You.mp3"
           }
         ]
       }
@@ -293,6 +293,25 @@ artists_data = [
             title: "Learning to Fly",
             song_image_url: "https://milk-blog.s3.us-east-2.amazonaws.com/music/Pink_Floyd/A+Momentary+Lapse+of+Reason/Screenshot+from+2025-05-26+20-31-37.png",
             song_file_url: "https://milk-blog.s3.us-east-2.amazonaws.com/music/Pink_Floyd/A+Momentary+Lapse+of+Reason/Learning+to+Fly.mp3"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    name: "KWM Music",
+    image_url: "https://milk-blog.s3.us-east-2.amazonaws.com/music/KWM_Music/kwm-artist.jpeg",
+    albums: [
+      {
+        title: "How Soon is Now",
+        release_year: 1987,
+        genre_name: "Rock",
+        cover_art_url: "https://milk-blog.s3.us-east-2.amazonaws.com/music/KWM_Music/how+soon+is+now.jpeg",
+        songs: [
+          {
+            title: "Signs of Life",
+            song_image_url: "https://milk-blog.s3.us-east-2.amazonaws.com/music/KWM_Music/how+soon+is+now.jpeg",
+            song_file_url: "https://milk-blog.s3.us-east-2.amazonaws.com/music/KWM_Music/How+Soon+is+Now.mp3"
           }
         ]
       }
