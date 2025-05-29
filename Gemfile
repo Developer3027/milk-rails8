@@ -77,3 +77,6 @@ gem "aws-sdk-s3", "~> 1.176"
 
 # ViewComponents
 gem "view_component"
+
+# Ransack
+gem "ransack"

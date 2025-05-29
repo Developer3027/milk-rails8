@@ -12,11 +12,17 @@
         <!-- Hidden -->
         <div class="hidden md:flex items-center flex-col w-1/6">
           <h2 class="font-bold py-5">Categories</h2>
-          <% @categories.each do |cat| %>
-            <ul>
-              <li class="">
-                <%= link_to cat.title %>
+          <%= search_form_for @q, url: blogs_path do |f| %>
+            <ul class="flex flex-col w-full justify-between items-start">
+              <li class="flex justify-between w-full hover:bg-gray-50 cursor-pointer">
+                <%= link_to "All Categories", blogs_path %>
               </li>
+              <% @categories.each do |category| %>
+                <li class="flex justify-between w-full hover:bg-gray-50 cursor-pointer">
+                  <%= link_to category.title, blogs_path(q: { blog_category_id_eq: category.id }) %>
+                  <span class="badge bg-primary rounded-pill"><%= category.blogs.count %></span>
+                </li>
+              <% end %>
             </ul>
           <% end %>
         </div>

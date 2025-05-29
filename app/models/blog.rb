@@ -45,6 +45,11 @@ class Blog < ApplicationRecord
     published_at? && published_at > Time.current
   end
 
+  def self.ransackable_attributes(auth_object = nil)
+    # List of attributes you want to allow searching on
+    %w[title subtitle published_at blog_category_id created_at updated_at]
+  end
+
   # Process the body content of a blog post by extracting the HTML content
   # from the rich text body, generating a table of contents from any headings,
   # and modifying the body content by adding ids to the headings so that they
