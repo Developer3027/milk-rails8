@@ -21,6 +21,15 @@ class ZukeController < ApplicationController
     render partial: "zuke/turbo_frames/artists", formats: [ :html ]
   end
 
+  def albums
+    # Load albums with their artists and songs
+    @albums = Album.includes(:artist, :songs)
+                   .order(:title)
+                   .group_by { |a| a.title.first.upcase }
+
+    render partial: "zuke/turbo_frames/albums", formats: [ :html ]
+  end
+
   # app/controllers/music_controller.rb
   def genres
     # Group songs by genre, including songs without a genre

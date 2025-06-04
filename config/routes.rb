@@ -49,6 +49,7 @@ resources :zuke, only: [ :index ], controller: "zuke" do
   collection do
     get "music", to: "zuke#music", as: :music_list  # This creates the route for /zuke/music
     get "artists", to: "zuke#artists", as: :music_artists
+    get "albums", to: "zuke#albums", as: :music_albums
     get "genres", to: "zuke#genres", as: :music_genres
     get "about", to: "zuke#about", as: :music_about
   end
@@ -67,6 +68,7 @@ end
   get "eastbound", to: "eastbounds#index", as: :eastbound
   # root for copywriter
   get "copywriter", to: "copywriter#index", as: :copywriter
+
 
   get "info", to: "static_pages#info", as: :info
 
