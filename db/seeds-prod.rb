@@ -22,7 +22,7 @@ artists_data = [
         ]
       }
     ]
-  },
+  }
   # {
   #   name: "David Lee Roth",
   #   image_url: "https://milk-blog.s3.us-east-2.amazonaws.com/azdybnxo2pwz9hlt6nmga6xeye1q",

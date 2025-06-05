@@ -59,31 +59,31 @@ Project.create!(short_title: "Hermit Plus",
                 short_description: "I love the Hermits of Hermitcraft. They are a colorful bunch that really push the ability of Minecraft. I think they need there own service. Enjoy.",
                 title: "Hermit Plus",
                 description: "Built early in my journey, this landing page was designed in Figma, built with React. That builds HTML, CSS, and JavaScript were set in a S3 bucket configured for a public web site, and ran through CloudFront for the Edge service. This is integrated into MILK-00.",
-                #code_path: "https://github.com/Developer3027/hermit-plus-old",
-                #design_path: "https://www.figma.com/design/1rA5nLglFEz6F1453wKwkG/Hermit-Plus?node-id=0-1&t=cqjJ5bHkDMbPFvxR-1",
-                #live_path: "https://www.hermitplus.com/")
+                # code_path: "https://github.com/Developer3027/hermit-plus-old",
+                # design_path: "https://www.figma.com/design/1rA5nLglFEz6F1453wKwkG/Hermit-Plus?node-id=0-1&t=cqjJ5bHkDMbPFvxR-1",
+                # live_path: "https://www.hermitplus.com/") # rubocop:disable Layout/CommentIndentation
 )
 Project.create!(short_title: "Salt and Tar",
                 short_description: "Love these guys and I decided to create the site I think they would enjoy. If you live there content like I do then like and subscribe.",
                 title: "Salt and Tar",
                 description: "I watch several sailing channels and would love to have then all in one place to enjoy. It would be even better is there was an online store for them where I can purchase the same products they use to build these beautiful vessels. Maybe be able to schedule a night cruise? Love you guys.",
-                #design_path: "https://www.figma.com/design/dCAzFHKupofhmKft0Anl5L/Salt-and-Tar?node-id=0-1&t=Y3P3CbVwRbm5QAt4-1",
-                #live_path: "This is integrated into MILK-00.")
+                # design_path: "https://www.figma.com/design/dCAzFHKupofhmKft0Anl5L/Salt-and-Tar?node-id=0-1&t=Y3P3CbVwRbm5QAt4-1",
+                # live_path: "This is integrated into MILK-00.") # rubocop:disable Layout/CommentIndentation
 )
 Project.create!(short_title: "Copywriter",
                 short_description: "Concept design integrated with a real world copywriter team. I love the design and modified it using there content. Example of what Rails can do.",
                 title: "Copywriter",
                 description: "Copywriter is an old Figma design that I found inspiration to dive back into. Site was designed and built in WordPress with Elementor. That work is lost. Found a copywriter team on Fiverr and am blending the two concepts. This project will have an internal email service at minimum.",
-                #code_path: "https://github.com/Developer3027/copywriter",
-                #design_path: "https://www.figma.com/design/BpH5fAxV5C06TYwTqBGxHB/Lisa-Benks?node-id=0-1&t=kFWGzNRfspBW7GWd-1")
+                # code_path: "https://github.com/Developer3027/copywriter",
+                # design_path: "https://www.figma.com/design/BpH5fAxV5C06TYwTqBGxHB/Lisa-Benks?node-id=0-1&t=kFWGzNRfspBW7GWd-1") # rubocop:disable Layout/CommentIndentation
 )
 
 Project.create!(short_title: "Zuke",
                 short_description: "Simple audio player for listening to the music I love. This site has a really modern look and great functionality. Modeled roughly from the Zune player.",
                 title: "Zuke",
                 description: "I want a player in the cloud that is a lot like my old Zune player. A place where I can upload my mp3 and listen to them. I want a little functionality like a EQ and some extras like you may see on Sound Cloud or Spotify. I have to credit Indego Tech Tutorials for the start of this project because his concept was a solid foundation.",
-                #code_path: "https://github.com/Developer3027/milk-rails8",
-                #design_path: "This is integrated into MILK-00.")
+                # code_path: "https://github.com/Developer3027/milk-rails8",
+                # design_path: "This is integrated into MILK-00.") # rubocop:disable Layout/CommentIndentation
 )
 # Log Projects
 p "Created #{Project.count} Projects"
@@ -656,7 +656,7 @@ artists_data.each do |artist_data|
 end
 
 # Now that all records are created and attachments are processed, set URLs
-[Artist, Album, Song].each do |model|
+[ Artist, Album, Song ].each do |model|
   model.find_each do |record|
     set_urls_for_record(record)
   end
@@ -731,275 +731,275 @@ puts "Seeding completed successfully!"
 #         ]
 #       }
 #     ]
-#   }
-  # {
-  #   name: "David Lee Roth",
-  #   image_url: "https://milk-blog.s3.us-east-2.amazonaws.com/azdybnxo2pwz9hlt6nmga6xeye1q",
-  #   albums: [
-  #     {
-  #       title: "Skyscraper",
-  #       release_year: 1988,
-  #       genre_name: "Hard Rock",
-  #       cover_art_url: "https://milk-blog.s3.us-east-2.amazonaws.com/9hodqq19l9yxxiuhplixo6cc4llk",
-  #       songs: [
-  #         {
-  #           title: "Hina",
-  #           song_image_url: "https://milk-blog.s3.us-east-2.amazonaws.com/37iw8fw4qy1c88e72e8ehijmx7m4",
-  #           song_file_url: "https://milk-blog.s3.us-east-2.amazonaws.com/oeh2m9zydf8n2jphz7b6pe1bcys3"
-  #         },
-  #         {
-  #           title: "Skyscraper",
-  #           song_image_url: "https://milk-blog.s3.us-east-2.amazonaws.com/jbu8uugz2agtlsy9ito9rujbdad2",
-  #           song_file_url: "https://milk-blog.s3.us-east-2.amazonaws.com/8ztwb3w1yi6dj4uex6o760qdb0vc"
-  #         }
-  #       ]
-  #     }
-  #   ]
-  # },
-  # {
-  #   name: "Dream on Dreamer",
-  #   image_url: "https://milk-blog.s3.us-east-2.amazonaws.com/1onawjda2x4gleu4mzzw2wdy5bbm",
-  #   albums: [
-  #     {
-  #       title: "It Comes and Goes",
-  #       release_year: 2018,
-  #       genre_name: "Rock",
-  #       cover_art_url: "https://milk-blog.s3.us-east-2.amazonaws.com/lrqa4ndcwk2tapyio4mcwpnbjxbr",
-  #       songs: [
-  #         {
-  #           title: "Runaway",
-  #           song_image_url: "https://milk-blog.s3.us-east-2.amazonaws.com/6vxmxdxcav1zw24vjt4sqi3ooizu",
-  #           song_file_url: "https://milk-blog.s3.us-east-2.amazonaws.com/1i47vv4q838wely9i3sc4zj1evl3"
-  #         }
-  #       ]
-  #     }
-  #   ]
-  # },
-  # {
-  #   name: "Aoshi",
-  #   image_url: "https://milk-blog.s3.us-east-2.amazonaws.com/iybac3ah0zvsvj46c7cwo0237swa",
-  #   albums: [
-  #     {
-  #       title: "Flutter",
-  #       release_year: 2016,
-  #       genre_name: "Electronic",
-  #       cover_art_url: "https://milk-blog.s3.us-east-2.amazonaws.com/u3ri4d0q9ga02g7k84ol1chfh97m",
-  #       songs: [
-  #         {
-  #           title: "Flutter",
-  #           song_image_url: "https://milk-blog.s3.us-east-2.amazonaws.com/7ggia9sx6okb7o46c8ybqog3rrrg",
-  #           song_file_url: "https://milk-blog.s3.us-east-2.amazonaws.com/zjni9q9u1uonjiasf8cl9jhierkd"
-  #         }
-  #       ]
-  #     }
-  #   ]
-  # },
-  # {
-  #   name: "Heavy Metal",
-  #   image_url: "https://milk-blog.s3.us-east-2.amazonaws.com/a8d3na2ck8ao25xbt1jfx0bxr8qa",
-  #   albums: [
-  #     {
-  #       title: "Heavy Metal",
-  #       release_year: 2016,
-  #       genre_name: "Rock",
-  #       cover_art_url: "https://milk-blog.s3.us-east-2.amazonaws.com/hhlnkt4rcmk2w36xe9nfp7z05dqk",
-  #       songs: [
-  #         {
-  #           title: "Blue Lamp",
-  #           song_image_url: "https://milk-blog.s3.us-east-2.amazonaws.com/njwo4meuarhaoun0tg29vlgveetf",
-  #           song_file_url: "https://milk-blog.s3.us-east-2.amazonaws.com/41spw5lzx1s1t34yf1ovpdqkqyag"
-  #         },
-  #         {
-  #           title: "All-Of-You",
-  #           song_image_url: "https://milk-blog.s3.us-east-2.amazonaws.com/qan4gq6qwmay9jmlsvdwaigc379z",
-  #           song_file_url: "https://milk-blog.s3.us-east-2.amazonaws.com/y8w4cbxk1u7vxhlni9or0al6i32v"
-  #         }
-  #       ]
-  #     }
-  #   ]
-  # },
-  # {
-  #   name: "Kaskade",
-  #   image_url: "https://milk-blog.s3.us-east-2.amazonaws.com/b0vjjnk5xf9a2kbpwgf6zgwp8qxh",
-  #   albums: [
-  #     {
-  #       title: "Strobelite Seduction",
-  #       release_year: 2008,
-  #       genre_name: "Electronic",
-  #       cover_art_url: "https://milk-blog.s3.us-east-2.amazonaws.com/yvoyeh37drdkfsctewa1y5gvdy06",
-  #       songs: [
-  #         {
-  #           title: "Move for Me",
-  #           song_image_url: "https://milk-blog.s3.us-east-2.amazonaws.com/jb7zlvoxhdzyvde2jrbepev6f4np",
-  #           song_file_url: "https://milk-blog.s3.us-east-2.amazonaws.com/eao2k8cgzwi5vl0nsonmgd3dftar"
-  #         }
-  #       ]
-  #     }
-  #   ]
-  # },
-  # {
-  #   name: "Korn",
-  #   image_url: "https://milk-blog.s3.us-east-2.amazonaws.com/omzvvg1cxacxcsxserubaslboboy",
-  #   albums: [
-  #     {
-  #       title: "The Paradigm Shift",
-  #       release_year: 2014,
-  #       genre_name: "Rock",
-  #       cover_art_url: "https://milk-blog.s3.us-east-2.amazonaws.com/h2bjg215g2xq7fla9tm45krffv1y",
-  #       songs: [
-  #         {
-  #           title: "Spike in My Veins",
-  #           song_image_url: "https://milk-blog.s3.us-east-2.amazonaws.com/oo2r3ljl4m04kdlo1q9u6hu985bh",
-  #           song_file_url: "https://milk-blog.s3.us-east-2.amazonaws.com/doyn7rwryl1befy81c464i8okqhy"
-  #         }
-  #       ]
-  #     }
-  #   ]
-  # },
-  # {
-  #   name: "The Smiths",
-  #   image_path: "music_files/KWM_Music/kwm-artist.jpeg",
-  #   albums: [
-  #     {
-  #       title: "Hatful of Hollow",
-  #       release_year: 1984,
-  #       genre_name: "Rock",
-  #       cover_art_path: "music_files/KWM_Music/how soon is now.jpeg",
-  #       songs: [
-  #         {
-  #           title: "How Soon is Now",
-  #           song_image_path: "music_files/KWM_Music/how soon is now.jpeg",
-  #           song_file_path: "music_files/KWM_Music/How Soon is Now.mp3"
-  #         }
-  #       ]
-  #     }
-  #   ]
-  # },
-  # {
-  #   name: "Motley_Crue",
-  #   image_path: "music_files/motley_crue/dr_feelgood-artist.jpeg",
-  #   albums: [
-  #     {
-  #       title: "Dr. Feelgood",
-  #       release_year: 1989,
-  #       genre_name: "Heavy Metal",
-  #       cover_art_path: "music_files/motley_crue/Motley_Crue_-_Dr_Feelgood-front.jpg",
-  #       songs: [
-  #         {
-  #           title: "Dr. Feelgood",
-  #           song_image_path: "music_files/motley_crue/Motley_Crue_-_Dr_Feelgood-front.jpg",
-  #           song_file_path: "music_files/motley_crue/dr-feelgood.mp3"
-  #         }
-  #       ]
-  #     }
-  #   ]
-  # },
-  # {
-  #   name: "Sakoya",
-  #   image_path: "music_files/sakoya/sakoya-artist.jpeg",
-  #   albums: [
-  #     {
-  #       title: "Wandering",
-  #       release_year: 2023,
-  #       genre_name: "Rock",
-  #       cover_art_path: "music_files/sakoya/wandering.jpeg",
-  #       songs: [
-  #         {
-  #           title: "Wandering",
-  #           song_image_path: "music_files/sakoya/wandering.jpeg",
-  #           song_file_path: "music_files/sakoya/wandering.mp3"
-  #         }
-  #       ]
-  #     }
-  #   ]
-  # },
-  # {
-  #   name: "crazy town",
-  #   image_path: "music_files/crazy_town/crazy-town-artist.jpeg",
-  #   albums: [
-  #     {
-  #       title: "the brimstone sluggers",
-  #       release_year: 2015,
-  #       genre_name: "Metal",
-  #       cover_art_path: "music_files/crazy_town/the-brimstone-sluggers.png",
-  #       songs: [
-  #         {
-  #           title: "back pack",
-  #           song_image_path: "music_files/crazy_town/the-brimstone-sluggers.png",
-  #           song_file_path: "music_files/crazy_town/backpack.mp3"
-  #         },
-  #         {
-  #           title: "come inside",
-  #           song_image_path: "music_files/crazy_town/the-brimstone-sluggers.png",
-  #           song_file_path: "music_files/crazy_town/come_inside.mp3"
-  #         }
-  #       ]
-  #     }
-  #   ]
-  # },
-  # {
-  #   name: "rootkit",
-  #   image_path: "music_files/rootkit/rootkit-artist.jpeg",
-  #   albums: [
-  #     {
-  #       title: "do it",
-  #       release_year: 2014,
-  #       genre_name: "Electronic",
-  #       cover_art_path: "music_files/rootkit/do-it.png",
-  #       songs: [
-  #         {
-  #           title: "back pack",
-  #           song_image_path: "music_files/rootkit/do-it.png",
-  #           song_file_path: "music_files/rootkit/do it.mp3"
-  #         }
-  #       ]
-  #     }
-  #   ]
-  # },
-  # {
-  #   name: "TSS",
-  #   image_path: "music_files/tss/tss-artist.jpeg",
-  #   albums: [
-  #     {
-  #       title: "killing me",
-  #       release_year: 2024,
-  #       genre_name: "Metal",
-  #       cover_art_path: "music_files/tss/killing-me.jpeg",
-  #       songs: [
-  #         {
-  #           title: "fantasize",
-  #           song_image_path: "music_files/tss/killing-me.jpeg",
-  #           song_file_path: "music_files/tss/fantasize.mp3"
-  #         },
-  #         {
-  #           title: "killing me",
-  #           song_image_path: "music_files/tss/killing-me.jpeg",
-  #           song_file_path: "music_files/tss/killing me.mp3"
-  #         }
-  #       ]
-  #     }
-  #   ]
-  # },
-  # {
-  #   name: "dark new day",
-  #   image_path: "music_files/dark-new-day/twelve years of silence.png",
-  #   albums: [
-  #     {
-  #       title: "twelve years of silence",
-  #       release_year: 2005,
-  #       genre_name: "Rock",
-  #       cover_art_path: "music_files/dark-new-day/twelve years of silence.png",
-  #       songs: [
-  #         {
-  #           title: "brother",
-  #           song_image_path: "music_files/dark-new-day/twelve years of silence.png",
-  #           song_file_path: "music_files/dark-new-day/brother.mp3"
-  #         }
-  #       ]
-  #     }
-  #   ]
-  # }
-  # ]
+#   } # rubocop:disable Layout/CommentIndentation
+# {
+#   name: "David Lee Roth",
+#   image_url: "https://milk-blog.s3.us-east-2.amazonaws.com/azdybnxo2pwz9hlt6nmga6xeye1q",
+#   albums: [
+#     {
+#       title: "Skyscraper",
+#       release_year: 1988,
+#       genre_name: "Hard Rock",
+#       cover_art_url: "https://milk-blog.s3.us-east-2.amazonaws.com/9hodqq19l9yxxiuhplixo6cc4llk",
+#       songs: [
+#         {
+#           title: "Hina",
+#           song_image_url: "https://milk-blog.s3.us-east-2.amazonaws.com/37iw8fw4qy1c88e72e8ehijmx7m4",
+#           song_file_url: "https://milk-blog.s3.us-east-2.amazonaws.com/oeh2m9zydf8n2jphz7b6pe1bcys3"
+#         },
+#         {
+#           title: "Skyscraper",
+#           song_image_url: "https://milk-blog.s3.us-east-2.amazonaws.com/jbu8uugz2agtlsy9ito9rujbdad2",
+#           song_file_url: "https://milk-blog.s3.us-east-2.amazonaws.com/8ztwb3w1yi6dj4uex6o760qdb0vc"
+#         }
+#       ]
+#     }
+#   ]
+# },
+# {
+#   name: "Dream on Dreamer",
+#   image_url: "https://milk-blog.s3.us-east-2.amazonaws.com/1onawjda2x4gleu4mzzw2wdy5bbm",
+#   albums: [
+#     {
+#       title: "It Comes and Goes",
+#       release_year: 2018,
+#       genre_name: "Rock",
+#       cover_art_url: "https://milk-blog.s3.us-east-2.amazonaws.com/lrqa4ndcwk2tapyio4mcwpnbjxbr",
+#       songs: [
+#         {
+#           title: "Runaway",
+#           song_image_url: "https://milk-blog.s3.us-east-2.amazonaws.com/6vxmxdxcav1zw24vjt4sqi3ooizu",
+#           song_file_url: "https://milk-blog.s3.us-east-2.amazonaws.com/1i47vv4q838wely9i3sc4zj1evl3"
+#         }
+#       ]
+#     }
+#   ]
+# },
+# {
+#   name: "Aoshi",
+#   image_url: "https://milk-blog.s3.us-east-2.amazonaws.com/iybac3ah0zvsvj46c7cwo0237swa",
+#   albums: [
+#     {
+#       title: "Flutter",
+#       release_year: 2016,
+#       genre_name: "Electronic",
+#       cover_art_url: "https://milk-blog.s3.us-east-2.amazonaws.com/u3ri4d0q9ga02g7k84ol1chfh97m",
+#       songs: [
+#         {
+#           title: "Flutter",
+#           song_image_url: "https://milk-blog.s3.us-east-2.amazonaws.com/7ggia9sx6okb7o46c8ybqog3rrrg",
+#           song_file_url: "https://milk-blog.s3.us-east-2.amazonaws.com/zjni9q9u1uonjiasf8cl9jhierkd"
+#         }
+#       ]
+#     }
+#   ]
+# },
+# {
+#   name: "Heavy Metal",
+#   image_url: "https://milk-blog.s3.us-east-2.amazonaws.com/a8d3na2ck8ao25xbt1jfx0bxr8qa",
+#   albums: [
+#     {
+#       title: "Heavy Metal",
+#       release_year: 2016,
+#       genre_name: "Rock",
+#       cover_art_url: "https://milk-blog.s3.us-east-2.amazonaws.com/hhlnkt4rcmk2w36xe9nfp7z05dqk",
+#       songs: [
+#         {
+#           title: "Blue Lamp",
+#           song_image_url: "https://milk-blog.s3.us-east-2.amazonaws.com/njwo4meuarhaoun0tg29vlgveetf",
+#           song_file_url: "https://milk-blog.s3.us-east-2.amazonaws.com/41spw5lzx1s1t34yf1ovpdqkqyag"
+#         },
+#         {
+#           title: "All-Of-You",
+#           song_image_url: "https://milk-blog.s3.us-east-2.amazonaws.com/qan4gq6qwmay9jmlsvdwaigc379z",
+#           song_file_url: "https://milk-blog.s3.us-east-2.amazonaws.com/y8w4cbxk1u7vxhlni9or0al6i32v"
+#         }
+#       ]
+#     }
+#   ]
+# },
+# {
+#   name: "Kaskade",
+#   image_url: "https://milk-blog.s3.us-east-2.amazonaws.com/b0vjjnk5xf9a2kbpwgf6zgwp8qxh",
+#   albums: [
+#     {
+#       title: "Strobelite Seduction",
+#       release_year: 2008,
+#       genre_name: "Electronic",
+#       cover_art_url: "https://milk-blog.s3.us-east-2.amazonaws.com/yvoyeh37drdkfsctewa1y5gvdy06",
+#       songs: [
+#         {
+#           title: "Move for Me",
+#           song_image_url: "https://milk-blog.s3.us-east-2.amazonaws.com/jb7zlvoxhdzyvde2jrbepev6f4np",
+#           song_file_url: "https://milk-blog.s3.us-east-2.amazonaws.com/eao2k8cgzwi5vl0nsonmgd3dftar"
+#         }
+#       ]
+#     }
+#   ]
+# },
+# {
+#   name: "Korn",
+#   image_url: "https://milk-blog.s3.us-east-2.amazonaws.com/omzvvg1cxacxcsxserubaslboboy",
+#   albums: [
+#     {
+#       title: "The Paradigm Shift",
+#       release_year: 2014,
+#       genre_name: "Rock",
+#       cover_art_url: "https://milk-blog.s3.us-east-2.amazonaws.com/h2bjg215g2xq7fla9tm45krffv1y",
+#       songs: [
+#         {
+#           title: "Spike in My Veins",
+#           song_image_url: "https://milk-blog.s3.us-east-2.amazonaws.com/oo2r3ljl4m04kdlo1q9u6hu985bh",
+#           song_file_url: "https://milk-blog.s3.us-east-2.amazonaws.com/doyn7rwryl1befy81c464i8okqhy"
+#         }
+#       ]
+#     }
+#   ]
+# },
+# {
+#   name: "The Smiths",
+#   image_path: "music_files/KWM_Music/kwm-artist.jpeg",
+#   albums: [
+#     {
+#       title: "Hatful of Hollow",
+#       release_year: 1984,
+#       genre_name: "Rock",
+#       cover_art_path: "music_files/KWM_Music/how soon is now.jpeg",
+#       songs: [
+#         {
+#           title: "How Soon is Now",
+#           song_image_path: "music_files/KWM_Music/how soon is now.jpeg",
+#           song_file_path: "music_files/KWM_Music/How Soon is Now.mp3"
+#         }
+#       ]
+#     }
+#   ]
+# },
+# {
+#   name: "Motley_Crue",
+#   image_path: "music_files/motley_crue/dr_feelgood-artist.jpeg",
+#   albums: [
+#     {
+#       title: "Dr. Feelgood",
+#       release_year: 1989,
+#       genre_name: "Heavy Metal",
+#       cover_art_path: "music_files/motley_crue/Motley_Crue_-_Dr_Feelgood-front.jpg",
+#       songs: [
+#         {
+#           title: "Dr. Feelgood",
+#           song_image_path: "music_files/motley_crue/Motley_Crue_-_Dr_Feelgood-front.jpg",
+#           song_file_path: "music_files/motley_crue/dr-feelgood.mp3"
+#         }
+#       ]
+#     }
+#   ]
+# },
+# {
+#   name: "Sakoya",
+#   image_path: "music_files/sakoya/sakoya-artist.jpeg",
+#   albums: [
+#     {
+#       title: "Wandering",
+#       release_year: 2023,
+#       genre_name: "Rock",
+#       cover_art_path: "music_files/sakoya/wandering.jpeg",
+#       songs: [
+#         {
+#           title: "Wandering",
+#           song_image_path: "music_files/sakoya/wandering.jpeg",
+#           song_file_path: "music_files/sakoya/wandering.mp3"
+#         }
+#       ]
+#     }
+#   ]
+# },
+# {
+#   name: "crazy town",
+#   image_path: "music_files/crazy_town/crazy-town-artist.jpeg",
+#   albums: [
+#     {
+#       title: "the brimstone sluggers",
+#       release_year: 2015,
+#       genre_name: "Metal",
+#       cover_art_path: "music_files/crazy_town/the-brimstone-sluggers.png",
+#       songs: [
+#         {
+#           title: "back pack",
+#           song_image_path: "music_files/crazy_town/the-brimstone-sluggers.png",
+#           song_file_path: "music_files/crazy_town/backpack.mp3"
+#         },
+#         {
+#           title: "come inside",
+#           song_image_path: "music_files/crazy_town/the-brimstone-sluggers.png",
+#           song_file_path: "music_files/crazy_town/come_inside.mp3"
+#         }
+#       ]
+#     }
+#   ]
+# },
+# {
+#   name: "rootkit",
+#   image_path: "music_files/rootkit/rootkit-artist.jpeg",
+#   albums: [
+#     {
+#       title: "do it",
+#       release_year: 2014,
+#       genre_name: "Electronic",
+#       cover_art_path: "music_files/rootkit/do-it.png",
+#       songs: [
+#         {
+#           title: "back pack",
+#           song_image_path: "music_files/rootkit/do-it.png",
+#           song_file_path: "music_files/rootkit/do it.mp3"
+#         }
+#       ]
+#     }
+#   ]
+# },
+# {
+#   name: "TSS",
+#   image_path: "music_files/tss/tss-artist.jpeg",
+#   albums: [
+#     {
+#       title: "killing me",
+#       release_year: 2024,
+#       genre_name: "Metal",
+#       cover_art_path: "music_files/tss/killing-me.jpeg",
+#       songs: [
+#         {
+#           title: "fantasize",
+#           song_image_path: "music_files/tss/killing-me.jpeg",
+#           song_file_path: "music_files/tss/fantasize.mp3"
+#         },
+#         {
+#           title: "killing me",
+#           song_image_path: "music_files/tss/killing-me.jpeg",
+#           song_file_path: "music_files/tss/killing me.mp3"
+#         }
+#       ]
+#     }
+#   ]
+# },
+# {
+#   name: "dark new day",
+#   image_path: "music_files/dark-new-day/twelve years of silence.png",
+#   albums: [
+#     {
+#       title: "twelve years of silence",
+#       release_year: 2005,
+#       genre_name: "Rock",
+#       cover_art_path: "music_files/dark-new-day/twelve years of silence.png",
+#       songs: [
+#         {
+#           title: "brother",
+#           song_image_path: "music_files/dark-new-day/twelve years of silence.png",
+#           song_file_path: "music_files/dark-new-day/brother.mp3"
+#         }
+#       ]
+#     }
+#   ]
+# }
+# ]
 
 # Seed data with error handling
 # artists_data.each do |artist_data|
