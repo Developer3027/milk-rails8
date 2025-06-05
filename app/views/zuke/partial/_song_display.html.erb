@@ -2,7 +2,7 @@
   <!-- List View -->
   <div class="flex items-center justify-between p-4 border-b border-gray-700 hover:bg-gray-700/50">
     <div class="flex items-center space-x-4">
-      <%= image_tag song.song_image, class: "w-12 h-12 rounded", alt: song.title if song.song_image.attached? %>
+      <%= image_tag song.song_image, class: "w-12 h-12 rounded-sm", alt: song.title if song.song_image.attached? %>
       <div class="min-w-0">
         <p class="text-sm font-medium text-white truncate"><%= song.title %></p>
         <p class="text-xs text-gray-400 truncate"><%= song.artist %></p>
@@ -13,7 +13,7 @@
   </div>
 <% else %>
   <!-- Card View -->
-  <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 m-1 w-48">
+  <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-xs dark:bg-gray-800 dark:border-gray-700 m-1 w-48">
     <a href="#">
       <%= image_tag song.song_image, class: "rounded-t-lg w-48", alt: song.title if song.song_image.attached? %>
     </a>

@@ -67,7 +67,7 @@
     <hr class="border border-base-dark dark:border-base-light w-full my-3">
     <div class="flex flex-col sm:flex-row sm:flex-wrap w-fit max-w-5xl">
       <% @pills.each do |group, pills| %>
-        <div class="flex flex-col items-center sm:flex-grow bg-base-dark/75 dark:bg-base-light rounded-md m-4 p-2">
+        <div class="flex flex-col items-center sm:grow bg-base-dark/75 dark:bg-base-light rounded-md m-4 p-2">
           <h3 class=" text-gray-50 dark:text-base-dark font-bold"><%= group %></h3>
           <% pills.each do |pill| %>
             <div class="bg-base-dark dark:bg-base-light/50 w-fit rounded-md m-2 p-4">

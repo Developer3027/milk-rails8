@@ -10,7 +10,7 @@
         <% end %>
       </div>
       <!-- //? Right section Page Links -->
-      <div class="flex flex-grow justify-end items-center me-4">
+      <div class="flex grow justify-end items-center me-4">
         <ul class="flex space-x-2">
           <li class="hidden md:flex"><%= link_to "Blog", root_path %></li>
           <li class="hidden md:flex"><%= link_to "Contact", root_path + "#contact" %></li>
@@ -23,10 +23,10 @@
   <nav class="hidden bg-zinc-800 text-gray-100 absolute w-2/3 right-0 overflow-y-auto rounded-b-sm" data-navbar-target="mobileMenu">
     <ul class="flex flex-col py-2 px-3">
       <%= link_to root_path do %>
-        <li class="flex border p-2 my-1 rounded-sm">Blog</li>
+        <li class="flex border p-2 my-1 rounded-xs">Blog</li>
       <% end %>
       <%= link_to root_path + "#contact" do %>
-        <li class="flex border p-2 my-1 rounded-sm">Contact</li>
+        <li class="flex border p-2 my-1 rounded-xs">Contact</li>
       <% end %>
     </ul>
   </nav>

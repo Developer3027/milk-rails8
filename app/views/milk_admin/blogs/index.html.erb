@@ -18,9 +18,9 @@
             </div>
           </div>
           <% if blog.draft? %>
-              <div class="text-base-dark font-bold rounded bg-green-400 p-2 w-full text-center">Draft</div>
+              <div class="text-base-dark font-bold rounded-sm bg-green-400 p-2 w-full text-center">Draft</div>
           <% elsif blog.scheduled? %>
-              <div class="text-base-dark font-bold rounded bg-yellow-400 p-2 w-full text-center">Scheduled</div>
+              <div class="text-base-dark font-bold rounded-sm bg-yellow-400 p-2 w-full text-center">Scheduled</div>
           <% end %>
           <div class="flex justify-evenly bg-gray-700 rounded-b-md w-full p-2">
             <!--Edit link-->

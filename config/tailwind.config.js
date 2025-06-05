@@ -1,13 +1,13 @@
-const defaultTheme = require('tailwindcss/defaultTheme')
+// // // const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
   darkMode: 'selector',
   content: [
     // './node_modules/flowbite/**/*.js',
-    './public/*.html',
-    './app/helpers/**/*.rb',
-    './app/javascript/**/*.js',
-    './app/views/**/*.{erb,haml,html,slim}',
+    '../public/*.html',
+    '../app/helpers/**/*.rb',
+    '../app/javascript/**/*.js',
+    '../app/views/**/*.{erb,haml,html,slim}',
   ],
   theme: {
     extend: {
@@ -15,7 +15,7 @@ module.exports = {
         'dark': '4px 4px 2px rgba(50, 50, 50, 0.5)',
       },
       fontFamily: {
-        sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+// // //         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
         mPlusCode: ['M PLUS 1 Code', 'monospace'],
         kanit: ["Kanit", "sans-serif"],
         fell: ["IM Fell English SC", "serif"],
@@ -64,6 +64,7 @@ module.exports = {
   },
   plugins: [
     // require('flowbite/plugin'),
+    require('@tailwindcss/aspect-ratio'),
     require('@tailwindcss/forms'),
     require('@tailwindcss/typography'),
     require('@tailwindcss/container-queries'),

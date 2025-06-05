@@ -34,7 +34,7 @@
               <!-- Songs List -->
               <div class="songs-list mt-2">
                 <% album.songs.each do |song| %>
-                  <div class="song-item flex items-center py-1 px-2 hover:bg-gray-100 rounded"
+                  <div class="song-item flex items-center py-1 px-2 hover:bg-gray-100 rounded-sm"
                        data-controller="music--smart-image"
                        data-music--smart-image-id-value="<%= song.id %>"
                        data-music--smart-image-url-value="<%= song.song_file_url %>"
@@ -43,7 +43,7 @@
                        data-music--smart-image-banner-value="<%= album.cover_art_url %>">
                     
                     
-                    <span class="song-title truncate flex-grow"><%= song.title %></span>
+                    <span class="song-title truncate grow"><%= song.title %></span>
                     <button class="play-button ml-2 text-gray-400 hover:text-blue-500"
                             data-action="click->music--smart-image#playRequest">
                       <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
