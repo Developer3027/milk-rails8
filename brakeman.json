@@ -1,0 +1,300 @@
+{
+  "scan_info": {
+    "app_path": "/home/masonroberts/dev/develop/rails8/milk_lab",
+    "rails_version": "8.0.2",
+    "security_warnings": 0,
+    "start_time": "2025-06-05 10:07:27 -0400",
+    "end_time": "2025-06-05 10:07:36 -0400",
+    "duration": 8.815898012,
+    "checks_performed": [
+      "BasicAuth",
+      "BasicAuthTimingAttack",
+      "CSRFTokenForgeryCVE",
+      "ContentTag",
+      "CookieSerialization",
+      "CreateWith",
+      "CrossSiteScripting",
+      "DefaultRoutes",
+      "Deserialize",
+      "DetailedExceptions",
+      "DigestDoS",
+      "DynamicFinders",
+      "EOLRails",
+      "EOLRuby",
+      "EscapeFunction",
+      "Evaluation",
+      "Execute",
+      "FileAccess",
+      "FileDisclosure",
+      "FilterSkipping",
+      "ForgerySetting",
+      "HeaderDoS",
+      "I18nXSS",
+      "JRubyXML",
+      "JSONEncoding",
+      "JSONEntityEscape",
+      "JSONParsing",
+      "LinkTo",
+      "LinkToHref",
+      "MailTo",
+      "MassAssignment",
+      "MimeTypeDoS",
+      "ModelAttrAccessible",
+      "ModelAttributes",
+      "ModelSerialize",
+      "NestedAttributes",
+      "NestedAttributesBypass",
+      "NumberToCurrency",
+      "PageCachingCVE",
+      "Pathname",
+      "PermitAttributes",
+      "QuoteTableName",
+      "Ransack",
+      "Redirect",
+      "RegexDoS",
+      "Render",
+      "RenderDoS",
+      "RenderInline",
+      "ResponseSplitting",
+      "RouteDoS",
+      "SQL",
+      "SQLCVEs",
+      "SSLVerify",
+      "SafeBufferManipulation",
+      "SanitizeConfigCve",
+      "SanitizeMethods",
+      "SelectTag",
+      "SelectVulnerability",
+      "Send",
+      "SendFile",
+      "SessionManipulation",
+      "SessionSettings",
+      "SimpleFormat",
+      "SingleQuotes",
+      "SkipBeforeFilter",
+      "SprocketsPathTraversal",
+      "StripTags",
+      "SymbolDoSCVE",
+      "TemplateInjection",
+      "TranslateBug",
+      "UnsafeReflection",
+      "UnsafeReflectionMethods",
+      "ValidationRegex",
+      "VerbConfusion",
+      "WeakRSAKey",
+      "WithoutProtection",
+      "XMLDoS",
+      "YAMLParsing"
+    ],
+    "number_of_controllers": 15,
+    "number_of_models": 18,
+    "number_of_templates": 94,
+    "ruby_version": "3.3.7",
+    "brakeman_version": "7.0.2"
+  },
+  "warnings": [],
+  "ignored_warnings": [
+    {
+      "warning_type": "Cross-Site Scripting",
+      "warning_code": 4,
+      "fingerprint": "00ade159737af5d4c5486841f8fe95ba15c92c4e8f7a9b6bdde4852ca0fd60ca",
+      "check_name": "LinkToHref",
+      "message": "Potentially unsafe model attribute in `link_to` href",
+      "file": "app/views/static_pages/info.html.erb",
+      "line": 106,
+      "link": "https://brakemanscanner.org/docs/warning_types/link_to_href",
+      "code": "link_to(\"Click for Live site\", sanitize(Project.new.live_url), :class => \"text-sm font-semibold font-['Albert Sans'] my-2\")",
+      "render_path": [
+        {
+          "type": "controller",
+          "class": "StaticPagesController",
+          "method": "create_contact",
+          "line": 24,
+          "file": "app/controllers/static_pages_controller.rb",
+          "rendered": {
+            "name": "static_pages/info",
+            "file": "app/views/static_pages/info.html.erb"
+          }
+        }
+      ],
+      "location": {
+        "type": "template",
+        "template": "static_pages/info"
+      },
+      "user_input": "Project.new.live_url",
+      "confidence": "Weak",
+      "cwe_id": [
+        79
+      ]
+    },
+    {
+      "warning_type": "Cross-Site Scripting",
+      "warning_code": 4,
+      "fingerprint": "0b6534f84b63eb7ecf1a9d3854c562b1805ea34fda6ae5a726f96bf7f0321976",
+      "check_name": "LinkToHref",
+      "message": "Potentially unsafe model attribute in `link_to` href",
+      "file": "app/views/milk_admin/projects/index.html.erb",
+      "line": 22,
+      "link": "https://brakemanscanner.org/docs/warning_types/link_to_href",
+      "code": "link_to(\"Click for Design\", sanitize(Project.new.design_url), :class => \"text-white text-sm font-semibold font-['Albert Sans'] my-2\")",
+      "render_path": [
+        {
+          "type": "controller",
+          "class": "MilkAdmin::ProjectsController",
+          "method": "index",
+          "line": 11,
+          "file": "app/controllers/milk_admin/projects_controller.rb",
+          "rendered": {
+            "name": "milk_admin/projects/index",
+            "file": "app/views/milk_admin/projects/index.html.erb"
+          }
+        }
+      ],
+      "location": {
+        "type": "template",
+        "template": "milk_admin/projects/index"
+      },
+      "user_input": "Project.new.design_url",
+      "confidence": "Weak",
+      "cwe_id": [
+        79
+      ]
+    },
+    {
+      "warning_type": "Cross-Site Scripting",
+      "warning_code": 4,
+      "fingerprint": "45d7de419464ee2fdb09e701dd3229136a27c33ba53d8ff125bd37936e3a5136",
+      "check_name": "LinkToHref",
+      "message": "Potentially unsafe model attribute in `link_to` href",
+      "file": "app/views/milk_admin/projects/index.html.erb",
+      "line": 25,
+      "link": "https://brakemanscanner.org/docs/warning_types/link_to_href",
+      "code": "link_to(\"Click for Live site\", sanitize(Project.new.live_url), :class => \"text-white text-sm font-semibold font-['Albert Sans'] my-2\")",
+      "render_path": [
+        {
+          "type": "controller",
+          "class": "MilkAdmin::ProjectsController",
+          "method": "index",
+          "line": 11,
+          "file": "app/controllers/milk_admin/projects_controller.rb",
+          "rendered": {
+            "name": "milk_admin/projects/index",
+            "file": "app/views/milk_admin/projects/index.html.erb"
+          }
+        }
+      ],
+      "location": {
+        "type": "template",
+        "template": "milk_admin/projects/index"
+      },
+      "user_input": "Project.new.live_url",
+      "confidence": "Weak",
+      "cwe_id": [
+        79
+      ]
+    },
+    {
+      "warning_type": "Cross-Site Scripting",
+      "warning_code": 4,
+      "fingerprint": "872008b1a51607e9aa6f4cc7e4d7b6d040228242dc772d4d81e10af98aad4189",
+      "check_name": "LinkToHref",
+      "message": "Potentially unsafe model attribute in `link_to` href",
+      "file": "app/views/static_pages/info.html.erb",
+      "line": 100,
+      "link": "https://brakemanscanner.org/docs/warning_types/link_to_href",
+      "code": "link_to(\"Click for Code\", sanitize(Project.new.code_url), :class => \"text-sm font-semibold font-['Albert Sans'] my-2\")",
+      "render_path": [
+        {
+          "type": "controller",
+          "class": "StaticPagesController",
+          "method": "create_contact",
+          "line": 24,
+          "file": "app/controllers/static_pages_controller.rb",
+          "rendered": {
+            "name": "static_pages/info",
+            "file": "app/views/static_pages/info.html.erb"
+          }
+        }
+      ],
+      "location": {
+        "type": "template",
+        "template": "static_pages/info"
+      },
+      "user_input": "Project.new.code_url",
+      "confidence": "Weak",
+      "cwe_id": [
+        79
+      ]
+    },
+    {
+      "warning_type": "Cross-Site Scripting",
+      "warning_code": 4,
+      "fingerprint": "e474079cbfdd5610c9b12851731ecee76baf7d33dc4f1e2f4e6e93d331b6bfa8",
+      "check_name": "LinkToHref",
+      "message": "Potentially unsafe model attribute in `link_to` href",
+      "file": "app/views/static_pages/info.html.erb",
+      "line": 103,
+      "link": "https://brakemanscanner.org/docs/warning_types/link_to_href",
+      "code": "link_to(\"Click for Design\", sanitize(Project.new.design_url), :class => \"text-sm font-semibold font-['Albert Sans'] my-2\")",
+      "render_path": [
+        {
+          "type": "controller",
+          "class": "StaticPagesController",
+          "method": "create_contact",
+          "line": 24,
+          "file": "app/controllers/static_pages_controller.rb",
+          "rendered": {
+            "name": "static_pages/info",
+            "file": "app/views/static_pages/info.html.erb"
+          }
+        }
+      ],
+      "location": {
+        "type": "template",
+        "template": "static_pages/info"
+      },
+      "user_input": "Project.new.design_url",
+      "confidence": "Weak",
+      "cwe_id": [
+        79
+      ]
+    },
+    {
+      "warning_type": "Cross-Site Scripting",
+      "warning_code": 4,
+      "fingerprint": "fb2219c1ab3eeb2ee28c73b77a6440640c1df44bac428a5df9f89448144e5ea4",
+      "check_name": "LinkToHref",
+      "message": "Potentially unsafe model attribute in `link_to` href",
+      "file": "app/views/milk_admin/projects/index.html.erb",
+      "line": 19,
+      "link": "https://brakemanscanner.org/docs/warning_types/link_to_href",
+      "code": "link_to(\"Click for Code\", sanitize(Project.new.code_url), :class => \"text-white text-sm font-semibold font-['Albert Sans'] my-2\")",
+      "render_path": [
+        {
+          "type": "controller",
+          "class": "MilkAdmin::ProjectsController",
+          "method": "index",
+          "line": 11,
+          "file": "app/controllers/milk_admin/projects_controller.rb",
+          "rendered": {
+            "name": "milk_admin/projects/index",
+            "file": "app/views/milk_admin/projects/index.html.erb"
+          }
+        }
+      ],
+      "location": {
+        "type": "template",
+        "template": "milk_admin/projects/index"
+      },
+      "user_input": "Project.new.code_url",
+      "confidence": "Weak",
+      "cwe_id": [
+        79
+      ]
+    }
+  ],
+  "errors": [],
+  "obsolete": [
+    "3b165b0c2e7d2ef315c4acf99d0fd338371db4a0802c403a0855c7b449c739f1"
+  ]
+}
