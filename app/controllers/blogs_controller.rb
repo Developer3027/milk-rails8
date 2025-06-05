@@ -10,6 +10,6 @@ class BlogsController < ApplicationController
   end
 
   def show
-    @blog = Blog.find(params[:id])
+    @blog = Blog.published.find(params[:id])
   end
 end

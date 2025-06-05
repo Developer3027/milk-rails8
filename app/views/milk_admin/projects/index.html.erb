@@ -16,13 +16,13 @@
               <div class="text-white text-2xl font-semibold font-['Albert Sans'] w-fit"><%= project.title %></div>
               <div class="text-white text-sm font-normal font-['Albert Sans'] w-fit"><%= project.description %></div>
               <% if project.code_url.present? %>
-                <%= link_to "Click for Code", project.code_url, class: "text-white text-sm font-semibold font-['Albert Sans'] my-2" %>
+                <%= link_to "Click for Code", sanitize(project.code_url), class: "text-white text-sm font-semibold font-['Albert Sans'] my-2" %>
               <% end %>
               <% if project.design_url.present? %>
-                <%= link_to "Click for Design", project.design_url, class: "text-white text-sm font-semibold font-['Albert Sans'] my-2" %>
+                <%= link_to "Click for Design", sanitize(project.design_url), class: "text-white text-sm font-semibold font-['Albert Sans'] my-2" %>
               <% end %>
               <% if project.live_url.present? %>
-                <%= link_to "Click for Live site", project.live_url, class: "text-white text-sm font-semibold font-['Albert Sans'] my-2" %>
+                <%= link_to "Click for Live site", sanitize(project.live_url), class: "text-white text-sm font-semibold font-['Albert Sans'] my-2" %>
               <% end %>
             </div>
           </div>
