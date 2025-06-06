@@ -1,17 +1,21 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
-  description: MyText
-  code_url: MyString
-  design_url: MyString
-  live_url: MyString
-  resume: one
+  title: "Salt and Tar"
+  short_title: "Salt and Tar"
+  description: "This is an amazing project"
+  short_description: "This is an amazing project"
+  code_url: "github.com/saltandtar"
+  design_url: "figma.com"
+  live_url: "heroku.com"
+  # resume: one
 
 two:
-  title: MyString
-  description: MyText
-  code_url: MyString
-  design_url: MyString
-  live_url: MyString
-  resume: two
+  title: "Zuke"
+  short_title: "Zuke"
+  description: "This is an amazing project"
+  short_description: "This is an amazing project"
+  code_url: "github.com/zuke"
+  design_url: "figma.com"
+  live_url: "heroku.com"
+  # resume: two

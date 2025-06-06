@@ -1,13 +1,15 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  title: MyString
+first_album:
+  title: "album one"
   release_year: 2025-05-23
-  cover_art_url: MyString
-  genre: one
+  cover_art_url: "MyString"
+  artist: first_artist
+  genre: rock
 
-two:
-  title: MyString
+second_album:
+  title: "album two"
   release_year: 2025-05-23
-  cover_art_url: MyString
-  genre: two
+  cover_art_url: "MyString"
+  artist: second_artist
+  genre: pop

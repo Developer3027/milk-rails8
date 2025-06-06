@@ -4,10 +4,10 @@ one:
   skill: MyString
   version: MyString
   version_color: MyString
-  resume: one
+  # resume: one
 
 two:
   skill: MyString
   version: MyString
   version_color: MyString
-  resume: two
+  # resume: two

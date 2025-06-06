@@ -66,7 +66,7 @@ end
   get "salt-and-tar", to: "salt_and_tar#index", as: :saltandtar
   # root for eastbounds
   get "eastbound", to: "eastbounds#index", as: :eastbound
-  # root for copywriter
+  # root for public route, copywriter
   get "copywriter", to: "copywriter#index", as: :copywriter
 
 

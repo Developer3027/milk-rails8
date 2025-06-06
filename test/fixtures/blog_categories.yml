@@ -1,9 +1,9 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  title: MyString
-  description: MyText
+general:
+  title: "General"
+  description: "Sometimes there is no category for something. This is for that."
 
-two:
-  title: MyString
-  description: MyText
+rails:
+  title: "Ruby on Rails"
+  description: "Ruby on Rails is a server-side web application framework written in Ruby under the MIT License."

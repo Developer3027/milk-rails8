@@ -1,9 +1,9 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  image_url: MyString
+first_artist:
+  name: "first_artist"
+  image_url: "MyString"
 
-two:
-  name: MyString
-  image_url: MyString
+second_artist:
+  name: "second_artist"
+  image_url: "MyString"
