@@ -160,6 +160,7 @@ class MilkAdmin::BlogsController < ApplicationController
                                  :image_url,
                                  :published_at,
                                  :milk_admin_id,
+                                 :processed_body,
                                  :blog_category_id)
   end
 

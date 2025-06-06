@@ -1,5 +1,5 @@
 <section class="w-full text-base-dark bg-slate-200 py-4">
-  <div class="max-w-4xl mx-auto">
+  <div class="max-w-5xl mx-auto">
     <div class="flex flex-col items-center bg-slate-50 rounded-md px-2">
       <h1 class="font-bold text-xl md:text-2xl p-4">
         <%= @blog.title %>
@@ -16,11 +16,17 @@
           <span class="bg-input-border rounded-full px-5">Category: <%= @blog.blog_category.title %></span>
         </div>
       </div>
-      <div>
-        <%= @blog.toc %>
-      </div>
-      <div class="max-w-4xl my-3 mx-1 px-1">
-        <%= @blog.content %>
+      <div class="flex">
+        <div class="min-w-fit my-3 mx-1 px-1">
+          <%= @blog.toc %>
+        </div>
+        <div class="my-3 mx-1 px-1">
+          <% if @blog.processed_body.present? %>
+            <%= display_blog_body(@blog) %>
+          <% else %>
+            <%= @blog.content %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

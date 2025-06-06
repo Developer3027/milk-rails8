@@ -27,7 +27,11 @@ class TocGenerator
     toc = generate_toc(headings)
     modified_body = modify_headings_with_ids(headings, doc)
 
-    { toc: toc.to_s, body: modified_body.to_s }
+
+    # Remove Action Text wrapper div if present
+    cleaned_body = modified_body.to_s.gsub(/<div class="trix-content">(.*?)<\/div>/m, '\1')
+
+    { toc: toc.to_s, body: cleaned_body }
   end
 
   private
