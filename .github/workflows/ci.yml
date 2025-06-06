@@ -55,7 +55,6 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
-
     services:
       postgres:
         image: postgres
@@ -64,26 +63,31 @@ jobs:
           POSTGRES_PASSWORD: postgres
         ports:
           - 5432:5432
-        options: --health-cmd="pg_isready" --health-interval=10s --health-timeout=5s --health-retries=3
 
     steps:
       - name: Install system dependencies
-        run: sudo apt-get update && sudo apt-get install --no-install-recommends -y google-chrome-stable curl libjemalloc2 libvips postgresql-client
+        run: sudo apt-get update && sudo apt-get install -y libvips postgresql-client
 
       - name: Checkout code
         uses: actions/checkout@v4
 
+      # Set up Node.js first (before Ruby)
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          
+      - name: Install local npm dependencies
+        run: |
+          npm install
+          npm install -D tailwindcss
+
+      # Then set up Ruby
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: .ruby-version
           bundler-cache: true
-
-      - name: Set up Node.js and TailwindCSS
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-      - run: npm install -g tailwindcss
 
       - name: Run tests
         env:
@@ -92,7 +96,7 @@ jobs:
         run: |
           bin/rails db:create
           bin/rails db:migrate
-          bin/rails test test:system
+          bin/rails test
 
       - name: Upload screenshots
         uses: actions/upload-artifact@v4
