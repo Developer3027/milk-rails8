@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_06_06_022558) do
+ActiveRecord::Schema[8.0].define(version: 2025_06_06_214947) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -189,6 +189,19 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_06_022558) do
     t.string "code_2"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "salt_and_tar_videos", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "video_url"
+    t.string "thumbnail_url"
+    t.integer "position"
+    t.boolean "published", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "youtube_url"
+    t.index ["published"], name: "index_salt_and_tar_videos_on_published"
   end
 
   create_table "song_genres", force: :cascade do |t|

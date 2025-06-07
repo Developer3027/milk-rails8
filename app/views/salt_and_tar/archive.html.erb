@@ -1,0 +1,63 @@
+<section class="bg-swabbie-st-drk-primary flex flex-col justify-center items-center w-full text-base-dark">
+    <!-- Fake nav -->
+  <div id="home" class="mt-8 w-96 sm:w-[640px] lg:w-[950px] xl:w-[1024px]">
+    <header class="static max-w-5xl">
+      <div class="block rounded-t-lg bg-white">
+        <div class="block max-w-5xl">
+          <%= link_to salt_and_tar_index_path, class: "relative mt-1 ml-1" do %>
+            <%= image_tag('https://milk-blog.s3.us-east-2.amazonaws.com/saltandtar/logo.svg', class: 'block ml-5') %>
+          <% end %>
+        </div>
+      </div>
+    </header>
+  </div>
+  <div class="flex flex-col sm:flex-row justify-center items-start bg-white gap-5 sm:gap-8 pt-2 pb-8 w-96 sm:w-[640px] lg:w-[950px] xl:w-[1024px] px-4 sm:px-1">
+    <!-- Video Player (Top on mobile, Left on desktop) -->
+    <div class="video-player w-full sm:w-[70%] sm:max-w-[634px] order-1 sm:order-none">
+    <h1 class="text-2xl sm:text-3xl font-bold text-center w-full">The beginning of the journey</h1>
+    <p class="text-center py-1">Here are the first few videos of Salt and Tar. How the dream to sail through the tropics began in Washington state.</p>
+      <div class="polaroid-video bg-white p-4 sm:p-6 shadow-md">
+        <video controls width="100%" src="<%= @selected_video.video_url %>" class="rounded-t-sm"></video>
+        <div class="flex justify-between items-start mt-3">
+          <div class="flex-1">
+            <h2 class="text-lg sm:text-xl font-bold"><%= @selected_video.title %></h2>
+            <p class="text-sm text-gray-600 mt-1"><%= @selected_video.description %></p>
+          </div>
+          <a href="<%= @selected_video.youtube_url %>" target="_blank" class="ml-4 mt-1 flex-shrink-0" aria-label="Watch on YouTube">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" class="hover:opacity-80 transition-opacity">
+              <path fill="#FF0000" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z"/>
+              <path fill="#FFF" d="M9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Video List (Bottom on mobile, Right on desktop) -->
+    <div class="video-list w-full sm:w-[30%] sm:max-w-[317px] overflow-y-auto max-h-[70vh] order-2 sm:order-none">
+      <% @videos.each do |video| %>
+        <div class="video-thumbnail cursor-pointer mb-4" onclick="loadVideo('<%= video.video_url %>', '<%= video.title %>', '<%= video.description %>', '<%= video.youtube_url %>')">
+          <img src="<%= video.thumbnail_url || 'placeholder.jpg' %>" class="rounded-sm w-full" alt="<%= video.title %>">
+          <h3 class="text-sm sm:text-base font-semibold mt-1"><%= video.title %></h3>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="bg-white w-96 sm:w-[640px] lg:w-[950px] xl:w-[1024px]">
+    <%= image_tag('https://milk-blog.s3.us-east-2.amazonaws.com/saltandtar/Group+28.svg', alt: "border bottom") %>
+  </div>
+</section>
+
+<script>
+  function loadVideo(url, title, description, youtubeUrl) {
+    const videoPlayer = document.querySelector(".video-player video");
+    const videoTitle = document.querySelector(".video-player h2");
+    const videoDesc = document.querySelector(".video-player p");
+    const videoLink = document.querySelector(".video-player a");
+
+    videoPlayer.src = url;
+    videoTitle.textContent = title;
+    videoDesc.textContent = description;
+    videoLink.href = youtubeUrl;
+  }
+</script>

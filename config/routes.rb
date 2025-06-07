@@ -36,34 +36,36 @@ Rails.application.routes.draw do
     resources :pills, only: [ :index, :new, :create, :edit, :update, :destroy ]
   end
 
-# Public Blog Routes
-resources :blogs, only: [ :index, :show ], controller: "blogs" do
-  collection do
-    get "feature"  # This creates the route for /blogs/feature
-    get "categories/:id", action: :index, as: :category # adds category_blogs_path
+  # Public Blog Routes
+  resources :blogs, only: [ :index, :show ], controller: "blogs" do
+    collection do
+      get "feature"  # This creates the route for /blogs/feature
+      get "categories/:id", action: :index, as: :category # adds category_blogs_path
+    end
   end
-end
 
-# Public Zuke routes
-resources :zuke, only: [ :index ], controller: "zuke" do
-  collection do
-    get "music", to: "zuke#music", as: :music_list  # This creates the route for /zuke/music
-    get "artists", to: "zuke#artists", as: :music_artists
-    get "albums", to: "zuke#albums", as: :music_albums
-    get "genres", to: "zuke#genres", as: :music_genres
-    get "about", to: "zuke#about", as: :music_about
+  # Public Zuke routes
+  resources :zuke, only: [ :index ], controller: "zuke" do
+    collection do
+      get "music", to: "zuke#music", as: :music_list  # This creates the route for /zuke/music
+      get "artists", to: "zuke#artists", as: :music_artists
+      get "albums", to: "zuke#albums", as: :music_albums
+      get "genres", to: "zuke#genres", as: :music_genres
+      get "about", to: "zuke#about", as: :music_about
+    end
   end
-end
 
 
-  # public music found for projects route
-  # get "music-found", to: "music_found#index", as: :musicfound
   # root for hermits
   get "hermit-plus", to: "hermit_plus#landing", as: :hermits
   # root for swabbies
   get "swabbies", to: "swabbies#index", as: :swabbies
-  # root for saltandtar
-  get "salt-and-tar", to: "salt_and_tar#index", as: :saltandtar
+  # Public Salt and Tar routes
+  resources :salt_and_tar, only: [ :index ], path: "salt-and-tar", controller: "salt_and_tar" do
+    collection do
+      get "archive", to: "salt_and_tar#archive", as: :archive  # /salt-and-tar/archive
+    end
+  end
   # root for eastbounds
   get "eastbound", to: "eastbounds#index", as: :eastbound
   # root for public route, copywriter

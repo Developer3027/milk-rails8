@@ -1,0 +1,2 @@
+class SaltAndTarVideo < ApplicationRecord
+end
