@@ -68,8 +68,4 @@ class Blog < ApplicationRecord
     self.toc = result[:toc]  # Update the TOC
     self.processed_body = result[:body]  # Update the :content with modified body
   end
-
-  # def processed_body_html
-  #   sanitize(processed_body, tags: %w[h1 h2 p a ul ol li strong em br img span div], attributes: %w[href src id class style])
-  # end
 end
