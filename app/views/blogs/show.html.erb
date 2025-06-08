@@ -1,26 +1,28 @@
 <section class="w-full text-base-dark bg-slate-200 py-4">
-  <div class="max-w-5xl mx-auto">
-    <div class="flex flex-col items-center bg-slate-50 rounded-md px-2">
-      <h1 class="font-bold text-xl md:text-2xl p-4">
+  <div class="max-w-[1024px] mx-auto px-4">
+    <div class="flex flex-col items-center bg-slate-50 rounded-md px-2 md:px-6">
+      <h1 class="font-bold text-lg md:text-xl p-4 text-center">
         <%= @blog.title %>
       </h1>
       <% if @blog.blog_image.present? %>
-        <%= image_tag @blog.blog_image, class: "rounded-md w-full object-cover" %>
+        <%= image_tag @blog.blog_image, class: "rounded-md w-full max-h-[500px] object-cover" %>
       <% end %>
-      <div class="flex justify-between w-full my-3">
-        <div class="flex flex-col justify-between font-medium w-1-2 m-1 p-1">
+      <div class="flex flex-col md:flex-row justify-between w-full my-3 px-2">
+        <div class="flex flex-col justify-between font-medium w-full md:w-1/2 m-1 p-1">
           <span>Author: <%= @blog.milk_admin.email %></span>
           <span>Created: <%= @blog.created_at.to_date.inspect %></span>
         </div>
-        <div class="flex justify-start w-1/2 font-medium m-1 p-1">
-          <span class="bg-input-border rounded-full px-5">Category: <%= @blog.blog_category.title %></span>
+        <div class="flex justify-start md:justify-end w-full md:w-1/2 font-medium m-1 p-1">
+          <span class="bg-input-border rounded-full px-3 py-1 text-sm md:text-base md:px-5">
+            Category: <%= @blog.blog_category.title %>
+          </span>
         </div>
       </div>
-      <div class="flex">
-        <div class="min-w-fit my-3 mx-1 px-1">
+      <div class="flex flex-col md:flex-row w-full gap-4 px-2">
+        <div class="underline font-medium md:w-1/4 my-3 p-2 text-blue-800 bg-slate-100 rounded-md sticky top-4 self-start"> <!-- Added sticky positioning and background -->
           <%= @blog.toc %>
         </div>
-        <div class="my-3 mx-1 px-1">
+        <div class="md:w-3/4 my-3 p-2 prose max-w-none">
           <% if @blog.processed_body.present? %>
             <%= display_blog_body(@blog) %>
           <% else %>
