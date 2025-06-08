@@ -134,16 +134,19 @@
         <div class="flex flex-col m-2 justify-evenly items-center md:items-end w-full pt-8">
           <div class="flex justify-center items-center w-full md:w-[603px] h-full m-6 rounded-lg bg-swabbie-st-drk-primary">
             <div class="flex">
-              <p class="flex flex-col bg-white text-base-dark p-2 m-3 rounded-sm text-sm w-1/2">As the developer and designer of this app, I’m thrilled to feature Salt and Tar, the inspiring duo behind the handcrafted sailing vessel, Rediviva. <span class="hidden md:inline-block mt-2">Their passion for sailing and craftsmanship shines through every video and story. With a nostalgic polaroid feel and scratched, old school style video, it captures the essence of the journey of a wooden boat.</span></p>
+              <div class="flex flex-col justify-center items-center w-1/2">
+                <p class=" bg-white text-base-dark p-2 m-3 rounded-sm text-sm">As the developer and designer of this app, I’m thrilled to feature Salt and Tar, the inspiring duo behind the handcrafted sailing vessel, Rediviva. <span class="hidden md:inline-block mt-2">Their passion for sailing and craftsmanship shines through every video and story. With a nostalgic polaroid feel and scratched, old school style video, it captures the essence of the journey of a wooden boat.</span></p>
+                <%= link_to "Archive", archive_salt_and_tar_index_path, class: "flex justify-center items-center h-12 w-32 mx-1 mb-4 text-swabbie-st-drk-primary bg-white border-2 border-swabbie-st-drk-primary rounded-sm font-Inconsolata drop-shadow-lg hover:drop-shadow-none" %>
+              </div>
               <div class="flex justify-center items-center w-1/2">
-              <%= image_tag('https://milk-blog.s3.us-east-2.amazonaws.com/saltandtar/card 163.jpg', class: 'drop-shadow-dark w-[10rem] md:w-full rotate-45 md:transform-none md:p-4') %>
+              <%= image_tag('https://milk-blog.s3.us-east-2.amazonaws.com/saltandtar/card 163.jpg', class: 'drop-shadow-dark w-[10rem] md:w-full rotate-15 md:transform-none md:p-4') %>
               </div>
             </div>
           </div>
           <div class="flex justify-center items-center w-full md:w-[603px] h-full m-6 rounded-lg bg-swabbie-st-drk-primary">
             <div class="flex">
               <div class="flex justify-center items-center w-1/2">
-              <%= image_tag('https://milk-blog.s3.us-east-2.amazonaws.com/saltandtar/player.png', class: 'drop-shadow-dark w-[10rem] md:w-full -rotate-45 md:transform-none md:p-4') %>
+              <%= image_tag('https://milk-blog.s3.us-east-2.amazonaws.com/saltandtar/player.png', class: 'drop-shadow-dark w-[10rem] md:w-full -rotate-15 md:transform-none md:p-4') %>
               </div>
               <div class="flex flex-col justify-center items-center w-1/2">
                 <p class=" bg-white text-base-dark p-2 m-3 rounded-sm text-sm">I have modified the original video content to give it an vintage feel. I wanted to run with a different design concept. I focus on the initial build of Rediviva in Washington state. I encourage you to check out Salt and Tar’s videos and stories where you will find much higher quality, and tons more content. I have only sampled a small portion and hope I have done them justice.</p>
@@ -199,7 +202,7 @@
               channel and I provide the original url. They are just presented in a
               different style here. I wanted to enjoy my favorite sailors in a less distracting environment and with a different style and feel. Please enjoy and don't forget to visit those links, like, subscribe and such.
             </p>
-            <%= link_to "Archive", archive_salt_and_tar_index_path, class: "flex justify-center items-center h-12 w-32 mx-1 text-swabbie-st-drk-primary bg-white border-2 border-swabbie-st-drk-primary rounded-sm font-Inconsolata drop-shadow-lg hover:drop-shadow-none" %>
+            <%= link_to "Archive", archive_salt_and_tar_index_path, class: "flex justify-center items-center h-12 w-32 mx-1 mb-4 text-swabbie-st-drk-primary bg-white border-2 border-swabbie-st-drk-primary rounded-sm font-Inconsolata drop-shadow-lg hover:drop-shadow-none" %>
           </div>
         </div>
       </div>
