@@ -15,6 +15,9 @@ class Blog < ApplicationRecord
   validates :content, presence: true
   validates :blog_category_id, presence: true
 
+  extend FriendlyId
+  friendly_id :title, use: [ :slugged, :finders ]
+
   # set up scopes for sorted, scheduled, published, and draft
   scope :sorted, -> { order(arel_table[:published_at].desc.nulls_last).order(updated_at: :desc) }
   scope :draft, -> { where(published_at: nil) }

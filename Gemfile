@@ -80,3 +80,12 @@ gem "view_component"
 
 # Ransack
 gem "ransack"
+
+# For meta tags and SEO-friendly content
+gem "meta-tags"
+
+# For sitemaps
+gem "sitemap_generator"
+
+# For friendly URLs
+gem "friendly_id"

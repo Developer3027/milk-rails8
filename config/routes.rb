@@ -37,7 +37,7 @@ Rails.application.routes.draw do
   end
 
   # Public Blog Routes
-  resources :blogs, only: [ :index, :show ], controller: "blogs" do
+  resources :blogs, only: [ :index, :show ], controller: "blogs", param: :slug do
     collection do
       get "feature"  # This creates the route for /blogs/feature
       get "categories/:id", action: :index, as: :category # adds category_blogs_path
