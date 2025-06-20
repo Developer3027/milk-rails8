@@ -6,7 +6,7 @@ module SaltAndTarHelper
   def social_media_data
     @social_media_data ||= YAML.load_file(Rails.root.join("config/salt_and_tar.yml"))["social_media"].transform_values do |data|
       data.symbolize_keys.merge(
-        icon_path: image_path("saltandtar/#{data["icon"]}"),
+        icon_path:  secure_asset_path(data["icon"]),
         formatted_count: formatted_count(data["count"].to_i)
       )
     end
@@ -14,6 +14,15 @@ module SaltAndTarHelper
 
   def formatted_count(count)
     count > 1000 ? "#{(count / 1000.0).round(1)}K" : count.to_s
+  end
+
+  def secure_asset_path(image_path)
+    if defined?(Propshaft)
+      Rails.application.assets.resolver.resolve("saltandtar/#{image_path}")&.then { |p| "#{p}" } ||
+        "/saltandtar/#{image_path}"
+    else
+      asset_path("saltandtar/#{image_path}")
+    end
   end
 
   def promotion_heading(text, extra_classes = "")
