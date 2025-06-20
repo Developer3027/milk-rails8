@@ -1,0 +1,21 @@
+<div id="promotion" class="flex items-center justify-between bg-swabbie-st-lt-primary py-4 <%= responsive_width_class %>">
+  <div class="flex flex-col items-center justify-center w-full rounded-lg mx-2 bg-white">
+    <div class="flex justify-between items-center mt-4">
+      <%= promotion_heading("New") %>
+      <%= image_tag("saltandtar/logo.svg", class: "block ml-5") %>
+      <%= promotion_heading("Wind", "mr-4") %>
+    </div>
+    
+    <div class="max-w-md px-2 mb-3">
+      <p class="text-center font-Inconsolata text-base">
+        This is a fan site built by me, Developer3027. Below you can
+        find different ways to help Salt and Tar build Rediviva.
+      </p>
+    </div>
+    
+    <div class="flex mb-4 w-full">
+      <%= render "salt_and_tar/social_cards/grid" %>
+      <%= render "salt_and_tar/social_cards/list" %>
+    </div>
+  </div>
+</div>

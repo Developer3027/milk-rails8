@@ -1,0 +1,28 @@
+<div class="flex justify-center items-center w-full md:w-[603px] h-full m-2 rounded-lg bg-swabbie-st-drk-primary">
+  <div class="flex flex-col md:flex-row w-full">
+    <% if alignment == "left" %>
+      <!-- Left-aligned content -->
+      <div class="flex flex-col justify-center items-center w-full md:w-1/2 p-4 space-y-4">
+        <div class="w-full">
+          <%= raw text %>
+        </div>
+        <%= button %>
+      </div>
+      <div class="flex justify-center items-center w-full md:w-1/2 sm:p-4">
+        <%= image_tag(image, class: "#{image_class}") %>
+      </div>
+    
+    <% else %>
+      <!-- Right-aligned content -->
+      <div class="flex justify-center items-center w-full md:w-1/2 sm:p-4">
+        <%= image_tag(image, class: "#{image_class}") %>
+      </div>
+      <div class="flex flex-col justify-center items-center w-full md:w-1/2 p-4 space-y-4">
+        <div class="w-full">
+          <%= raw text %>
+        </div>
+        <%= button %>
+      </div>
+    <% end %>
+  </div>
+</div>

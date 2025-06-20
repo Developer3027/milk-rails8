@@ -1,0 +1,55 @@
+# object data will be moved to database
+# repeated social data used in salt and tar index page, promo partial
+social_media:
+  youtube:
+    name: YouTube
+    count: 83300
+    label: subscribers
+    icon: "youtube.png"
+    url: https://www.youtube.com/@SaltandTar
+    description: >
+      A video sharing platform used to share the journey of
+      building Rediviva.
+  instagram:
+    name: Instagram
+    count: 8928
+    label: followers
+    icon: "insta.png"
+    url: https://www.instagram.com/saltandtar/#
+    description: >
+      An image sharing platform used to share pictures of the
+      adventures in building Rediviva.
+  patreon:
+    name: Patreon
+    count: 498
+    label: members
+    icon: "patreon.png"
+    url: https://www.patreon.com/saltandtar
+    description: >
+      A membership platform used to provide rewards and perks to
+      subscribers.
+  gofundme:
+    name: GoFundMe
+    count: 127
+    label: donations
+    icon: "support.png"
+    url: https://www.gofundme.com/f/saltandtar
+    description: >
+      A crowdfunding platform used to raise funding for building Rediviva.
+
+# data used in salt and tar index page, feature partial
+feature_cards:
+  left:
+    text: |
+      <p class="bg-white text-base-dark p-2 m-0 rounded-sm text-sm">As the developer and designer of this app, I'm thrilled to feature Salt and Tar, the inspiring duo behind the handcrafted sailing vessel, Rediviva. Their passion for sailing and craftsmanship shines through every video and story. With a nostalgic polaroid feel and scratched, old school style video, it captures the essence of the journey of a wooden boat.</p>
+    image: "card163.jpg"
+    button:
+      text: "Archive"
+      path: "archive_salt_and_tar_index_path"
+  right:
+    text: |
+      <p class="bg-white text-base-dark p-2 m-0 rounded-sm text-sm">I have modified the original video content to give it an vintage feel. I wanted to run with a different design concept. I focus on the initial build of Rediviva in Washington state. I encourage you to check out Salt and Tar’s videos and stories where you will find much higher quality, and tons more content. I have only sampled a small portion and hope I have done them justice.</p>
+    image: "player.png"
+    button:
+      text: "Salt and Tar"
+      path: "#"

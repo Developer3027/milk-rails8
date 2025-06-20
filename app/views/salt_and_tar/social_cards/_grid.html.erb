@@ -1,0 +1,9 @@
+<div class="hidden md:flex flex-col justify-evenly w-full md:w-1/2">
+  <% social_media_data.each_slice(2) do |slice| %>
+    <div class="flex justify-evenly my-3 w-full">
+      <% slice.each do |platform, data| %>
+        <%= render "salt_and_tar/social_cards/card", platform: platform, data: data %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
