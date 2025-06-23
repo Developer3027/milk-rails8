@@ -73,7 +73,7 @@ Things you may want to cover:
       <div class="block rounded-t-lg bg-white">
         <div class="block max-w-5xl">
           <%= link_to root_path, class: "relative mt-1 ml-1" do %>
-            <%= image_tag('https://milk-blog.s3.us-east-2.amazonaws.com/saltandtar/logo.svg', class: 'block ml-5') %>
+            <%= image_tag('https://milk-00.logo.svg', class: 'block ml-5') %>
           <% end %>
         </div>
       </div>
@@ -95,11 +95,11 @@ Things you may want to cover:
           </div>
         </div>
         <div class="flex justify-center items-center">
-          <%= image_tag('https://milk-blog.s3.us-east-2.amazonaws.com/saltandtar/Group+8.png', class: 'w-[15rem] drop-shadow-dark') %>
+          <%= image_tag('https://milk-00.Group+8.png', class: 'w-[15rem] drop-shadow-dark') %>
         </div>
       </div>
       <div class="mt-4">
-        <%= image_tag('https://milk-blog.s3.us-east-2.amazonaws.com/saltandtar/Group+28.svg', alt: "border bottom") %>
+        <%= image_tag('https://milk-00.Group+28.svg', alt: "border bottom") %>
       </div>
     </div>
   </div>
@@ -112,7 +112,7 @@ Things you may want to cover:
           <h1>New</h1>
         </div>
         <div>
-          <%= image_tag('https://milk-blog.s3.us-east-2.amazonaws.com/saltandtar/logo.svg', class: 'block ml-5') %>
+          <%= image_tag('https://milk-00.logo.svg', class: 'block ml-5') %>
         </div>
         <div class="text-center font-fell text-4xl md:text-6xl drop-shadow-dark">
           <h1 class="">Wind</h1>
@@ -128,7 +128,7 @@ Things you may want to cover:
         <div class="md:flex flex-col justify-evenly w-full md:w-1/2 hidden">
           <div class="md:flex justify-evenly hidden my-3 w-full">
             <a href="https://www.youtube.com/@SaltandTar" target="_blank" referrerpolicy="strict-origin">
-              <div class="flex flex-col items-end px-3 w-36  border border-swabbie-st-secondary rounded-lg bg-[url('https://milk-blog.s3.us-east-2.amazonaws.com/saltandtar/youtube.png')] bg-no-repeat bg-left">
+              <div class="flex flex-col items-end px-3 w-36  border border-swabbie-st-secondary rounded-lg bg-[url('https://milk-00.youtube.png')] bg-no-repeat bg-left">
                 <h1 class="font-Inconsolata text-xl text-swabbie-st-primary font-bold">YouTube</h1>
                 <p class="font-Inconsolata text-4xl font-bold">69K</p>
                 <small class="font-Inconsolata text-base font-semibold">
@@ -137,7 +137,7 @@ Things you may want to cover:
               </div>
             </a>
             <a href="https://www.instagram.com/saltandtar/#" target="_blank" referrerpolicy="strict-origin">
-              <div class="flex flex-col items-end px-3 w-36  border border-swabbie-st-secondary rounded-lg bg-[url('https://milk-blog.s3.us-east-2.amazonaws.com/saltandtar/insta.png')] bg-no-repeat bg-left">
+              <div class="flex flex-col items-end px-3 w-36  border border-swabbie-st-secondary rounded-lg bg-[url('https://milk-00.insta.png')] bg-no-repeat bg-left">
                 <h1 class="font-Inconsolata text-xl text-swabbie-st-primary font-bold">Instagram</h1>
                 <p class="font-Inconsolata text-4xl font-bold">6K</p>
                 <small class="font-Inconsolata text-base font-semibold">
@@ -148,7 +148,7 @@ Things you may want to cover:
           </div>
           <div class="md:flex justify-evenly hidden my-3 w-full">
             <a href="https://www.patreon.com/saltandtar" target="_blank" referrerpolicy="strict-origin">
-              <div class="flex flex-col items-end px-3 w-36  border border-swabbie-st-secondary rounded-lg bg-[url('https://milk-blog.s3.us-east-2.amazonaws.com/saltandtar/patreon.png')] bg-no-repeat bg-left">
+              <div class="flex flex-col items-end px-3 w-36  border border-swabbie-st-secondary rounded-lg bg-[url('https://milk-00.patreon.png')] bg-no-repeat bg-left">
                 <h1 class="font-Inconsolata text-xl text-swabbie-st-primary font-bold">Patreon</h1>
                 <p class="font-Inconsolata text-4xl font-bold">283</p>
                 <small class="font-Inconsolata text-base font-semibold">
@@ -156,7 +156,7 @@ Things you may want to cover:
                 </small>
               </div>
             </a>
-            <div class="flex flex-col items-end px-3 w-36  border border-swabbie-st-secondary rounded-lg bg-[url('https://milk-blog.s3.us-east-2.amazonaws.com/saltandtar/support.png')] bg-no-repeat bg-left">
+            <div class="flex flex-col items-end px-3 w-36  border border-swabbie-st-secondary rounded-lg bg-[url('https://milk-00.support.png')] bg-no-repeat bg-left">
               <h1 class="font-Inconsolata text-xl text-swabbie-st-primary font-bold">Supporters</h1>
               <p class="font-Inconsolata text-4xl font-bold">100%</p>
               <small class="font-Inconsolata text-base font-semibold">
@@ -209,7 +209,7 @@ Things you may want to cover:
 
   <div id="features" class="flex flex-col justify-center items-center bg-swabbie-st-lt-primary h-[700px] w-96 sm:pb-16 sm:w-[640px] lg:w-[950px] xl:w-[1024px] rounded-b-lg border-yellow-500">
     <div class="flex flex-col items-center justify-between bg-swabbie-st-lt-primary w-96 sm:w-[640px] lg:w-[950px] xl:w-[1024px]">
-      <div class="flex items-center justify-center w-full h-[508px] bg-[url('https://milk-blog.s3.us-east-2.amazonaws.com/saltandtar/blue-st-banner.svg')]">
+      <div class="flex items-center justify-center w-full h-[508px] bg-[url('https://milk-00.blue-st-banner.svg')]">
         <div class="flex flex-col m-2 justify-evenly items-center md:items-end w-full pt-8">
           <div class="flex justify-center items-center w-full md:w-[603px] h-full m-6 rounded-lg bg-swabbie-st-drk-primary">
             <div class="flex">
@@ -218,14 +218,14 @@ Things you may want to cover:
                 <%= link_to "Archive", archive_salt_and_tar_index_path, class: "flex justify-center items-center h-12 w-32 mx-1 mb-4 text-swabbie-st-drk-primary bg-white border-2 border-swabbie-st-drk-primary rounded-sm font-Inconsolata drop-shadow-lg hover:drop-shadow-none" %>
               </div>
               <div class="flex justify-center items-center w-1/2">
-              <%= image_tag('https://milk-blog.s3.us-east-2.amazonaws.com/saltandtar/card 163.jpg', class: 'drop-shadow-dark w-[10rem] md:w-full rotate-15 md:transform-none md:p-4') %>
+              <%= image_tag('https://milk-00.card 163.jpg', class: 'drop-shadow-dark w-[10rem] md:w-full rotate-15 md:transform-none md:p-4') %>
               </div>
             </div>
           </div>
           <div class="flex justify-center items-center w-full md:w-[603px] h-full m-6 rounded-lg bg-swabbie-st-drk-primary">
             <div class="flex">
               <div class="flex justify-center items-center w-1/2">
-              <%= image_tag('https://milk-blog.s3.us-east-2.amazonaws.com/saltandtar/player.png', class: 'drop-shadow-dark w-[10rem] md:w-full -rotate-15 md:transform-none md:p-4') %>
+              <%= image_tag('https://milk-00.player.png', class: 'drop-shadow-dark w-[10rem] md:w-full -rotate-15 md:transform-none md:p-4') %>
               </div>
               <div class="flex flex-col justify-center items-center w-1/2">
                 <p class=" bg-white text-base-dark p-2 m-3 rounded-sm text-sm">I have modified the original video content to give it an vintage feel. I wanted to run with a different design concept. I focus on the initial build of Rediviva in Washington state. I encourage you to check out Salt and Tar’s videos and stories where you will find much higher quality, and tons more content. I have only sampled a small portion and hope I have done them justice.</p>
@@ -244,7 +244,7 @@ Things you may want to cover:
   <div id="video" class="flex flex-col items-center justify-between bg-swabbie-st-drk-primary w-96 sm:pb-16 sm:w-[640px] lg:w-[950px] xl:w-[1024px]">
     <div class="h-4 bg-st-lt-primary rounded-b-md w-96 sm:w-[640px] lg:w-[950px] xl:w-[1024px]"></div>
     <div class="flex flex-col items-center justify-between bg-swabbie-st-drk-primary w-96 sm:w-[640px] lg:w-[950px] xl:w-[1024px]">
-      <div class="flex items-center justify-center w-full mt-4 mb-44 bg-[url('https://milk-blog.s3.us-east-2.amazonaws.com/saltandtar/Group_30.svg')]">
+      <div class="flex items-center justify-center w-full mt-4 mb-44 bg-[url('https://milk-00.Group_30.svg')]">
         <div class="flex flex-col justify-center md:justify-normal mt-4 w-full md:w-1/2">
           <div class="flex flex-col items-center">
             <div class="flex flex-col items-center w-[320px]">
@@ -270,7 +270,7 @@ Things you may want to cover:
             </button>
           </div>
           <div class="md:relative my-8 z-10 lg:ml-32">
-            <%= image_tag('https://milk-blog.s3.us-east-2.amazonaws.com/saltandtar/Video_Home.png', alt: "video review", class: 'border-4 border-swabbie-st-secondary rounded-lg md:absolute top-0 left-8') %>
+            <%= image_tag('https://milk-00.Video_Home.png', alt: "video review", class: 'border-4 border-swabbie-st-secondary rounded-lg md:absolute top-0 left-8') %>
           </div>
         </div>
 
