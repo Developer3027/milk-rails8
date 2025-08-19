@@ -1,12 +1,18 @@
 class BlogsController < ApplicationController
   def feature; end
   def index
+    @featured_blog = Blog.where(featured: true).first
     @blogs = Blog.published
     @categories = BlogCategory.all
-    @q = Blog.published.ransack(params[:q])
+
+    if @featured_blog.present?
+      @blogs = @blogs.where.not(id: @featured_blog.id)
+    end
+
+    @q = Blog.published.where.not(id: @featured_blog.id).ransack(params[:q])
     @blogs = @q.result.order(published_at: :desc)
     # @pagy, @blogs = pagy(@blogs, items: 10)
-    @categories = BlogCategory.all
+    # @categories = BlogCategory.all
 
     # set_meta_tags(
     #   title: "Developer3027 blog | Mason Roberts",

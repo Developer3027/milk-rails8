@@ -13,16 +13,23 @@ class MilkAdmin::BlogsController < ApplicationController
   # this controller and is used for the index page of the milk admin dashboard.
   # The `format.json` response is used by the JavaScript frontend to populate the data tables.
   def index
-    @blogs = Blog.all
+    @featured_blog = Blog.where(featured: true).first
+    @blogs = Blog.all.sorted
+
+    if @featured_blog.present?
+      @blogs = @blogs.where.not(id: @featured_blog.id)
+    end
+
+
     respond_to do |format|
       format.html
-      format.json { render json: @blogs.as_json(
-        only: [ :id, :title, :content, :published_at, :image_url ],
-        include: {
-          blog_category: { only: [ :title ] },
-          milk_admin: { only: [ :email ] }
-        }
-      )}
+      # format.json { render json: @blogs.as_json(
+      #   only: [ :id, :title, :content, :published_at, :image_url ],
+      #   include: {
+      #     blog_category: { only: [ :title ] },
+      #     milk_admin: { only: [ :email ] }
+      #   }
+      # )}
     end
   end
 
@@ -84,14 +91,21 @@ class MilkAdmin::BlogsController < ApplicationController
   def update
     @blog.milk_admin_id = current_milk_admin.id
     respond_to do |format|
-      if @blog.update(blog_params)
-        @blog.process_body  # Call process_body to ensure TOC and body are updated
-        set_image_url(@blog) if @blog.blog_image.attached?
-        format.html { redirect_to milk_admin_blogs_path, notice: "Blog was successfully updated." }
-        format.json { render :show, status: :created, location: @blog }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @blog.errors, status: :unprocessable_entity }
+      begin
+        if @blog.update(blog_params)
+          @blog.process_body  # Call process_body to ensure TOC and body are updated
+          set_image_url(@blog) if @blog.blog_image.attached?
+          format.html { redirect_to milk_admin_blogs_path, notice: "Blog was successfully updated." }
+          format.json { render :show, status: :created, location: @blog }
+        else
+          format.html { render :new, status: :unprocessable_entity }
+          format.json { render json: @blog.errors, status: :unprocessable_entity }
+        end
+      rescue
+        # Handle the unique constraint violation for 'featured' from database
+        @blog.errors.add(:featured, "Only one post can be featured at a time. Please un-feature an existing post first.")
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -161,6 +175,7 @@ class MilkAdmin::BlogsController < ApplicationController
                                  :published_at,
                                  :milk_admin_id,
                                  :processed_body,
+                                 :featured,
                                  :blog_category_id)
   end
 
