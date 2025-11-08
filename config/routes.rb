@@ -73,6 +73,13 @@ Rails.application.routes.draw do
 
 
   get "info", to: "static_pages#info", as: :info
+  get "info/welcome", to: "info#welcome"
+  get "info/about_me", to: "info#about_me"
+  get "info/contact", to: "info#contact"
+  post "info/create_contact", to: "info#create_contact"
+  get "info/skills", to: "info#skills"
+  get "info/projects", to: "info#projects"
+  get "info/erudition", to: "info#erudition"
 
   post "contact", to: "static_pages#create_contact", as: :contact
   delete "contacts/:id", to: "static_pages#destroy_contact", as: "delete_contact"

@@ -1,18 +1,22 @@
 <section>
   <!-- Header navigation -->
   <div class="flex justify-between items-center max-w-5xl my-4">
-    <div><h1 class="text-5xl font-bold dark:text-milk-light text-base-dark px-3 xl:p-0">Dev3027</h1></div>
+    <div>
+      <%= link_to root_path do %>
+        <h1 class="text-5xl font-bold dark:text-milk-light text-base-dark px-3 xl:p-0">
+          Rogue Media Lab
+        </h1>
+      <% end %>
+    </div>
     <div class="flex items-center gap-1" data-controller="dark-mode">
       <div class="hidden md:flex justify-evenly items-center mt-4 gap-4">
-        <!-- Fiverr Icon -->
-        <svg class="w-[21px] h-6 text-base-dark dark:text-milk-light" width="21" height="22" viewBox="0 0 21 22" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-          <path d="M17.875 17.875V6.875H6.875V6.1875C6.875 5.0501 7.8001 4.125 8.9375 4.125H11V0H8.9375C7.2971 0.00203759 5.72447 0.654587 4.56453 1.81453C3.40459 2.97447 2.75204 4.5471 2.75 6.1875V6.875H0V11H2.75V17.875H0V22H9.625V17.875H6.875V11H13.7885V17.875H11V22H20.625V17.875H17.875Z"/>
-          <path d="M15.8125 4.125C16.9516 4.125 17.875 3.20159 17.875 2.0625C17.875 0.923413 16.9516 0 15.8125 0C14.6734 0 13.75 0.923413 13.75 2.0625C13.75 3.20159 14.6734 4.125 15.8125 4.125Z"/>
-        </svg>
-        <!-- UpWork Icon-->
-        <svg class="w-7 h-6 mt-3 text-base-dark dark:text-milk-light" width="28" height="22" viewBox="0 0 28 22" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-          <path d="M21.6556 12.4948C20.3702 12.4948 19.1628 11.8936 18.0691 10.9093L18.3333 9.5207L18.3421 9.46542C18.5835 7.99048 19.3308 5.51091 21.6547 5.51091C23.3959 5.51091 24.8081 7.07701 24.8081 9.00577C24.8081 10.9297 23.395 12.4958 21.6547 12.4958L21.6556 12.4948ZM21.6556 1.97435C18.6938 1.97435 16.3917 4.10579 15.4581 7.61617C14.0363 5.24715 12.9513 2.39908 12.3231 0H9.13296V9.19681C9.12859 11.015 7.80213 12.4851 6.16156 12.49C4.52098 12.4851 3.19453 11.0102 3.19015 9.19681V0H0V9.19681C0 12.9642 2.76579 16.0508 6.16156 16.0508C9.56083 16.0508 12.3231 12.9651 12.3231 9.19681V7.65593C12.9426 9.08529 13.7038 10.5399 14.6287 11.8228L12.674 22H15.9368L17.3542 14.6156C18.594 15.4942 20.0202 16.0498 21.6564 16.0498C25.1563 16.0498 28 12.8779 28 9.00383C28 5.12496 25.1563 1.97338 21.6564 1.97338L21.6556 1.97435Z"/>
-        </svg>
+        <%= link_to "https://patreon.com/RogueMediaLab?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink", 
+                target: "_blank", 
+                rel: "noopener noreferrer", 
+                "aria-label": "Support me on Patreon" do %>
+          <!-- Patreon Icon -->
+          <svg class="w-11 h-11 text-purple-800 dark:text-milk-light" width="44" height="44" viewBox="0 0 640 640" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><<path d="M554 217.8C553.9 152.4 503 98.8 443.3 79.5C369.1 55.5 271.3 59 200.4 92.4C114.6 132.9 87.6 221.7 86.6 310.2C85.8 383 93 574.6 201.2 576C281.5 577 293.5 473.5 330.7 423.7C357.1 388.2 391.2 378.2 433.1 367.8C505.1 350 554.2 293.1 554.1 217.8L554 217.8z"/></svg>
+        <% end %>
         <!-- dark mode toggle -->
         <%= render "shared/darkmode_toggle" %>
         <!-- Milk Admin sign in -->
@@ -23,32 +27,29 @@
     </div>
   </div>
   <!-- Welcome Hero with navigation -->
-  <div class="flex flex-col-reverse md:flex-row justify-center items-start gap-2 max-w-5xl mt-4 mb-2">
-    <div class="flex flex-col justify-start items-start w-full px-3 md:w-3/4 xl:p-0">
-      <h2 class="text-3xl font-bold dark:text-milk-light text-base-dark">Welcome</h2>
-      <hr class="my-4 w-full dark:border-white border-base-dark">
-      <div>
-        <p class="mb-4">
-          Welcome to the developer 3027 portfolio and client hub. A Ruby on Rails project built by me, Developer3027. By day, I’m an automotive technician, training shop teams and keeping customers’ vehicles running smoothly. By night? A designer, developer, and perpetual learner, crafting the tools and projects I’ve always wanted. This site is my digital workshop — a place where curiosity meets code, and where you’re invited to explore what I’ve built, what I’m learning, and how we might collaborate.
-        </p>
-        <p class="mb-4">
-          This isn’t just a portfolio; it’s a multipurpose hub. For visitors, it’s a showcase of my work and a growing library of Rails and web development resources. For clients, it’s a dedicated portal to streamline our collaboration — chat with me in real time, track project progress, receive updates, or submit support tickets if issues arise. Whether you’re here to browse, learn, or partner on a project, I’ve designed this space to be as functional as it is personal.
-        </p>
-        <p class="mb-4">
-          Think of it as part playground, part professional toolkit — all built with the same philosophy I bring to both cars and code: solve problems with precision, keep things running smoothly, and always leave room for creativity. Take a look around, and don’t hesitate to reach out if you have any questions.
-        </p>
-      </div>
-    </div>
-    <div class="flex flex-col w-full px-3 md:w-1/4 md:p-0">
+  <div class="flex flex-col-reverse md:flex-row justify-center items-start md:items-stretch gap-2 max-w-5xl mt-4 mb-2">
+    <%# 1. Removed src attribute and render initial content directly %>
+    <turbo-frame id="info" class="flex flex-col justify-start items-start w-full px-3 md:w-3/4 xl:p-0">
+      <%= image_tag "RogueMediaLab-intro.png", 
+                alt: "Welcome to the lab", 
+                class: "border-2 border-gray-800 rounded-lg max-w-[700px] overflow-hidden" %>
+    </turbo-frame>
+
+    <div id="info-nav" class="flex flex-col w-full px-3 md:w-1/4 md:p-0">
       <h2 class="text-3xl font-bold dark:text-milk-light text-base-dark">Info</h2>
       <hr class="my-4 w-full dark:border-white border-base-dark">
-      <%= link_to "Client", root_path, class: "md:hidden border dark:border-milk-light border-base-dark rounded-md p-2 w-full mb-4" %>
+
+      <%# Use the home/welcome link to reset the frame %>
+      <%= link_to "Welcome", info_welcome_path, class: "border dark:border-milk-light border-base-dark rounded-md p-2 w-full mb-4", data: { turbo_frame: "info" } %>
+      <%= link_to "About Me", info_about_me_path, class: "border dark:border-milk-light border-base-dark rounded-md p-2 w-full mb-4", data: { turbo_frame: "info" } %>
+      <%= link_to "Skills", info_skills_path, class: "border dark:border-milk-light border-base-dark rounded-md p-2 w-full mb-4", data: { turbo_frame: "info" } %>
       <%= link_to "Blog", blogs_path, class: "border dark:border-milk-light border-base-dark rounded-md p-2 w-full mb-4" %>
-      <%= link_to "About Me", "#{info_path}#about-me", class: "border dark:border-milk-light border-base-dark rounded-md p-2 w-full mb-4" %>
-      <%= link_to "Contact", "#{info_path}#contact", class: "border dark:border-milk-light border-base-dark rounded-md p-2 w-full mb-4" %>
+      <%= link_to "Projects", info_projects_path, class: "border dark:border-milk-light border-base-dark rounded-md p-2 w-full mb-4", data: { turbo_frame: "info" } %>
+
+      <%# 2. Use proper path helpers for robust links %>
+      <%= link_to "Contact", info_contact_path, class: "border dark:border-milk-light border-base-dark rounded-md p-2 w-full mb-4", data: { turbo_frame: "info" } %>
+      <%= link_to "Erudition", info_erudition_path, class: "border dark:border-milk-light border-base-dark rounded-md p-2 w-full mb-4", data: { turbo_frame: "info" } %>
       <%= link_to "Code - GitHub", "https://github.com/Developer3027", class: "border dark:border-milk-light border-base-dark rounded-md p-2 w-full mb-4", target: "_blank" %>
-      <%= link_to "Skills", "#{info_path}#skills", class: "border dark:border-milk-light border-base-dark rounded-md p-2 w-full mb-4" %>
-      <%= link_to "Projects", "#{info_path}#projects", class: "border dark:border-milk-light border-base-dark rounded-md p-2 w-full mb-4" %>
     </div>
   </div>
   <!-- Featured projects -->

@@ -15,6 +15,11 @@ class StaticPagesController < ApplicationController
     @pills = Pill.all.group_by(&:group)
   end
 
+  def show_section
+    # Renders the partial matching the section name from the URL
+    render partial: "info/#{params[:section]}", layout: false
+  end
+
   def create_contact
     @contact = Contact.new(contact_params)
     if @contact.save
