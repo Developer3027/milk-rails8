@@ -1,10 +1,18 @@
+![Rails](https://img.shields.io/badge/rails-8.0.2-orange?logo=rubyonrails)
+![Ruby](https://img.shields.io/badge/ruby-3.3.7-red?logo=ruby)
+![PG](https://img.shields.io/badge/data-PostgreSQL-red?logo=postgresql&logoColor=white)
+![Authentication](https://img.shields.io/badge/auth-devise-purple?logo=rubygems&logoColor=white)
+![Status](https://img.shields.io/badge/LAB-working-green?logo=jekyll)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Powered By](https://img.shields.io/badge/powered%20by-COFFEE-brown?logo=coffeescript)
+
 # Rogue Media Lab
 
 *Formerly MILK-00*
 
-![Home screen for Rogue Media Lab](public/Screenshot%20from%202025-01-29%2021-02-58.png)
+![Home screen for Rogue Media Lab](public/Screenshot%20from%202025-11-09%2008-59-33.png)
 
-With the new studio up, it is time to work on the portfolio. Formerly MILK-00, this project holds a lot of promise and already has a lot of functionality. I liked the design and how it works. I love the concept of feeling like you stepped into a different site for the various projects. These are working concepts in various stages of development, but those shinny parts are shown here, as you may see them if you visited the app. I love this concept. I can save money by working them into the same platform but you still feel like you are visiting a new place. Hosting each of these would be a strain on my tiny budget.
+With the new studio up, it is time to work on the portfolio. Formerly MILK-00, this project holds a lot of promise and already has a lot of functionality. I liked the design and how it works. I love the concept of feeling like you stepped into a different site for the various featured projects. These are working concepts in various stages of development, but those shinny parts are shown here, as you may see them if you visited the app. I love this concept. I can save money by working them into the same platform but you still feel like you are visiting a new place. Hosting each of these would be a strain on my tiny budget.
 
 You need to know that I have taken liberties with various rights to bring these concepts to you. I hope I have done them justice. I love them all so much and wish no harm to any of them. I simply want to show everyone what I can do, and them, that there could be a different way. With Slat and Tar I have ensured you can get to their original content and provided those various social links that they manage. I feel this is an improvement as you can get to all of them from one spot. With the music, and images for the music, I have either changed the sound, adding scratches and pops for that older feel, or modified images with AI in some way. Most of the time making live images. None of that is enough and I should provide a reference to the artist. I apologize if I offend anyone. Early in the build I was focused on making it work. I have grown.
 

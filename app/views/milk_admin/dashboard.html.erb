@@ -15,7 +15,7 @@
                 <p><%= contact.created_at %></p>
                 <p class="my-2"><%= contact.f_name %> <%= contact.l_name %>: <%= contact.email %></p>
                 <p class="mb-4"><%= contact.description %></p>
-                <%= button_to 'Delete', delete_contact_path(contact), method: :delete, data: { confirm: 'Are you sure you want to delete this message?' }, class: "border border-gray-100 rounded-md bg-red-800 px-4 my-6" %>
+                <%= button_to 'Delete', milk_admin_contact_path(contact), method: :delete, data: { confirm: 'Are you sure you want to delete this message?' }, class: "border border-gray-100 rounded-md bg-red-800 px-4 my-6" %>
               </div>
             <% end %>
           </div>

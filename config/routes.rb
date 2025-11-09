@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users
-  # get "hermits/index"
-  # get "swabbies/home"
-  get "static_pages/plan"
+  # User model planned for clients feature
+  # devise_for :users
   devise_for :milk_admins, skip: [ :registrations ]
 
   # root for milk admin
@@ -12,6 +10,7 @@ Rails.application.routes.draw do
 
   # Admin Routes
   namespace :milk_admin do
+    resources :contacts, only: [:destroy]
     resources :blog_categories
 
     resources :blogs, only: [ :index, :new, :create, :edit, :update, :destroy ] do
@@ -58,8 +57,6 @@ Rails.application.routes.draw do
 
   # root for hermits
   get "hermit-plus", to: "hermit_plus#landing", as: :hermits
-  # root for swabbies
-  get "swabbies", to: "swabbies#index", as: :swabbies
   # Public Salt and Tar routes
   resources :salt_and_tar, only: [ :index ], path: "salt-and-tar", controller: "salt_and_tar" do
     collection do
@@ -75,15 +72,12 @@ Rails.application.routes.draw do
   get "info", to: "static_pages#info", as: :info
   get "info/welcome", to: "info#welcome"
   get "info/about_me", to: "info#about_me"
-  get "info/contact", to: "info#contact"
-  post "info/create_contact", to: "info#create_contact"
-  get "info/contact_thankyou", to: "info#contact_thankyou"
   get "info/skills", to: "info#skills"
   get "info/projects", to: "info#projects"
   get "info/erudition", to: "info#erudition"
 
-  post "contact", to: "static_pages#create_contact", as: :contact
-  delete "contacts/:id", to: "static_pages#destroy_contact", as: "delete_contact"
+  resources :contacts, only: [:new, :create]
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

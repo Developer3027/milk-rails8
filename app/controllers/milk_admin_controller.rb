@@ -46,6 +46,10 @@ class MilkAdminController < ApplicationController
 
   private
 
+  # def contact_params
+  #   params.require(:contact).permit(:f_name, :l_name, :email, :description)
+  # end
+
   # def resume_params
   #   params.require(:resume).permit(:title, :full_name, :addr, :citystatezip, :email, :linkedin, :code_1, :code_2,
   #                                   projects_attributes: [ :title, :description, :code_url, :design_url, :live_url, :resume_id ],
