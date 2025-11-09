@@ -110,7 +110,8 @@ class MilkAdmin::ProjectsController < ApplicationController
                                     :code_url,
                                     :design_url,
                                     :live_url,
-                                    :resume_id
+                                    :resume_id,
+                                    :featured
                                     )
   end
 

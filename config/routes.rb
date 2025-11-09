@@ -77,6 +77,7 @@ Rails.application.routes.draw do
   get "info/about_me", to: "info#about_me"
   get "info/contact", to: "info#contact"
   post "info/create_contact", to: "info#create_contact"
+  get "info/contact_thankyou", to: "info#contact_thankyou"
   get "info/skills", to: "info#skills"
   get "info/projects", to: "info#projects"
   get "info/erudition", to: "info#erudition"

@@ -1,33 +1,32 @@
-<section id="contact" class="bg-base-light text-base-dark dark:bg-base-dark dark:text-gray-50 max-w-[700px]">
+<section id="contact" class="bg-base-light text-base-dark dark:bg-base-dark dark:text-gray-50 w-full lg:max-w-[700px]">
   <div class="w-full">
     <h2 class="text-3xl font-bold dark:text-milk-light text-base-dark">
       Contact the Lab
     </h2>
     <hr class="my-4 w-full dark:border-white border-base-dark">
-    <p class="py-6 px-2 sm:px-0">I would love to hear from you! Please fill out the form below and I will get back to you as soon as possible.</p>
+    <p class="mb-2 px-2 sm:px-0">I would love to hear from you!</br> Please fill out the form below and I will get back to you as soon as possible.</p>
     <%= form_with model: @contact, url: info_create_contact_path, local: true do |form| %>
-      <div class="flex flex-col justify-between items-center gap-4 w-full">
+      <div class="flex flex-col justify-between items-center gap-4 w-full bg-hermit-burnt rounded-lg py-6 px-2">
         <div class="flex justify-between items-center w-full gap-2">
-          <%= form.label :f_name, "First Name", class: "w-full" %>
+          <%= form.label :f_name, "First Name", class: "w-32" %>
           <%= form.text_field :f_name, class: "w-full rounded-md" %>
         </div>
         <div class="flex justify-between items-center w-full gap-2">
-          <%= form.label :l_name, "Last Name", class: "w-full" %>
+          <%= form.label :l_name, "Last Name", class: "w-32" %>
           <%= form.text_field :l_name, class: "w-full rounded-md" %>
         </div>
         <div class="flex justify-between items-center w-full gap-2">
-          <%= form.label :email, "Email", class: "" %>
+          <%= form.label :email, "Email", class: "w-32" %>
           <%= form.email_field :email, class: "w-full rounded-md" %>
         </div>
         <div class="flex flex-col justify-between items-center w-full gap-2">
           <%= form.label :description, "How can I help?", class: "" %>
-          <%= form.text_area :description, class: "w-full rounded-md dark:text-base-dark text-gray-50" %>
+          <%= form.text_area :description, class: "w-full rounded-md text-base-dark" %>
         </div>
         <div>
-          <%= form.submit "Send", class: " py-2 px-6 border border-base-dark dark:border-base-light rounded-md" %>
+          <%= form.submit "Send", class: "py-1 px-8 border border-base-dark dark:border-base-light rounded-md" %>
         </div>
       </div>
     <% end %>
   </div>
 </section>
-

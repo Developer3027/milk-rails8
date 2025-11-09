@@ -54,6 +54,12 @@
         <%= form.label :live_url, class: "w-52" %>
         <%= form.text_field :live_url, class: "rounded-md border border-slate-600 bg-slate-700 text-white w-full" %>
       </div>
+      <div class="flex justify-between items-center my-2">
+        <%= form.label :featured, class: "my-label-styles" do %>
+          <%= form.check_box :featured, class: "my-checkbox-styles" %>
+          Mark as Featured Project
+        <% end %>
+      </div>
     </div>
     <%= form.submit "Submit", class: "border border-pill-blue rounded-md px-4 py-1 mt-2" %>
   </div>

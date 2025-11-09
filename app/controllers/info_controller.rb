@@ -19,10 +19,14 @@ class InfoController < ApplicationController
   def create_contact
     @contact = Contact.new(contact_params)
     if @contact.save
-      redirect_to info_contact_path, notice: "Contact form was successfully completed."
+      redirect_to info_contact_thankyou_path, notice: "Contact form was successfully completed."
     else
       render :contact, status: :unprocessable_entity
     end
+  end
+
+  def contact_thankyou
+    # Render app/views/info/contact_thankyou
   end
 
   def skills
@@ -32,6 +36,7 @@ class InfoController < ApplicationController
   end
 
   def projects
+    @projects = Project.where(featured: false)
     # Renders app/views/info/projects.html.erb
   end
 

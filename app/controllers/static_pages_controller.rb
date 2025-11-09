@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
   def index
-    @small_projects = Project.order(updated_at: :desc).pluck(:short_title, :short_description).map do |title, description|
+    @small_projects = Project.where(featured: true).order(updated_at: :desc).pluck(:short_title, :short_description).map do |title, description|
       {
         title: title,
         description: description,
@@ -9,11 +9,7 @@ class StaticPagesController < ApplicationController
     end
   end
 
-  def info
-    @projects = Project.all
-    @contact = Contact.new
-    @pills = Pill.all.group_by(&:group)
-  end
+
 
   def show_section
     # Renders the partial matching the section name from the URL

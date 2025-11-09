@@ -4,18 +4,16 @@ export default class extends Controller {
   static targets = [ "lightIcon", "darkIcon", "themeToggle" ]
 
   connect() {
-    console.log('hello from color-theme')
     if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-
+      document.documentElement.classList.add('dark');
       this.lightIconTarget.classList.remove('hidden');
     } else {
-
+      document.documentElement.classList.remove('dark');
       this.darkIconTarget.classList.remove('hidden');
     }
   }
 
   toggleTheme() {
-    console.log('theme target clicked')
     this.lightIconTarget.classList.toggle('hidden');
     this.darkIconTarget.classList.toggle('hidden');
     if (localStorage.getItem('color-theme')) {
