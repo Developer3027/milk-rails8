@@ -11,7 +11,7 @@ MilkAdmin.destroy_all
 p "#{MilkAdmin.count} Admins left"
 
 # Log Milk Admin
-MilkAdmin.create!(email: "admin@example.com", password: "admin456", password_confirmation: "admin456")
+MilkAdmin.create!(email: "mrobe18@gmail.com", password: "admin456", password_confirmation: "admin456")
 p "Created Admin"
 
 # Delete all pills
@@ -59,6 +59,7 @@ Project.create!(short_title: "Hermit Plus",
                 short_description: "I love the Hermits of Hermitcraft. They are a colorful bunch that really push the ability of Minecraft. I think they need there own service. Enjoy.",
                 title: "Hermit Plus",
                 description: "Built early in my journey, this landing page was designed in Figma, built with React. That builds HTML, CSS, and JavaScript were set in a S3 bucket configured for a public web site, and ran through CloudFront for the Edge service. This is integrated into MILK-00.",
+                featured: true
                 # code_path: "https://github.com/Developer3027/hermit-plus-old",
                 # design_path: "https://www.figma.com/design/1rA5nLglFEz6F1453wKwkG/Hermit-Plus?node-id=0-1&t=cqjJ5bHkDMbPFvxR-1",
                 # live_path: "https://www.hermitplus.com/") # rubocop:disable Layout/CommentIndentation
@@ -67,6 +68,7 @@ Project.create!(short_title: "Salt and Tar",
                 short_description: "Love these guys and I decided to create the site I think they would enjoy. If you live there content like I do then like and subscribe.",
                 title: "Salt and Tar",
                 description: "I watch several sailing channels and would love to have then all in one place to enjoy. It would be even better is there was an online store for them where I can purchase the same products they use to build these beautiful vessels. Maybe be able to schedule a night cruise? Love you guys.",
+                featured: true
                 # design_path: "https://www.figma.com/design/dCAzFHKupofhmKft0Anl5L/Salt-and-Tar?node-id=0-1&t=Y3P3CbVwRbm5QAt4-1",
                 # live_path: "This is integrated into MILK-00.") # rubocop:disable Layout/CommentIndentation
 )
@@ -74,6 +76,7 @@ Project.create!(short_title: "Copywriter",
                 short_description: "Concept design integrated with a real world copywriter team. I love the design and modified it using there content. Example of what Rails can do.",
                 title: "Copywriter",
                 description: "Copywriter is an old Figma design that I found inspiration to dive back into. Site was designed and built in WordPress with Elementor. That work is lost. Found a copywriter team on Fiverr and am blending the two concepts. This project will have an internal email service at minimum.",
+                featured: true
                 # code_path: "https://github.com/Developer3027/copywriter",
                 # design_path: "https://www.figma.com/design/BpH5fAxV5C06TYwTqBGxHB/Lisa-Benks?node-id=0-1&t=kFWGzNRfspBW7GWd-1") # rubocop:disable Layout/CommentIndentation
 )
@@ -82,6 +85,7 @@ Project.create!(short_title: "Zuke",
                 short_description: "Simple audio player for listening to the music I love. This site has a really modern look and great functionality. Modeled roughly from the Zune player.",
                 title: "Zuke",
                 description: "I want a player in the cloud that is a lot like my old Zune player. A place where I can upload my mp3 and listen to them. I want a little functionality like a EQ and some extras like you may see on Sound Cloud or Spotify. I have to credit Indego Tech Tutorials for the start of this project because his concept was a solid foundation.",
+                featured: true
                 # code_path: "https://github.com/Developer3027/milk-rails8",
                 # design_path: "This is integrated into MILK-00.") # rubocop:disable Layout/CommentIndentation
 )
