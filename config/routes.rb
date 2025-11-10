@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   # Admin Routes
   namespace :milk_admin do
-    resources :contacts, only: [:destroy]
+    resources :contacts, only: [ :destroy ]
     resources :blog_categories
 
     resources :blogs, only: [ :index, :new, :create, :edit, :update, :destroy ] do
