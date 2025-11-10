@@ -8,14 +8,4 @@ class StaticPagesController < ApplicationController
       }
     end
   end
-
-  def resume
-    @pills = Pill.all
-  end
-
-  private
-
-  def contact_params
-    params.require(:contact).permit(:f_name, :l_name, :email, :description)
-  end
 end

@@ -73,10 +73,10 @@ Rails.application.routes.draw do
   get "info/welcome", to: "info#welcome"
   get "info/about_me", to: "info#about_me"
   get "info/skills", to: "info#skills"
-  get "info/projects", to: "info#projects"
   get "info/erudition", to: "info#erudition"
 
-  resources :contacts, only: [:new, :create]
+  resources :contacts, only: [ :new, :create ]
+  resources :projects, only: [ :index ]
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

@@ -17,11 +17,6 @@ class InfoController < ApplicationController
     # Renders app/views/info/skills.html.erb
   end
 
-  def projects
-    @projects = Project.where(featured: false)
-    # Renders app/views/info/projects.html.erb
-  end
-
   def erudition
     # Render app/views/info/erudition.html.erb
   end
