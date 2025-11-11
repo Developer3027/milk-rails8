@@ -3,13 +3,11 @@
 first_album:
   title: "album one"
   release_year: 2025-05-23
-  cover_art_url: "MyString"
   artist: first_artist
   genre: rock
 
 second_album:
   title: "album two"
   release_year: 2025-05-23
-  cover_art_url: "MyString"
   artist: second_artist
   genre: pop
