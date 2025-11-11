@@ -2,7 +2,7 @@ class ZukeController < ApplicationController
   def index; end
 
   def music
-    @songs = Song.all
+    @songs = Song.with_attached_image.includes(:artist, :album)
     @songs_data = @songs.map do |song|
       {
         id: song.id,
