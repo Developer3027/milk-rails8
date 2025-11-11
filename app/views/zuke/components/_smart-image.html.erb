@@ -5,7 +5,7 @@
      data-music--smart-image-artist-value="<%= song.artist.name %>"
      data-music--smart-image-banner-value="<%= url_for(song.image) if song.image.attached? %>">
 
-  <%= image_tag song.image, 
+  <%= image_tag url_for(song.image), 
       class: "rounded-lg w-28 border-2 border-gray-200 cursor-pointer",
       alt: "Album cover for: #{song.title}",
       aria: { label: "Album cover for: #{song.title}" },
