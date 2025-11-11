@@ -2,14 +2,16 @@ class ZukeController < ApplicationController
   def index; end
 
   def music
-    @songs = Song.with_attached_image.includes(:artist, :album)
+    @songs = Song.includes(:album, artist: { image_attachment: :blob })
+                 .with_attached_image
+                 .with_attached_audio_file
     @songs_data = @songs.map do |song|
       {
         id: song.id,
-        url: song.audio_file,
+        url: song.audio_file.attached? ? url_for(song.audio_file) : nil,
         title: song.title,
         artist: song.artist.name,
-        banner: song.artist.image
+        banner: song.artist.image.attached? ? url_for(song.artist.image) : nil
       }
     end.to_json
   end
