@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_11_10_140014) do
+ActiveRecord::Schema[8.0].define(version: 2025_11_11_025505) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -55,7 +55,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_11_10_140014) do
   create_table "albums", force: :cascade do |t|
     t.string "title"
     t.integer "release_year"
-    t.string "cover_art_url"
     t.bigint "genre_id", null: false
     t.bigint "artist_id", null: false
     t.datetime "created_at", null: false
@@ -66,7 +65,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_11_10_140014) do
 
   create_table "artists", force: :cascade do |t|
     t.string "name"
-    t.string "image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -86,7 +84,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_11_10_140014) do
     t.bigint "blog_category_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "image_url"
     t.text "processed_body"
     t.string "slug"
     t.boolean "featured", default: false, null: false
@@ -362,8 +359,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_11_10_140014) do
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "song_image_url"
-    t.string "song_file_url"
     t.bigint "artist_id", null: false
     t.bigint "album_id", null: false
     t.index ["album_id"], name: "index_songs_on_album_id"

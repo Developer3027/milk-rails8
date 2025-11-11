@@ -34,7 +34,7 @@ class BlogsController < ApplicationController
                   og: {
                     title: @blog.title,
                     description: @blog.subtitle,
-                    image: @blog.blog_image || @blog.image_url
+                    image: @blog.blog_image
                   }
   end
 end

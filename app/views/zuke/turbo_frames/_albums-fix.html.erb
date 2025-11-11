@@ -10,7 +10,7 @@
           <% albums.each do |album| %>
             <div class="album-card group"
                  data-controller="music--album"
-                 data-music--album-songs-value="<%= album.songs.to_json(only: [:id, :title], methods: [:song_file_url]) %>">
+                 data-music--album-songs-value="<%= album.songs.to_json(only: [:id, :title], methods: [:audio_file]) %>">
               
               <!-- Album Header with Play Button -->
               <div class="album-header flex items-center mb-2">
@@ -28,7 +28,7 @@
               
               <!-- Album Image -->
               <img class="album-image rounded-lg w-full border-2 border-gray-200 hover:border-blue-400 transition-colors"
-                   src="<%= album.cover_art_url || album.artist.image_url %>"
+                   src="<%= album.cover_art || album.artist.image %>"
                    alt="<%= album.title %> by <%= album.artist.name %>" />
               
               <!-- Songs List -->
@@ -37,10 +37,10 @@
                   <div class="song-item flex items-center py-1 px-2 hover:bg-gray-100 rounded-sm"
                        data-controller="music--smart-image"
                        data-music--smart-image-id-value="<%= song.id %>"
-                       data-music--smart-image-url-value="<%= song.song_file_url %>"
+                       data-music--smart-image-url-value="<%= song.audio_file %>"
                        data-music--smart-image-title-value="<%= song.title %>"
                        data-music--smart-image-artist-value="<%= album.artist.name %>"
-                       data-music--smart-image-banner-value="<%= album.cover_art_url %>">
+                       data-music--smart-image-banner-value="<%= album.cover_art %>">
                     
                     
                     <span class="song-title truncate grow"><%= song.title %></span>

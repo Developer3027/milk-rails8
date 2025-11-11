@@ -6,10 +6,10 @@ class ZukeController < ApplicationController
     @songs_data = @songs.map do |song|
       {
         id: song.id,
-        url: song.song_file_url,
+        url: song.audio_file,
         title: song.title,
         artist: song.artist.name,
-        banner: song.artist.image_url
+        banner: song.artist.image
       }
     end.to_json
   end

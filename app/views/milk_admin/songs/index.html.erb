@@ -10,7 +10,7 @@
     <% @songs.each do |song| %>
       <div class="flex flex-col justify-between w-44 h-[400px] m-1 bg-white border border-gray-200 rounded-lg shadow-xs dark:bg-gray-800 dark:border-gray-700">
           <a href="#">
-              <img class="rounded-t-lg w-44 h-44" src="<%= song.song_image_url %>" alt="<%= song.title %>" />
+              <%= image_tag song.image, class: "rounded-t-lg w-44 h-44" %>
           </a>
           <div class="p-1 h-full">
               <a href="#">

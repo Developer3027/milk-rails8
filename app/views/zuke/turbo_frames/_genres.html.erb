@@ -13,15 +13,15 @@
             <div class="album-card group">
               <div data-controller="music--smart-image"
                    data-music--smart-image-id-value="<%= song.id %>"
-                   data-music--smart-image-url-value="<%= song.song_file_url %>"
+                   data-music--smart-image-url-value="<%= song.audio_file %>"
                    data-music--smart-image-title-value="<%= song.title %>"
                    data-music--smart-image-artist-value="<%= song.artist.name %>"
-                   data-music--smart-image-banner-value="<%= song.album&.cover_art_url || song.artist.image_url %>">
+                   data-music--smart-image-banner-value="<%= song.album&.cover_art || song.artist.image %>">
                 <!-- Album image with play button -->
                 <div class="relative">
                   <img data-music--smart-image-target="playButton"
                        class="w-full rounded-lg aspect-square object-cover border-2 border-gray-200 hover:border-[#1DB954] transition-colors cursor-pointer"
-                       src="<%= song.album&.cover_art_url || song.artist.image_url %>" 
+                       src="<%= song.album&.cover_art || song.artist.image %>" 
                        alt="<%= song.title %>" />
                   <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                     <div

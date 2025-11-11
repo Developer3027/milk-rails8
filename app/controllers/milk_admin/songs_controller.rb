@@ -11,11 +11,11 @@ class MilkAdmin::SongsController < ApplicationController
   # this controller and is used for the index page of the milk admin dashboard.
   # The `format.json` response is used by the JavaScript frontend to populate the data tables.
   def index
-    @songs = Song.all
+    @songs = Song.with_attached_image.all
     respond_to do |format|
       format.html
       format.json { render json: @songs.as_json(
-        only: [ :id, :artist, :album, :title, :image_url, :file_url ]
+        only: [ :id, :artist, :album, :title ]
       )}
     end
   end
@@ -27,6 +27,8 @@ class MilkAdmin::SongsController < ApplicationController
 
   def new
     @song = Song.new
+    @song.build_artist
+    @song.build_album.build_genre
   end
 
   def edit; end
@@ -50,8 +52,6 @@ class MilkAdmin::SongsController < ApplicationController
 
     respond_to do |format|
       if @song.save
-        set_image_url(@song)
-        set_file_url(@song)
         format.html { redirect_to milk_admin_songs_path, notice: "Song was successfully added." }
         format.json { render json: @song }
       else
@@ -77,8 +77,6 @@ class MilkAdmin::SongsController < ApplicationController
   def update
     respond_to do |format|
       if @song.update(song_params)
-        set_image_url(@song) if @song.song_image.attached?
-        set_file_url(@song) if @song.song_file.attached?
         format.html { redirect_to milk_admin_songs_path, notice: "Song was successfully updated." }
         format.json { render :show, status: :created, location: @song }
       else
@@ -123,13 +121,12 @@ class MilkAdmin::SongsController < ApplicationController
   # - Renders the edit page of the song with an unprocessable entity status.
   # - Renders the errors as JSON with an unprocessable entity status.
   def destroy_image
-    @song.song_image.purge_later
+    @song.image.purge_later
 
     respond_to do |format|
-      if @song.song_image.attached?
-        @song.update(image_url: nil)
+      if @song.image.attached?
         format.html { redirect_to edit_milk_admin_song_path(@song) }
-        format.turbo_stream { render turbo_stream: turbo_stream.remove(dom_id(@song, "song_image")) }
+        format.turbo_stream { render turbo_stream: turbo_stream.remove(dom_id(@song, "image")) }
       else
         format.html { redirect_to edit_milk_admin_song_path(@song), alert: "No image to remove." }
       end
@@ -148,13 +145,12 @@ class MilkAdmin::SongsController < ApplicationController
   # - Renders the edit page of the song with an unprocessable entity status.
   # - Renders the errors as JSON with an unprocessable entity status.
   def destroy_file
-    @song.song_file.purge_later
+    @song.audio_file.purge_later
 
     respond_to do |format|
-      if @song.song_file.attached?
-        @song.update(file_url: nil)
+      if @song.audio_file.attached?
         format.html { redirect_to edit_milk_admin_song_path(@song) }
-        format.turbo_stream { render turbo_stream: turbo_stream.remove(dom_id(@song, "song_file")) }
+        format.turbo_stream { render turbo_stream: turbo_stream.remove(dom_id(@song, "audio_file")) }
       else
         format.html { redirect_to edit_milk_admin_song_path(@song), alert: "No file to remove." }
       end
@@ -170,13 +166,11 @@ class MilkAdmin::SongsController < ApplicationController
   # @return [ActionController::Parameters] filtered parameters for creating or updating a song.
 
   def song_params
-    params.require(:song).permit(:song_image,
-                                 :song_file,
-                                 :artist,
-                                 :album,
+    params.require(:song).permit(:image,
+                                 :audio_file,
                                  :title,
-                                 :image_url,
-                                 :file_url)
+                                 artist_attributes: [ :name ],
+                                 album_attributes: [ :title, genre_attributes: [ :name ] ])
   end
 
   # Finds the song with the given id and assigns it to the @song instance variable.
@@ -186,37 +180,5 @@ class MilkAdmin::SongsController < ApplicationController
   # the current request.
   def set_song
     @song = Song.find(params[:id])
-  end
-
-  # Sets the image_url attribute of a song to the URL of the associated song.
-  #
-  # @param song [Song] the song to set the image_url attribute for.
-  #
-  # @note This method is called after creating or updating a song when the song has an associated image.
-  # @note This method is called by the before_action callback in the SongController and is used by
-  # multiple actions in the controller to fetch the song related to the current request.
-  # @note The default host url is still set in the application controller.
-  def set_image_url(song)
-    if song.song_image.attached?
-      blob = song.song_image.blob
-      s3_url = "https://milk-blog.s3.us-east-2.amazonaws.com/#{blob.key}"
-      song.update(image_url: s3_url)
-    end
-  end
-
-  # Sets the file_url attribute of a song to the URL of the associated song.
-  #
-  # @param song [Song] the song to set the file_url attribute for.
-  #
-  # @note This method is called after creating or updating a song when the song has an associated song.
-  # @note This method is called by the before_action callback in the SongController and is used by
-  # multiple actions in the controller to fetch the song related to the current request.
-  # @note The default host url is set in the application controller.
-  def set_file_url(song)
-    if song.song_file.attached?
-      blob = song.song_file.blob
-      s3_url = "https://milk-blog.s3.us-east-2.amazonaws.com/#{blob.key}"
-      song.update(file_url: s3_url)
-    end
   end
 end

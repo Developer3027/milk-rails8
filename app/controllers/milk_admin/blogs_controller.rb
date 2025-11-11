@@ -65,7 +65,6 @@ class MilkAdmin::BlogsController < ApplicationController
     respond_to do |format|
       if @blog.save
         @blog.process_body  # Call process_body to ensure TOC and body are updated
-        set_image_url(@blog)
         format.html { redirect_to milk_admin_blogs_path, notice: "Blog was successfully created." }
         format.json { render json: @blog }
       else
@@ -94,7 +93,6 @@ class MilkAdmin::BlogsController < ApplicationController
       begin
         if @blog.update(blog_params)
           @blog.process_body  # Call process_body to ensure TOC and body are updated
-          set_image_url(@blog) if @blog.blog_image.attached?
           format.html { redirect_to milk_admin_blogs_path, notice: "Blog was successfully updated." }
           format.json { render :show, status: :created, location: @blog }
         else
@@ -149,7 +147,6 @@ class MilkAdmin::BlogsController < ApplicationController
 
     respond_to do |format|
       if @blog.blog_image.attached?
-        @blog.update(image_url: nil)
         format.html { redirect_to edit_milk_admin_blog_path(@blog) }
         format.turbo_stream { render turbo_stream: turbo_stream.remove(dom_id(@blog, "blog_image")) }
       else
@@ -171,7 +168,6 @@ class MilkAdmin::BlogsController < ApplicationController
                                  :title,
                                  :subtitle,
                                  :content,
-                                 :image_url,
                                  :published_at,
                                  :milk_admin_id,
                                  :processed_body,
@@ -197,19 +193,5 @@ class MilkAdmin::BlogsController < ApplicationController
   # the current request.
   def set_blog
     @blog = Blog.find(params[:id])
-  end
-
-  # Sets the image_url attribute of a blog to the URL of the associated image.
-  #
-  # @param blog [Blog] the blog to set the image_url attribute for.
-  #
-  # @note This method is called after creating or updating a blog when the blog has an associated image.
-  # @note This method is called by the before_action callback in the BlogController and is used by
-  # multiple actions in the controller to fetch the blog related to the current request.
-  # @note The default host url is set in the application controller.
-  def set_image_url(blog)
-    if blog.blog_image.attached?
-      blog.update(image_url: Rails.application.routes.url_helpers.url_for(blog.blog_image))
-    end
   end
 end

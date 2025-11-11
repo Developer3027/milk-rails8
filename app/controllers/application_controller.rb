@@ -1,6 +1,4 @@
 class ApplicationController < ActionController::Base
-  # Set the default url options for use of blog image url
-  before_action :set_default_url_options
   # Set meta tags
   before_action :set_meta_data
   # Only allow modern browsers supporting webp images, web push, badges, import maps, CSS nesting, and CSS :has.
@@ -39,11 +37,5 @@ class ApplicationController < ActionController::Base
                     image_alt: "Mason Roberts platform",
                     site_name: "https://milk-00-aa48920a95b8.herokuapp.com/"
                   }
-  end
-
-
-  # Set the default host for generating urls based on the request host.
-  def set_default_url_options
-    Rails.application.routes.default_url_options[:host] = request.host_with_port
   end
 end
