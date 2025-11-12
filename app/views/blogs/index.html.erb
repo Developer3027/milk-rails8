@@ -60,7 +60,7 @@
               <div class="flex flex-col rounded-md w-96 max-w-[340px] border border-input-background bg-slate-50 my-4 p-2 lg:px-4">
                 <%= link_to blog_post do %>
                   <% if blog_post.blog_image.present? %>
-                    <%= image_tag blog_post.blog_image, class: "rounded-sm h-48 object-cover", alt: "cover image for the article" %>
+                    <%= image_tag blog_post.url_for(blog_image), class: "rounded-sm h-48 object-cover", alt: "cover image for the article" %>
                   <% end %>
                   <div class="flex flex-col max-w-[340px] m-1">
                       <h2 class="font-bold py-2"><%= blog_post.title %></h2>
