@@ -3,7 +3,7 @@
   <p class="pb-3 px-1"><%= @featured_blog.content.to_plain_text.truncate_words(30) %></p>
   <div class="flex justify-between font-medium text-sm text-base-dark px-1">
     <div class="flex flex-col">
-      <span>Author: <%= @featured_blog.milk_admin.email %></span>
+      <span>Author: <%= @featured_blog.milk_admin.full_name || @featured_blog.milk_admin.email %></span>
       <span>Date: <%= @featured_blog.created_at.strftime("%a, %d %b %Y") %></span>
     </div>
     <span>Category: General</span>

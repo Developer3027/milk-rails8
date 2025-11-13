@@ -28,6 +28,10 @@ class BlogsController < ApplicationController
 
   def show
     @blog = Blog.published.friendly.find(params[:slug])
+
+    # Track blog views with session-based deduplication
+    track_blog_view(@blog)
+
     set_meta_tags title: @blog.title,
                   description: @blog.subtitle || @blog.meta_description,
                   # keywords: @blog.keywords,
@@ -36,5 +40,21 @@ class BlogsController < ApplicationController
                     description: @blog.subtitle,
                     image: @blog.blog_image
                   }
+  end
+
+  private
+
+  def track_blog_view(blog)
+    # Initialize viewed_blogs hash if it doesn't exist
+    session[:viewed_blogs] ||= {}
+
+    # Get the last view timestamp for this blog (or 0 if never viewed)
+    last_viewed_at = session[:viewed_blogs][blog.id.to_s].to_i
+
+    # Only increment view count if not viewed in the last hour
+    if last_viewed_at < 1.hour.ago.to_i
+      blog.increment!(:views_count)
+      session[:viewed_blogs][blog.id.to_s] = Time.current.to_i
+    end
   end
 end

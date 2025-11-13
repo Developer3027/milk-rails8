@@ -10,8 +10,15 @@ Rails.application.routes.draw do
 
   # Admin Routes
   namespace :milk_admin do
+    resource :profile, only: [ :show, :edit, :update ]
     resources :contacts, only: [ :destroy ]
     resources :blog_categories
+
+    # Dashboard routes
+    get "blogs/dashboard", to: "blogs#dashboard", as: :blogs_dashboard
+    get "projects/dashboard", to: "projects#dashboard", as: :projects_dashboard
+    get "pills/dashboard", to: "pills#dashboard", as: :pills_dashboard
+    get "messages/dashboard", to: "messages#dashboard", as: :messages_dashboard
 
     resources :blogs, only: [ :index, :new, :create, :edit, :update, :destroy ] do
       member do

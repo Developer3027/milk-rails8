@@ -1,0 +1,209 @@
+<!-- Welcome & Quick Actions -->
+<div class="mb-6">
+  <h2 class="text-3xl font-bold text-gray-900 mb-4">Welcome, Admin!</h2>
+  <div class="flex gap-3">
+    <%= link_to milk_admin_blogs_dashboard_path, data: { turbo_frame: "dashboard_content" }, class: "inline-flex items-center gap-2 px-5 py-3 bg-sky-700 hover:bg-sky-600 text-white rounded-lg font-medium transition-colors" do %>
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+      </svg>
+      Manage Blogs
+    <% end %>
+    <%= link_to milk_admin_projects_dashboard_path, data: { turbo_frame: "dashboard_content" }, class: "inline-flex items-center gap-2 px-5 py-3 bg-sky-600 hover:bg-sky-500 text-white rounded-lg font-medium transition-colors" do %>
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path>
+      </svg>
+      Manage Projects
+    <% end %>
+    <%= link_to milk_admin_pills_dashboard_path, data: { turbo_frame: "dashboard_content" }, class: "inline-flex items-center gap-2 px-5 py-3 bg-purple-600 hover:bg-purple-500 text-white rounded-lg font-medium transition-colors" do %>
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
+      </svg>
+      Manage Skills
+    <% end %>
+    <%= link_to root_path, target: "_blank", class: "inline-flex items-center gap-2 px-5 py-3 border border-gray-300 hover:bg-gray-50 text-gray-700 rounded-lg font-medium transition-colors" do %>
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+      </svg>
+      View Site
+    <% end %>
+  </div>
+</div>
+
+<!-- Metrics Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+  <!-- Blog Insights Card -->
+  <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+    <div class="flex items-center justify-between mb-4">
+      <h3 class="text-lg font-semibold text-gray-900">Blog Insights</h3>
+      <svg class="w-6 h-6 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+      </svg>
+    </div>
+    <div class="space-y-3">
+      <div>
+        <div class="text-3xl font-bold text-gray-900"><%= @total_blogs %></div>
+        <div class="text-sm text-gray-600">Total Posts</div>
+      </div>
+      <div class="flex items-center gap-2 text-sm">
+        <% if @blog_trend > 0 %>
+          <span class="text-green-600 font-medium">+<%= @blogs_this_month %> This Month</span>
+          <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+          </svg>
+        <% else %>
+          <span class="text-gray-600 font-medium"><%= @blogs_this_month %> This Month</span>
+        <% end %>
+      </div>
+      <div class="pt-3 border-t border-gray-200 space-y-2">
+        <div class="flex justify-between text-sm">
+          <span class="text-gray-600">Published</span>
+          <span class="font-medium text-green-600"><%= @published_blogs %></span>
+        </div>
+        <div class="flex justify-between text-sm">
+          <span class="text-gray-600">Drafts</span>
+          <span class="font-medium text-gray-600"><%= @draft_blogs %></span>
+        </div>
+        <div class="flex justify-between text-sm">
+          <span class="text-gray-600">Scheduled</span>
+          <span class="font-medium text-blue-600"><%= @scheduled_blogs %></span>
+        </div>
+      </div>
+      <div class="pt-3 border-t border-gray-200 space-y-2">
+        <div class="flex justify-between text-sm">
+          <span class="text-gray-600">Total Views</span>
+          <span class="font-medium text-purple-600"><%= number_with_delimiter(@total_views) %></span>
+        </div>
+        <div class="flex justify-between text-sm">
+          <span class="text-gray-600">Avg. Views/Post</span>
+          <span class="font-medium text-purple-600"><%= @average_views %></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Project Snapshot Card -->
+  <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+    <div class="flex items-center justify-between mb-4">
+      <h3 class="text-lg font-semibold text-gray-900">Project Snapshot</h3>
+      <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path>
+      </svg>
+    </div>
+    <div class="space-y-3">
+      <div>
+        <div class="text-3xl font-bold text-gray-900"><%= @total_projects %></div>
+        <div class="text-sm text-gray-600">Total Projects</div>
+      </div>
+      <div class="flex items-center gap-2 text-sm">
+        <span class="text-orange-600 font-medium"><%= @projects_this_month %> Created This Month</span>
+      </div>
+      <div class="pt-3 border-t border-gray-200">
+        <%= link_to "View All Projects", milk_admin_projects_dashboard_path, data: { turbo_frame: "dashboard_content" }, class: "text-sm text-sky-600 hover:text-sky-700 font-medium" %>
+      </div>
+    </div>
+  </div>
+
+  <!-- Message Center Card -->
+  <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+    <div class="flex items-center justify-between mb-4">
+      <h3 class="text-lg font-semibold text-gray-900">Recent Messages</h3>
+      <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+      </svg>
+    </div>
+    <div class="space-y-3">
+      <div>
+        <div class="text-sm text-gray-600">You have <span class="font-bold text-gray-900"><%= @unread_contacts %></span> new messages.</div>
+      </div>
+      <div class="space-y-2 max-h-48 overflow-y-auto">
+        <% @recent_contacts.each do |contact| %>
+          <div class="p-3 bg-gray-50 rounded-lg">
+            <div class="flex justify-between items-start mb-1">
+              <span class="font-medium text-sm text-gray-900"><%= contact.f_name %> <%= contact.l_name %></span>
+              <span class="text-xs text-gray-500"><%= time_ago_in_words(contact.created_at) %> ago</span>
+            </div>
+            <p class="text-sm text-gray-600 truncate"><%= contact.description %></p>
+            <%= button_to 'Delete', milk_admin_contact_path(contact), method: :delete, data: { confirm: 'Are you sure?' }, class: "text-xs text-red-600 hover:text-red-700 mt-2" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Two Column Layout for Activity Feed and Top Posts -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+  <!-- Activity Feed -->
+  <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+    <h3 class="text-lg font-semibold text-gray-900 mb-4">Activity Feed</h3>
+    <div class="space-y-3">
+      <% @recent_activities.each do |activity| %>
+        <div class="flex items-start gap-3 p-3 hover:bg-gray-50 rounded-lg transition-colors">
+          <div class="flex-shrink-0 mt-1">
+            <% case activity[:color] %>
+            <% when "green" %>
+              <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+            <% when "blue" %>
+              <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+            <% when "orange" %>
+              <div class="w-2 h-2 bg-orange-500 rounded-full"></div>
+            <% else %>
+              <div class="w-2 h-2 bg-gray-400 rounded-full"></div>
+            <% end %>
+          </div>
+          <div class="flex-1">
+            <p class="text-sm text-gray-900">
+              <span class="font-medium"><%= activity[:action] %></span>: "<%= activity[:title] %>"
+            </p>
+            <p class="text-xs text-gray-500"><%= time_ago_in_words(activity[:timestamp]) %> ago</p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <!-- Top Viewed Posts -->
+  <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+    <div class="flex items-center justify-between mb-4">
+      <h3 class="text-lg font-semibold text-gray-900">Top Viewed Posts</h3>
+      <svg class="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+      </svg>
+    </div>
+    <div class="space-y-3">
+      <% if @top_viewed_blogs.any? %>
+        <% @top_viewed_blogs.each_with_index do |blog, index| %>
+          <div class="flex items-center gap-3 p-3 hover:bg-gray-50 rounded-lg transition-colors">
+            <div class="flex-shrink-0">
+              <div class="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center">
+                <span class="text-sm font-bold text-purple-600"><%= index + 1 %></span>
+              </div>
+            </div>
+            <div class="flex-1 min-w-0">
+              <%= link_to blog_path(blog.slug), target: "_blank", class: "text-sm font-medium text-gray-900 hover:text-sky-600 truncate block" do %>
+                <%= blog.title %>
+              <% end %>
+              <p class="text-xs text-gray-500">
+                <%= number_with_delimiter(blog.views_count) %> views
+                <% if blog.published_at %>
+                  • Published <%= time_ago_in_words(blog.published_at) %> ago
+                <% end %>
+              </p>
+            </div>
+            <%= link_to edit_milk_admin_blog_path(blog), data: { turbo_frame: "dashboard_content" }, class: "flex-shrink-0 text-sky-600 hover:text-sky-700" do %>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+              </svg>
+            <% end %>
+          </div>
+        <% end %>
+      <% else %>
+        <p class="text-sm text-gray-500 text-center py-4">No blog views yet. Start promoting your content!</p>
+      <% end %>
+    </div>
+    <div class="pt-4 border-t border-gray-200 mt-4">
+      <%= link_to "View All Blogs", milk_admin_blogs_dashboard_path, data: { turbo_frame: "dashboard_content" }, class: "text-sm text-sky-600 hover:text-sky-700 font-medium" %>
+    </div>
+  </div>
+</div>

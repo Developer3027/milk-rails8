@@ -1,8 +1,14 @@
-<div class="flex flex-col justify-center items-center w-full mt-4">
-  <div class="w-fit bg-slate-800 rounded-md p-4">
-    <h1 class="text-3xl text-sky-100 align-middle text-center bg-sky-900 rounded-md mb-2 p-2">Edit Article</h1>
-    <div>
+<%= turbo_frame_tag "dashboard_content" do %>
+  <%= render "shared/admin_breadcrumbs", breadcrumbs: [
+    { name: "Blogs", url: milk_admin_blogs_dashboard_path },
+    { name: "Edit: #{@blog.title}" }
+  ] %>
+
+  <div class="max-w-4xl">
+    <h2 class="text-3xl font-bold text-gray-900 mb-6">Edit Blog Post</h2>
+
+    <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
       <%= render partial: "milk_admin/blogs/partial/form", locals: { blog: @blog } %>
     </div>
   </div>
-</div>
+<% end %>

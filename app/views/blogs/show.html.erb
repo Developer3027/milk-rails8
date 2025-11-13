@@ -9,7 +9,7 @@
       <% end %>
       <div class="flex flex-col md:flex-row justify-between w-full my-3 px-2">
         <div class="flex flex-col justify-between font-medium w-full md:w-1/2 m-1 p-1">
-          <span>Author: <%= @blog.milk_admin.email %></span>
+          <span>Author: <%= @blog.milk_admin.full_name || @blog.milk_admin.email %></span>
           <span>Created: <%= @blog.created_at.to_date.inspect %></span>
         </div>
         <div class="flex justify-start md:justify-end w-full md:w-1/2 font-medium m-1 p-1">

@@ -1,4 +1,4 @@
-<%= form_with(model: [ :milk_admin, @blog ], local: true) do |form| %>
+<%= form_with(model: [ :milk_admin, @blog ], data: { turbo_frame: "dashboard_content" }) do |form| %>
   <% if form.object.errors.any? %>
         <div>
             <% form.object.errors.full_messages.each do |message|  %>

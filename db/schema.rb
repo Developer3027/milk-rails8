@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_11_11_025505) do
+ActiveRecord::Schema[8.0].define(version: 2025_11_13_214852) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -87,6 +87,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_11_11_025505) do
     t.text "processed_body"
     t.string "slug"
     t.boolean "featured", default: false, null: false
+    t.integer "views_count", default: 0, null: false
     t.index ["blog_category_id"], name: "index_blogs_on_blog_category_id"
     t.index ["featured"], name: "index_blogs_on_featured", unique: true, where: "(featured IS TRUE)"
     t.index ["milk_admin_id"], name: "index_blogs_on_milk_admin_id"
@@ -140,6 +141,17 @@ ActiveRecord::Schema[8.0].define(version: 2025_11_11_025505) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "alias_image_url"
+  end
+
+  create_table "milk_admin_profiles", force: :cascade do |t|
+    t.bigint "milk_admin_id", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.text "bio"
+    t.json "social_links"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["milk_admin_id"], name: "index_milk_admin_profiles_on_milk_admin_id"
   end
 
   create_table "milk_admins", force: :cascade do |t|
@@ -384,6 +396,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_11_11_025505) do
   add_foreign_key "blogs", "blog_categories"
   add_foreign_key "blogs", "milk_admins"
   add_foreign_key "hermit_videos", "hermits"
+  add_foreign_key "milk_admin_profiles", "milk_admins"
   add_foreign_key "pills", "resumes"
   add_foreign_key "projects", "resumes"
   add_foreign_key "solid_queue_blocked_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade

@@ -33,6 +33,21 @@ class MilkAdmin::BlogsController < ApplicationController
     end
   end
 
+  # GET /milk_admin/blogs/dashboard
+  #
+  # Shows the blogs dashboard with metrics and blog list
+  def dashboard
+    @blogs = Blog.all.sorted
+    @total_blogs = Blog.count
+    @published_blogs = Blog.published.count
+    @draft_blogs = Blog.draft.count
+    @scheduled_blogs = Blog.scheduled.count
+    @total_views = Blog.sum(:views_count)
+    @top_viewed_blogs = Blog.published.order(views_count: :desc).limit(10)
+
+    render layout: false if turbo_frame_request?
+  end
+
   # GET /milk_admin/blogs/new
   #
   # Initializes a new Blog object.
@@ -40,9 +55,12 @@ class MilkAdmin::BlogsController < ApplicationController
 
   def new
     @blog = Blog.new
+    render layout: false if turbo_frame_request?
   end
 
-  def edit; end
+  def edit
+    render layout: false if turbo_frame_request?
+  end
 
   # POST /milk_admin/blogs
   #
@@ -65,10 +83,13 @@ class MilkAdmin::BlogsController < ApplicationController
     respond_to do |format|
       if @blog.save
         @blog.process_body  # Call process_body to ensure TOC and body are updated
-        format.html { redirect_to milk_admin_blogs_path, notice: "Blog was successfully created." }
+        redirect_path = turbo_frame_request? ? milk_admin_blogs_dashboard_path : milk_admin_blogs_path
+        format.html { redirect_to redirect_path, notice: "Blog was successfully created." }
         format.json { render json: @blog }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html do
+          render :new, status: :unprocessable_entity, layout: !turbo_frame_request?
+        end
         format.json { render json: @blog.errors, status: :unprocessable_entity }
       end
     end
@@ -93,16 +114,21 @@ class MilkAdmin::BlogsController < ApplicationController
       begin
         if @blog.update(blog_params)
           @blog.process_body  # Call process_body to ensure TOC and body are updated
-          format.html { redirect_to milk_admin_blogs_path, notice: "Blog was successfully updated." }
+          redirect_path = turbo_frame_request? ? milk_admin_blogs_dashboard_path : milk_admin_blogs_path
+          format.html { redirect_to redirect_path, notice: "Blog was successfully updated." }
           format.json { render :show, status: :created, location: @blog }
         else
-          format.html { render :new, status: :unprocessable_entity }
+          format.html do
+            render :new, status: :unprocessable_entity, layout: !turbo_frame_request?
+          end
           format.json { render json: @blog.errors, status: :unprocessable_entity }
         end
       rescue
         # Handle the unique constraint violation for 'featured' from database
         @blog.errors.add(:featured, "Only one post can be featured at a time. Please un-feature an existing post first.")
-        format.html { render :edit, status: :unprocessable_entity }
+        format.html do
+          render :edit, status: :unprocessable_entity, layout: !turbo_frame_request?
+        end
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
@@ -122,10 +148,12 @@ class MilkAdmin::BlogsController < ApplicationController
   def destroy
     respond_to do |format|
       if @blog.destroy
-        format.html { redirect_to milk_admin_blogs_path, status: :see_other, notice: "Blog and image were successfully destroyed." }
+        redirect_path = turbo_frame_request? ? milk_admin_blogs_dashboard_path : milk_admin_blogs_path
+        format.html { redirect_to redirect_path, status: :see_other, notice: "Blog and image were successfully destroyed." }
         format.json { head :no_content }
       else
-        format.html { redirect_to milk_admin_blogs_path, alert: "Failed to destroy the blog." }
+        redirect_path = turbo_frame_request? ? milk_admin_blogs_dashboard_path : milk_admin_blogs_path
+        format.html { redirect_to redirect_path, alert: "Failed to destroy the blog." }
         format.json { render json: @blog.errors, status: :unprocessable_entity }
       end
     end

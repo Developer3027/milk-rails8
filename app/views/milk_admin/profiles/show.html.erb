@@ -1,0 +1,107 @@
+<%= turbo_frame_tag "dashboard_content" do %>
+  <%= render "shared/admin_breadcrumbs", breadcrumbs: [{ name: "Profile" }] %>
+
+  <div class="max-w-2xl">
+    <div class="flex justify-between items-center mb-6">
+      <h2 class="text-3xl font-bold text-gray-900">My Profile</h2>
+      <%= link_to edit_milk_admin_profile_path, data: { turbo_frame: "dashboard_content" }, class: "inline-flex items-center gap-2 px-5 py-3 bg-sky-700 hover:bg-sky-600 text-white rounded-lg font-medium transition-colors" do %>
+        <svg class="w-5 h-5 inline-block mr-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.779 17.779 4.36 19.918 6.5 13.5m4.279 4.279 8.364-8.643a3.027 3.027 0 0 0-2.14-5.165 3.03 3.03 0 0 0-2.14.886L6.5 13.5m4.279 4.279L6.499 13.5m2.14 2.14 6.213-6.504M12.75 7.04 17 11.28"/>
+        </svg>
+        Edit
+      <% end %>
+    </div>
+
+    <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+      <!-- Avatar Section -->
+      <div class="flex flex-col items-center mb-6">
+        <% if @profile.avatar.attached? %>
+          <%= image_tag @profile.avatar, class: "w-32 h-32 rounded-full object-cover border-4 border-sky-500" %>
+        <% else %>
+          <div class="w-32 h-32 rounded-full bg-slate-600 flex items-center justify-center border-4 border-sky-500">
+            <svg class="w-16 h-16 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+              <path fill-rule="evenodd" d="M12 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm-2 9a4 4 0 0 0-4 4v1a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-1a4 4 0 0 0-4-4h-4Z" clip-rule="evenodd"/>
+            </svg>
+          </div>
+        <% end %>
+      </div>
+
+      <!-- Profile Information -->
+      <div class="space-y-4">
+        <div class="border-b border-gray-600 pb-3">
+          <h2 class="text-sm text-gray-400 uppercase">Full Name</h2>
+          <p class="text-xl text-gray-100 font-medium"><%= @profile.full_name.presence || "Not set" %></p>
+        </div>
+
+        <div class="border-b border-gray-600 pb-3">
+          <h2 class="text-sm text-gray-400 uppercase">Email</h2>
+          <p class="text-lg text-gray-100"><%= current_milk_admin.email %></p>
+        </div>
+
+        <div class="border-b border-gray-600 pb-3">
+          <h2 class="text-sm text-gray-400 uppercase">Bio</h2>
+          <% if @profile.bio.present? %>
+            <p class="text-gray-100 whitespace-pre-wrap"><%= @profile.bio %></p>
+          <% else %>
+            <p class="text-gray-400 italic">No bio added yet</p>
+          <% end %>
+        </div>
+
+        <!-- Social Links Section -->
+        <div class="pt-2">
+          <h2 class="text-sm text-gray-400 uppercase mb-3">Social Links</h2>
+          <div class="space-y-2">
+            <% if @profile.social_link(:linkedin).present? %>
+              <div class="flex items-center">
+                <span class="text-gray-400 w-24">LinkedIn:</span>
+                <a href="<%= @profile.social_link(:linkedin) %>" target="_blank" class="text-sky-400 hover:text-sky-300 underline break-all">
+                  <%= @profile.social_link(:linkedin) %>
+                </a>
+              </div>
+            <% end %>
+
+            <% if @profile.social_link(:facebook).present? %>
+              <div class="flex items-center">
+                <span class="text-gray-400 w-24">Facebook:</span>
+                <a href="<%= @profile.social_link(:facebook) %>" target="_blank" class="text-sky-400 hover:text-sky-300 underline break-all">
+                  <%= @profile.social_link(:facebook) %>
+                </a>
+              </div>
+            <% end %>
+
+            <% if @profile.social_link(:youtube).present? %>
+              <div class="flex items-center">
+                <span class="text-gray-400 w-24">YouTube:</span>
+                <a href="<%= @profile.social_link(:youtube) %>" target="_blank" class="text-sky-400 hover:text-sky-300 underline break-all">
+                  <%= @profile.social_link(:youtube) %>
+                </a>
+              </div>
+            <% end %>
+
+            <% if @profile.social_link(:twitter).present? %>
+              <div class="flex items-center">
+                <span class="text-gray-400 w-24">Twitter/X:</span>
+                <a href="<%= @profile.social_link(:twitter) %>" target="_blank" class="text-sky-400 hover:text-sky-300 underline break-all">
+                  <%= @profile.social_link(:twitter) %>
+                </a>
+              </div>
+            <% end %>
+
+            <% if @profile.social_link(:github).present? %>
+              <div class="flex items-center">
+                <span class="text-gray-400 w-24">GitHub:</span>
+                <a href="<%= @profile.social_link(:github) %>" target="_blank" class="text-sky-400 hover:text-sky-300 underline break-all">
+                  <%= @profile.social_link(:github) %>
+                </a>
+              </div>
+            <% end %>
+
+            <% if @profile.social_links.blank? || @profile.social_links.values.all?(&:blank?) %>
+              <p class="text-gray-400 italic">No social links added yet</p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,93 @@
+<%= turbo_frame_tag "dashboard_content" do %>
+  <%= render "shared/admin_breadcrumbs", breadcrumbs: [
+    { name: "Profile", url: milk_admin_profile_path },
+    { name: "Edit" }
+  ] %>
+
+  <div class="max-w-2xl">
+    <h2 class="text-3xl font-bold text-gray-900 mb-6">Edit Profile</h2>
+
+    <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+      <%= form_with(model: @profile, url: milk_admin_profile_path, method: :patch, data: { turbo_frame: "dashboard_content" }) do |form| %>
+        <% if form.object.errors.any? %>
+          <div>
+            <% form.object.errors.full_messages.each do |message| %>
+              <div class="text-red-500"><%= message %></div>
+            <% end %>
+          </div>
+        <% end %>
+
+        <div class="">
+          <!-- Avatar Section -->
+          <% if @profile.avatar.attached? %>
+            <div class="flex flex-col justify-center items-center">
+              <%= image_tag @profile.avatar, class: "w-32 h-32 rounded-full object-cover py-2" %>
+            </div>
+          <% end %>
+
+          <div class="rounded-md p-2">
+            <div class="flex items-center my-4">
+              <%= form.label :avatar, "Profile Avatar" %>&nbsp;
+              <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 13V8m0 8h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+              </svg>
+              <span class="text-sm ml-2">Square image recommended</span>
+            </div>
+            <%= form.file_field :avatar, class: "block w-full text-sm border rounded-lg cursor-pointer text-base-dark focus:outline-hidden bg-gray-100 border-gray-100" %>
+          </div>
+
+          <div class="border border-gray-100 rounded-md p-2 mt-1">
+            <h2 class="text-xl font-medium text-gray-100 align-middle text-center p-2">Profile Information</h2>
+
+            <div class="flex justify-between items-center my-2">
+              <%= form.label :first_name, class: "w-52" %>
+              <%= form.text_field :first_name, class: "rounded-md border border-slate-600 bg-gray-100 text-base-dark w-full" %>
+            </div>
+
+            <div class="flex justify-between items-center my-2">
+              <%= form.label :last_name, class: "w-52" %>
+              <%= form.text_field :last_name, class: "rounded-md border border-slate-600 bg-gray-100 text-base-dark w-full" %>
+            </div>
+
+            <div class="my-2">
+              <%= form.label :bio, class: "block mb-1" %>
+              <%= form.text_area :bio, rows: 5, class: "rounded-md border border-slate-600 bg-gray-100 text-base-dark w-full" %>
+            </div>
+
+            <!-- Social Links Section -->
+            <div class="border-t border-gray-400 pt-4 mt-4">
+              <h3 class="text-lg font-medium text-gray-100 mb-3">Social Links</h3>
+
+              <div class="flex justify-between items-center my-2">
+                <%= label_tag "milk_admin_profile[social_links][linkedin]", "LinkedIn", class: "w-52" %>
+                <%= text_field_tag "milk_admin_profile[social_links][linkedin]", @profile.social_link(:linkedin), class: "rounded-md border border-slate-600 bg-gray-100 text-base-dark w-full", placeholder: "https://linkedin.com/in/yourprofile" %>
+              </div>
+
+              <div class="flex justify-between items-center my-2">
+                <%= label_tag "milk_admin_profile[social_links][facebook]", "Facebook", class: "w-52" %>
+                <%= text_field_tag "milk_admin_profile[social_links][facebook]", @profile.social_link(:facebook), class: "rounded-md border border-slate-600 bg-gray-100 text-base-dark w-full", placeholder: "https://facebook.com/yourprofile" %>
+              </div>
+
+              <div class="flex justify-between items-center my-2">
+                <%= label_tag "milk_admin_profile[social_links][youtube]", "YouTube", class: "w-52" %>
+                <%= text_field_tag "milk_admin_profile[social_links][youtube]", @profile.social_link(:youtube), class: "rounded-md border border-slate-600 bg-gray-100 text-base-dark w-full", placeholder: "https://youtube.com/@yourchannel" %>
+              </div>
+
+              <div class="flex justify-between items-center my-2">
+                <%= label_tag "milk_admin_profile[social_links][twitter]", "Twitter/X", class: "w-52" %>
+                <%= text_field_tag "milk_admin_profile[social_links][twitter]", @profile.social_link(:twitter), class: "rounded-md border border-slate-600 bg-gray-100 text-base-dark w-full", placeholder: "https://twitter.com/yourhandle" %>
+              </div>
+
+              <div class="flex justify-between items-center my-2">
+                <%= label_tag "milk_admin_profile[social_links][github]", "GitHub", class: "w-52" %>
+                <%= text_field_tag "milk_admin_profile[social_links][github]", @profile.social_link(:github), class: "rounded-md border border-slate-600 bg-gray-100 text-base-dark w-full", placeholder: "https://github.com/yourusername" %>
+              </div>
+            </div>
+          </div>
+
+          <%= form.submit "Update Profile", class: "border border-gray-100 bg-slate-900 text-gray-100 rounded-md px-6 py-2 mt-2" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
