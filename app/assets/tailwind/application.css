@@ -30,6 +30,10 @@
   @apply md:opacity-100 transition delay-300 duration-300 ease-in-out;
 }
 
+.prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+  scroll-margin-top: 96px;
+}
+
 @media (max-width: 480px) {
   .swab-panel:nth-of-type(4),
   .swab-panel:nth-of-type(5) {

@@ -11,7 +11,7 @@
         <h2 class="p-1 text-lg font-bold">Featured Article</h2>
         <div class="flex w-[575px] h-[280px] p-1 my-2">
           <% if @featured_blog.blog_image.present? %>
-            <%= image_tag @featured_blog.blog_image, class: "rounded-md object-cover w-[200px] h-[275px]", alt: "Image for the project" %>
+            <%= image_tag url_for(@featured_blog.blog_image), class: "rounded-md object-cover w-[200px] h-[275px]", alt: "Image for the project" %>
           <% end %>
           <div class="flex flex-col justify-items-start ml-2 py-4 w-[370px]">
             <div class="text-white text-2xl font-semibold font-['Albert Sans'] w-fit"><%= @featured_blog.title %></div>
@@ -44,7 +44,7 @@
         <div class="flex flex-col bg-slate-800 rounded-t-md my-4">
           <div class="flex w-[575px] h-[280px] p-1 my-2">
             <% if blog.blog_image.present? %>
-              <%= image_tag blog.blog_image, class: "rounded-md object-cover w-[200px] h-[275px]", alt: "Image for the project" %>
+              <%= image_tag url_for(blog.blog_image), class: "rounded-md object-cover w-[200px] h-[275px]", alt: "Image for the project" %>
             <% end %>
             <div class="flex flex-col justify-items-start ml-2 py-4 w-[370px]">
               <div class="text-white text-2xl font-semibold font-['Albert Sans'] w-fit"><%= blog.title %></div>
