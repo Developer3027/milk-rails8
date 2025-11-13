@@ -6,6 +6,7 @@ one:
   published_at: 2025-01-09 16:40:59
   milk_admin: admin_one
   blog_category: general
+  views_count: 0
 
 two:
   title: "Second Blog Post"
@@ -13,3 +14,4 @@ two:
   published_at: 2025-01-09 16:40:59
   milk_admin: admin_one
   blog_category: rails
+  views_count: 0
