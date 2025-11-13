@@ -10,7 +10,7 @@
                   class: "border-2 border-gray-800 rounded-lg w-full lg:max-w-[700px] max-h-[525px] overflow-hidden" %>
       </turbo-frame>
 
-      <div id="info-nav" class="flex flex-col w-full md:w-1/4">
+      <div id="info-nav" class="hidden md:flex flex-col w-full md:w-1/4">
         <h2 class="text-3xl font-bold dark:text-milk-light text-base-dark">Info</h2>
         <hr class="my-4 w-full dark:border-white border-base-dark">
 
@@ -34,7 +34,7 @@
         <div class="flex justify-between items-center flex-wrap w-full my-2">
           <% @small_projects.each do |project| %>
             <%= link_to project[:path] do %>
-              <div class="flex flex-col justify-center items-center border border-gray-600 rounded-md w-full md:w-[230px] h-[140px] p-4">
+              <div class="flex flex-col justify-center items-center border border-gray-600 rounded-md w-full md:w-[230px] h-[140px] p-4 mb-2">
                 <h2 class="font-semibold text-2xl mb-2 dark:text-milk-light text-base-dark"><%= project[:title] %></h2>
                 <p class="text-xs w-full md:w-[212px] px-4"><%= project[:description] %></p>
               </div>

@@ -6,16 +6,20 @@ export default class extends Controller {
   connect() {
     if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
       document.documentElement.classList.add('dark');
-      this.lightIconTarget.classList.remove('hidden');
+      // Show light icon for all instances (desktop and mobile)
+      this.lightIconTargets.forEach(icon => icon.classList.remove('hidden'));
     } else {
       document.documentElement.classList.remove('dark');
-      this.darkIconTarget.classList.remove('hidden');
+      // Show dark icon for all instances (desktop and mobile)
+      this.darkIconTargets.forEach(icon => icon.classList.remove('hidden'));
     }
   }
 
   toggleTheme() {
-    this.lightIconTarget.classList.toggle('hidden');
-    this.darkIconTarget.classList.toggle('hidden');
+    // Toggle all icon instances (desktop and mobile)
+    this.lightIconTargets.forEach(icon => icon.classList.toggle('hidden'));
+    this.darkIconTargets.forEach(icon => icon.classList.toggle('hidden'));
+
     if (localStorage.getItem('color-theme')) {
         if (localStorage.getItem('color-theme') === 'light') {
             document.documentElement.classList.add('dark');

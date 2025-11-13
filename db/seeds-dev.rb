@@ -109,6 +109,7 @@ BlogCategory.create!(title: "Node", description: "Node.js is a JavaScript runtim
 BlogCategory.create!(title: "JavaScript", description: "JavaScript is a lightweight, interpreted, or just-in-time compiled programming language with first-class functions.")
 BlogCategory.create!(title: "Python", description: "Python is a high-level, interpreted, general-purpose programming language.")
 BlogCategory.create!(title: "Base Web", description: "Base Web is a set of specifications for the World Wide Web, including HTML, CSS, and JavaScript.")
+BlogCategory.create!(title: "AI", description: "AI Tools, Agents, Specifically to do with AI in general.")
 
 # Log Categories
 p "Created #{BlogCategory.count} Categories"
