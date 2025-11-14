@@ -1,4 +1,23 @@
 module ApplicationHelper
+  # Set up default meta tags for social sharing
+  def default_meta_tags
+    {
+      site: "Rogue Media Lab",
+      title: "Rogue Media Lab",
+      reverse: true,
+      separator: "|",
+      description: "Full-stack development, design, and creative content by Mason Roberts",
+      keywords: "web development, rails, ruby, design, full stack, blog",
+      og: {
+        site_name: "Rogue Media Lab",
+        type: "website"
+      },
+      twitter: {
+        card: "summary_large_image"
+      }
+    }
+  end
+
   # A helper to ensure a URL is safe to link to
   def safe_link_url(url)
     return nil if url.blank?
