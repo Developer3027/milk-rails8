@@ -23,7 +23,7 @@ class Song < ApplicationRecord
 
     image.variant(
       crop: crop_params,
-      resize_to_limit: [640, 640],
+      resize_to_limit: [ 640, 640 ],
       format: :webp
     )
   end
@@ -42,11 +42,11 @@ class Song < ApplicationRecord
 
     # Calculate crop box centered on focal point
     # Ensure crop box stays within image bounds
-    left = [[fx - target_size / 2, 0].max, source_width - target_size].min
-    top = [[fy - target_size / 2, 0].max, source_height - target_size].min
+    left = [ [ fx - target_size / 2, 0 ].max, source_width - target_size ].min
+    top = [ [ fy - target_size / 2, 0 ].max, source_height - target_size ].min
 
     # Return libvips crop format: [left, top, width, height]
-    [left.to_i, top.to_i, target_size, target_size]
+    [ left.to_i, top.to_i, target_size, target_size ]
   end
 
   def associate_album_artist
