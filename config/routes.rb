@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     get "blogs/dashboard", to: "blogs#dashboard", as: :blogs_dashboard
     get "projects/dashboard", to: "projects#dashboard", as: :projects_dashboard
     get "pills/dashboard", to: "pills#dashboard", as: :pills_dashboard
+    get "songs/dashboard", to: "songs#dashboard", as: :songs_dashboard
     get "messages/dashboard", to: "messages#dashboard", as: :messages_dashboard
 
     resources :blogs, only: [ :index, :new, :create, :edit, :update, :destroy ] do

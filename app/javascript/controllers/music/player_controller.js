@@ -252,12 +252,12 @@ export default class extends Controller {
    */
   handlePlayRequest(e) {
     try {
-      const { id, url, title, artist, banner, playOnLoad = false, updateBanner } = e.detail
+      const { id, url, title, artist, banner, bannerMobile, playOnLoad = false, updateBanner } = e.detail
 
       this.setCurrentIndex(id)
 
       if (updateBanner !== false) {
-        this.updateBanner({ banner, title, artist })
+        this.updateBanner({ banner, bannerMobile, title, artist })
       }
       
       if (!this.wavesurfer || this.currentUrl !== url) {
@@ -282,6 +282,7 @@ export default class extends Controller {
         title: song.title,
         artist: song.artist,
         banner: song.banner,
+        bannerMobile: song.bannerMobile,
         autoplay: true,
         updateBanner: true
       }
@@ -337,6 +338,7 @@ export default class extends Controller {
       // Update UI first
       this.updateBanner({
         banner: song.banner,
+        bannerMobile: song.bannerMobile,
         title: song.title,
         artist: song.artist
       });
@@ -484,10 +486,11 @@ export default class extends Controller {
    * Update banner display
    * @param {Object} details - Banner details
    */
-  updateBanner({ banner, title, artist }) {
+  updateBanner({ banner, bannerMobile, title, artist }) {
     document.dispatchEvent(new CustomEvent("music:banner:update", {
       detail: {
         image: banner,
+        imageMobile: bannerMobile,
         title: title || "Unknown Track",
         subtitle: artist || "Unknown Artist"
       }

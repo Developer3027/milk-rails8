@@ -8,7 +8,8 @@ export default class extends Controller {
     url: String,
     title: String,
     artist: String,
-    banner: String
+    banner: String,
+    bannerMobile: String
   }
 
   connect() {
@@ -23,9 +24,7 @@ export default class extends Controller {
   playRequest(e) {
     e.preventDefault()
     const playOnLoad = localStorage.getItem("audioPlayOnLoad") === "true"
-    const currentBanner = this.bannerValue || "music_files/home-banner.jpg"
-    const newBanner = e.target.dataset.banner || "music_files/home-banner.jpg"
-    const updateBanner = currentBanner !== newBanner
+    const updateBanner = true
 
     window.dispatchEvent(new CustomEvent("player:play-requested", {
       detail: {
@@ -34,6 +33,7 @@ export default class extends Controller {
         title: this.titleValue,
         artist: this.artistValue,
         banner: this.bannerValue,
+        bannerMobile: this.bannerMobileValue,
         playOnLoad: playOnLoad,
         updateBanner: updateBanner
       }

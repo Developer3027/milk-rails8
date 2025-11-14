@@ -13,16 +13,21 @@ export default class extends Controller {
   }
 
   updateBanner(event) {
-    const { image, title, subtitle } = event.detail
-    const newImage = image || "music_files/home-banner.jpg"
-    
-    if (image && !this.imageTarget.src.endsWith(newImage)) {
+    const { image, imageMobile, title, subtitle } = event.detail
+
+    // Choose the appropriate image based on screen size
+    const isMobile = window.innerWidth < 768
+    const selectedImage = (isMobile && imageMobile) ? imageMobile : (image || null)
+
+    // Only update if we have a valid image URL
+    if (selectedImage && selectedImage !== '' && !this.imageTarget.src.endsWith(selectedImage)) {
       // Start transition to fade out
       this.imageTarget.style.opacity = 0;
-      
+
       const handleTransitionEnd = () => {
-        this.imageTarget.src = image;
-        
+        // Update image src directly
+        this.imageTarget.src = selectedImage;
+
         // Show loading state if image takes time to load
         this.imageTarget.onload = () => {
           // Force reflow and fade in
@@ -30,7 +35,7 @@ export default class extends Controller {
           this.imageTarget.style.opacity = 1;
           this.imageTarget.onload = null; // Clean up
         };
-        
+
         // Fallback in case onload doesn't fire
         setTimeout(() => {
           if (this.imageTarget.complete) {
@@ -38,13 +43,13 @@ export default class extends Controller {
             this.imageTarget.style.opacity = 1;
           }
         }, 500);
-        
+
         this.imageTarget.removeEventListener("transitionend", handleTransitionEnd);
       };
-      
+
       this.imageTarget.addEventListener("transitionend", handleTransitionEnd);
     }
-    
+
     if (title) this.titleTarget.textContent = title;
     if (subtitle) this.subtitleTarget.textContent = subtitle;
   }

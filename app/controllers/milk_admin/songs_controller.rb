@@ -20,6 +20,44 @@ class MilkAdmin::SongsController < ApplicationController
     end
   end
 
+  def dashboard
+    @songs = Song.includes(:artist, :album, :genres).order(created_at: :desc)
+
+    # Overview metrics
+    @total_songs = Song.count
+    @total_artists = Artist.count
+    @total_albums = Album.count
+    @total_genres = Genre.count
+
+    # Songs this month with trend
+    @songs_this_month = Song.where("created_at >= ?", Time.current.beginning_of_month).count
+    last_month_start = 1.month.ago.beginning_of_month
+    last_month_end = 1.month.ago.end_of_month
+    @songs_last_month = Song.where(created_at: last_month_start..last_month_end).count
+    @song_trend = calculate_trend(@songs_last_month, @songs_this_month)
+
+    # Completion metrics
+    @songs_with_audio = Song.joins(:audio_file_attachment).count
+    @songs_with_image = Song.joins(:image_attachment).count
+    @songs_complete = Song.joins(:audio_file_attachment, :image_attachment).count
+    @songs_incomplete = @total_songs - @songs_complete
+
+    # Top lists
+    @top_artists = Artist.joins(:songs)
+                         .group(:id)
+                         .order("COUNT(songs.id) DESC")
+                         .limit(5)
+                         .select("artists.*, COUNT(songs.id) as songs_count")
+
+    @top_genres = Genre.joins(:songs)
+                       .group(:id)
+                       .order("COUNT(songs.id) DESC")
+                       .limit(5)
+                       .select("genres.*, COUNT(songs.id) as songs_count")
+
+    render layout: false if turbo_frame_request?
+  end
+
   # GET /milk_admin/songs/new
   #
   # Initializes a new Song object.
@@ -29,9 +67,13 @@ class MilkAdmin::SongsController < ApplicationController
     @song = Song.new
     @song.build_artist
     @song.build_album.build_genre
+
+    render layout: false if turbo_frame_request?
   end
 
-  def edit; end
+  def edit
+    render layout: false if turbo_frame_request?
+  end
 
   # POST /milk_admin/songs
   #
@@ -52,10 +94,11 @@ class MilkAdmin::SongsController < ApplicationController
 
     respond_to do |format|
       if @song.save
-        format.html { redirect_to milk_admin_songs_path, notice: "Song was successfully added." }
+        redirect_path = turbo_frame_request? ? milk_admin_songs_dashboard_path : milk_admin_songs_path
+        format.html { redirect_to redirect_path, notice: "Song was successfully added." }
         format.json { render json: @song }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { render :new, status: :unprocessable_entity, layout: !turbo_frame_request? }
         format.json { render json: @song.errors, status: :unprocessable_entity }
       end
     end
@@ -77,10 +120,11 @@ class MilkAdmin::SongsController < ApplicationController
   def update
     respond_to do |format|
       if @song.update(song_params)
-        format.html { redirect_to milk_admin_songs_path, notice: "Song was successfully updated." }
+        redirect_path = turbo_frame_request? ? milk_admin_songs_dashboard_path : milk_admin_songs_path
+        format.html { redirect_to redirect_path, notice: "Song was successfully updated." }
         format.json { render :show, status: :created, location: @song }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { render :edit, status: :unprocessable_entity, layout: !turbo_frame_request? }
         format.json { render json: @song.errors, status: :unprocessable_entity }
       end
     end
@@ -100,10 +144,12 @@ class MilkAdmin::SongsController < ApplicationController
   def destroy
     respond_to do |format|
       if @song.destroy
-        format.html { redirect_to milk_admin_songs_path, status: :see_other, notice: "Song, file and image were successfully destroyed." }
+        redirect_path = turbo_frame_request? ? milk_admin_songs_dashboard_path : milk_admin_songs_path
+        format.html { redirect_to redirect_path, status: :see_other, notice: "Song, file and image were successfully destroyed." }
         format.json { head :no_content }
       else
-        format.html { redirect_to milk_admin_songs_path, alert: "Failed to destroy the song." }
+        redirect_path = turbo_frame_request? ? milk_admin_songs_dashboard_path : milk_admin_songs_path
+        format.html { redirect_to redirect_path, alert: "Failed to destroy the song." }
         format.json { render json: @song.errors, status: :unprocessable_entity }
       end
     end
@@ -169,6 +215,8 @@ class MilkAdmin::SongsController < ApplicationController
     params.require(:song).permit(:image,
                                  :audio_file,
                                  :title,
+                                 :focal_point_x,
+                                 :focal_point_y,
                                  artist_attributes: [ :name ],
                                  album_attributes: [ :title, genre_attributes: [ :name ] ])
   end
@@ -180,5 +228,11 @@ class MilkAdmin::SongsController < ApplicationController
   # the current request.
   def set_song
     @song = Song.find(params[:id])
+  end
+
+  # Calculate percentage trend between two periods
+  def calculate_trend(last_period, current_period)
+    return 0 if last_period.zero?
+    ((current_period - last_period).to_f / last_period * 100).round(1)
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_11_13_214852) do
+ActiveRecord::Schema[8.0].define(version: 2025_11_14_013049) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -373,6 +373,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_11_13_214852) do
     t.datetime "updated_at", null: false
     t.bigint "artist_id", null: false
     t.bigint "album_id", null: false
+    t.float "focal_point_x", default: 0.5
+    t.float "focal_point_y", default: 0.5
     t.index ["album_id"], name: "index_songs_on_album_id"
     t.index ["artist_id"], name: "index_songs_on_artist_id"
   end
