@@ -5,10 +5,13 @@ Rails.application.configure do
 
   # Configure default URL options for route helpers
   config.action_controller.default_url_options = {
-    host: ENV.fetch("HOST", "milk-00-aa48920a95b8.herokuapp.com"),
+    host: ENV.fetch("HOST", "roguemedialab-137f8a45d7c0.herokuapp.com"),
     protocol: "https"
   }
   Rails.application.routes.default_url_options = config.action_controller.default_url_options
+
+  # Ensure ActiveStorage generates absolute URLs for social sharing
+  config.action_mailer.default_url_options = config.action_controller.default_url_options
 
   # Add this for asset hosting if you want to serve assets directly from S3
   # config.action_controller.asset_host = "https://milk-blog.s3.us-east-2.amazonaws.com"

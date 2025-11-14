@@ -32,14 +32,28 @@ class BlogsController < ApplicationController
     # Track blog views with session-based deduplication
     track_blog_view(@blog)
 
-    set_meta_tags title: @blog.title,
-                  description: @blog.subtitle || @blog.meta_description,
-                  # keywords: @blog.keywords,
-                  og: {
-                    title: @blog.title,
-                    description: @blog.subtitle,
-                    image: @blog.blog_image
-                  }
+    # Generate absolute URLs for social sharing
+    blog_url = blog_url(@blog)
+    image_url = @blog.blog_image.attached? ? url_for(@blog.blog_image) : nil
+
+    set_meta_tags(
+      title: @blog.title,
+      description: @blog.subtitle || @blog.title,
+      og: {
+        title: @blog.title,
+        description: @blog.subtitle || @blog.title,
+        type: "article",
+        url: blog_url,
+        image: image_url,
+        site_name: "Rogue Media Lab"
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: @blog.title,
+        description: @blog.subtitle || @blog.title,
+        image: image_url
+      }
+    )
   end
 
   private
