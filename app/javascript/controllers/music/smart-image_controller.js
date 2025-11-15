@@ -9,7 +9,13 @@ export default class extends Controller {
     title: String,
     artist: String,
     banner: String,
-    bannerMobile: String
+    bannerMobile: String,
+    imageCredit: String,
+    imageCreditUrl: String,
+    imageLicense: String,
+    audioSource: String,
+    audioLicense: String,
+    additionalCredits: String
   }
 
   connect() {
@@ -35,7 +41,13 @@ export default class extends Controller {
         banner: this.bannerValue,
         bannerMobile: this.bannerMobileValue,
         playOnLoad: playOnLoad,
-        updateBanner: updateBanner
+        updateBanner: updateBanner,
+        imageCredit: this.imageCreditValue,
+        imageCreditUrl: this.imageCreditUrlValue,
+        imageLicense: this.imageLicenseValue,
+        audioSource: this.audioSourceValue,
+        audioLicense: this.audioLicenseValue,
+        additionalCredits: this.additionalCreditsValue
       }
     }))
 

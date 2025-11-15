@@ -29,29 +29,7 @@
         <div class="flex flex-wrap justify-center md:justify-evenly md:w-5/6">
           <!-- Feature post section -->
           <div class="md:border-b-4 border-base-dark py-5">
-            <!-- Feature card -->
-            <%= link_to feature_blogs_path do %>
-              <div class="flex flex-col justify-evenly items-center lg:flex-row w-96 md:w-full p-2 md:p-8 lg:px-16 rounded-md border border-input-background bg-slate-50">
-                <div class="flex justify-center m-1">
-                  <%= image_tag "https://milk-blog.s3.us-east-2.amazonaws.com/railamellon.jpg", class: "rounded-sm h-48 object-cover", alt: "Ladies green bike with water mellon inserts in tires against a stucko wall." %>
-                </div>
-                <div class="flex flex-col max-w-[340px] m-1">
-                  <% if @featured_blog %>
-                    <%= render partial: "blogs/partials/feature_card", locals: { featured_blog: @featured_blog } %>
-                  <% else %>
-                    <h2 class="font-bold px-1 py-2">What is this, why, what is going on here?!</h2>
-                    <p class="pb-3 px-1">Welcome to the MILK-00 blog. This is a personal project of mine that I have been interested in for quit some time. This is several years in the making and...</p>
-                    <div class="flex justify-between font-medium text-sm text-base-dark px-1">
-                      <div class="flex flex-col">
-                        <span>Author: Mason Roberts</span>
-                        <span>Date: Mon, 15 Apr 2024</span>
-                      </div>
-                      <span>Category: General</span>
-                    </div>
-                  <% end %>
-                </div>
-              </div>
-            <% end %>
+            <%= render partial: "blogs/partials/feature_card", locals: { featured_blog: @featured_blog } %>
           </div>
           <!-- Programmatically generated posts -->
           <!-- @blogs -->

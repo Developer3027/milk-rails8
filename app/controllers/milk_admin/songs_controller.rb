@@ -21,7 +21,7 @@ class MilkAdmin::SongsController < ApplicationController
   end
 
   def dashboard
-    @songs = Song.includes(:artist, :album, :genres).order(created_at: :desc)
+    @songs = Song.includes(:artist, { album: :genre }, :genres).order(created_at: :desc)
 
     # Overview metrics
     @total_songs = Song.count
@@ -66,12 +66,22 @@ class MilkAdmin::SongsController < ApplicationController
   def new
     @song = Song.new
     @song.build_artist
-    @song.build_album.build_genre
+    album = @song.build_album
+    album.build_genre
 
     render layout: false if turbo_frame_request?
   end
 
   def edit
+    # Build missing associations so form fields render
+    @song.build_artist unless @song.artist
+    unless @song.album
+      @song.build_album
+      @song.album.build_genre
+    else
+      @song.album.build_genre unless @song.album.genre
+    end
+
     render layout: false if turbo_frame_request?
   end
 
@@ -217,8 +227,14 @@ class MilkAdmin::SongsController < ApplicationController
                                  :title,
                                  :focal_point_x,
                                  :focal_point_y,
-                                 artist_attributes: [ :name ],
-                                 album_attributes: [ :title, genre_attributes: [ :name ] ])
+                                 :image_credit,
+                                 :image_credit_url,
+                                 :image_license,
+                                 :audio_source,
+                                 :audio_license,
+                                 :additional_credits,
+                                 artist_attributes: [ :id, :name ],
+                                 album_attributes: [ :id, :title, genre_attributes: [ :id, :name ] ])
   end
 
   # Finds the song with the given id and assigns it to the @song instance variable.

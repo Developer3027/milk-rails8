@@ -3,4 +3,6 @@ class Genre < ApplicationRecord
   has_many :songs, through: :song_genres
   has_many :artist, through: :songs
   has_many :albums, through: :songs
+
+  validates :name, presence: true, uniqueness: { case_sensitive: false }
 end

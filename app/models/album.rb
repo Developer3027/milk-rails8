@@ -3,9 +3,12 @@ class Album < ApplicationRecord
   belongs_to :artist, optional: false
   belongs_to :genre, optional: false
 
-  accepts_nested_attributes_for :genre
-
   has_many :songs, dependent: :destroy, inverse_of: :album
   has_many :song_genres, through: :songs
   has_many :genres, through: :song_genres
+
+  validates :title, presence: true
+  validates :title, uniqueness: { scope: :artist_id, case_sensitive: false }
+
+  accepts_nested_attributes_for :genre
 end

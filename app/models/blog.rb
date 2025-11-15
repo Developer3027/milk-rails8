@@ -4,6 +4,7 @@ class Blog < ApplicationRecord
 
   # before update or create run process_body
   before_save :process_body
+  before_save :ensure_only_one_featured
 
   has_rich_text :toc
   has_rich_text :content
@@ -67,5 +68,16 @@ class Blog < ApplicationRecord
 
     self.toc = result[:toc]  # Update the TOC
     self.processed_body = result[:body]  # Update the :content with modified body
+  end
+
+  private
+
+  # Ensure only one blog can be featured at a time
+  # If this blog is being marked as featured, unfeature all other blogs
+  def ensure_only_one_featured
+    if featured? && featured_changed?
+      # Unfeature all other blogs
+      Blog.where(featured: true).where.not(id: id).update_all(featured: false)
+    end
   end
 end

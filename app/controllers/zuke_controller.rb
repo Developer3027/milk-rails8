@@ -12,7 +12,13 @@ class ZukeController < ApplicationController
         title: song.title,
         artist: song.artist.name,
         banner: song.image.attached? ? url_for(song.image) : nil,
-        bannerMobile: song.image.attached? ? url_for(song.mobile_image_variant) : nil
+        bannerMobile: song.image.attached? ? url_for(song.mobile_image_variant) : nil,
+        imageCredit: song.image_credit,
+        imageCreditUrl: song.image_credit_url,
+        imageLicense: song.image_license,
+        audioSource: song.audio_source,
+        audioLicense: song.audio_license,
+        additionalCredits: song.additional_credits
       }
     end.to_json
   end

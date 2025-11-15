@@ -38,12 +38,17 @@ class MilkAdmin::BlogsController < ApplicationController
   # Shows the blogs dashboard with metrics and blog list
   def dashboard
     @blogs = Blog.all.sorted
+    @featured_blog = Blog.where(featured: true).first
     @total_blogs = Blog.count
     @published_blogs = Blog.published.count
     @draft_blogs = Blog.draft.count
     @scheduled_blogs = Blog.scheduled.count
     @total_views = Blog.sum(:views_count)
     @top_viewed_blogs = Blog.published.order(views_count: :desc).limit(10)
+
+    if @featured_blog.present?
+      @blogs = @blogs.where.not(id: @featured_blog.id)
+    end
 
     render layout: false if turbo_frame_request?
   end
@@ -111,25 +116,16 @@ class MilkAdmin::BlogsController < ApplicationController
   def update
     @blog.milk_admin_id = current_milk_admin.id
     respond_to do |format|
-      begin
-        if @blog.update(blog_params)
-          @blog.process_body  # Call process_body to ensure TOC and body are updated
-          redirect_path = turbo_frame_request? ? milk_admin_blogs_dashboard_path : milk_admin_blogs_path
-          format.html { redirect_to redirect_path, notice: "Blog was successfully updated." }
-          format.json { render :show, status: :created, location: @blog }
-        else
-          format.html do
-            render :new, status: :unprocessable_entity, layout: !turbo_frame_request?
-          end
-          format.json { render json: @blog.errors, status: :unprocessable_entity }
-        end
-      rescue
-        # Handle the unique constraint violation for 'featured' from database
-        @blog.errors.add(:featured, "Only one post can be featured at a time. Please un-feature an existing post first.")
+      if @blog.update(blog_params)
+        @blog.process_body  # Call process_body to ensure TOC and body are updated
+        redirect_path = turbo_frame_request? ? milk_admin_blogs_dashboard_path : milk_admin_blogs_path
+        format.html { redirect_to redirect_path, notice: "Blog was successfully updated." }
+        format.json { render :show, status: :created, location: @blog }
+      else
         format.html do
-          render :edit, status: :unprocessable_entity, layout: !turbo_frame_request?
+          render :new, status: :unprocessable_entity, layout: !turbo_frame_request?
         end
-        format.json { render json: @post.errors, status: :unprocessable_entity }
+        format.json { render json: @blog.errors, status: :unprocessable_entity }
       end
     end
   end

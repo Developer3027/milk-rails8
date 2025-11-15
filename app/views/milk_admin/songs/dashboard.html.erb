@@ -235,9 +235,9 @@
                   <div class="text-sm text-gray-500"><%= song.album&.title || "—" %></div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap">
-                  <% if song.genres.any? %>
+                  <% if song.album&.genre %>
                     <span class="px-2 py-1 text-xs font-medium rounded-full bg-orange-100 text-orange-800">
-                      <%= song.genres.first.name %>
+                      <%= song.album.genre.name %>
                     </span>
                   <% else %>
                     <span class="text-sm text-gray-400">—</span>

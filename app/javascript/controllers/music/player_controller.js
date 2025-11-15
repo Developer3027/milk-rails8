@@ -252,14 +252,29 @@ export default class extends Controller {
    */
   handlePlayRequest(e) {
     try {
-      const { id, url, title, artist, banner, bannerMobile, playOnLoad = false, updateBanner } = e.detail
+      const {
+        id, url, title, artist, banner, bannerMobile, playOnLoad = false, updateBanner,
+        imageCredit, imageCreditUrl, imageLicense, audioSource, audioLicense, additionalCredits
+      } = e.detail
 
       this.setCurrentIndex(id)
 
       if (updateBanner !== false) {
         this.updateBanner({ banner, bannerMobile, title, artist })
       }
-      
+
+      // Update credits display
+      this.updateCredits({
+        title,
+        artist,
+        imageCredit,
+        imageCreditUrl,
+        imageLicense,
+        audioSource,
+        audioLicense,
+        additionalCredits
+      })
+
       if (!this.wavesurfer || this.currentUrl !== url) {
         this.loadTrack(url, playOnLoad)
       } else {
@@ -330,11 +345,11 @@ export default class extends Controller {
         console.error("Invalid song object in queue");
         return;
       }
-      
+
       // Clear current track completely before loading new one
       this.wavesurfer?.stop();
       this.wavesurfer?.empty();
-      
+
       // Update UI first
       this.updateBanner({
         banner: song.banner,
@@ -342,13 +357,25 @@ export default class extends Controller {
         title: song.title,
         artist: song.artist
       });
-      
+
+      // Update credits
+      this.updateCredits({
+        title: song.title,
+        artist: song.artist,
+        imageCredit: song.imageCredit,
+        imageCreditUrl: song.imageCreditUrl,
+        imageLicense: song.imageLicense,
+        audioSource: song.audioSource,
+        audioLicense: song.audioLicense,
+        additionalCredits: song.additionalCredits
+      });
+
       // Set current URL before loading
       this.currentUrl = song.url;
 
       // Dispatch play request
       this.dispatchTrackChange(song.url)
-      
+
       // Load with small delay to ensure cleanup
       setTimeout(() => {
         this.wavesurfer.load(song.url);
@@ -356,7 +383,7 @@ export default class extends Controller {
           this.wavesurfer.play();
         });
       }, 50);
-      
+
     } catch (error) {
       console.error("Error playing from queue:", error);
       this.handleAudioError();
@@ -493,6 +520,28 @@ export default class extends Controller {
         imageMobile: bannerMobile,
         title: title || "Unknown Track",
         subtitle: artist || "Unknown Artist"
+      }
+    }))
+  }
+
+  /**
+   * Update credits display
+   * @param {Object} details - Credits details
+   */
+  updateCredits({ title, artist, imageCredit, imageCreditUrl, imageLicense, audioSource, audioLicense, additionalCredits }) {
+    console.log("Player dispatching credits update:", {
+      title, artist, imageCredit, imageCreditUrl, imageLicense, audioSource, audioLicense, additionalCredits
+    })
+    document.dispatchEvent(new CustomEvent("music:credits:update", {
+      detail: {
+        title: title || "Unknown Track",
+        artist: artist || "Unknown Artist",
+        imageCredit,
+        imageCreditUrl,
+        imageLicense,
+        audioSource,
+        audioLicense,
+        additionalCredits
       }
     }))
   }

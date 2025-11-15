@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_11_14_013049) do
+ActiveRecord::Schema[8.0].define(version: 2025_11_14_165050) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -61,12 +61,14 @@ ActiveRecord::Schema[8.0].define(version: 2025_11_14_013049) do
     t.datetime "updated_at", null: false
     t.index ["artist_id"], name: "index_albums_on_artist_id"
     t.index ["genre_id"], name: "index_albums_on_genre_id"
+    t.index ["title", "artist_id"], name: "index_albums_on_title_and_artist_id", unique: true
   end
 
   create_table "artists", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_artists_on_name", unique: true
   end
 
   create_table "blog_categories", force: :cascade do |t|
@@ -107,6 +109,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_11_14_013049) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_genres_on_name", unique: true
   end
 
   create_table "hermit_videos", force: :cascade do |t|
@@ -372,9 +375,15 @@ ActiveRecord::Schema[8.0].define(version: 2025_11_14_013049) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "artist_id", null: false
-    t.bigint "album_id", null: false
+    t.bigint "album_id"
     t.float "focal_point_x", default: 0.5
     t.float "focal_point_y", default: 0.5
+    t.string "image_credit"
+    t.string "image_credit_url"
+    t.string "image_license"
+    t.string "audio_source"
+    t.string "audio_license"
+    t.text "additional_credits"
     t.index ["album_id"], name: "index_songs_on_album_id"
     t.index ["artist_id"], name: "index_songs_on_artist_id"
   end

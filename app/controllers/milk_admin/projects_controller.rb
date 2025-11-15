@@ -10,6 +10,11 @@ class MilkAdmin::ProjectsController < ApplicationController
     @projects = Project.all
   end
 
+  def dashboard
+    @featured_projects = Project.where(featured: true)
+    @concept_projects = Project.where(featured: false)
+  end
+
   # GET /projects/new
   #
   # Displays a form for creating a new project.
