@@ -12,13 +12,13 @@ class AddUniquenessIndexesToModels < ActiveRecord::Migration[8.0]
     # Add unique indexes
     add_index :artists, :name, unique: true
     add_index :genres, :name, unique: true
-    add_index :albums, [:title, :artist_id], unique: true
+    add_index :albums, [ :title, :artist_id ], unique: true
   end
 
   def down
     remove_index :artists, :name
     remove_index :genres, :name
-    remove_index :albums, [:title, :artist_id]
+    remove_index :albums, [ :title, :artist_id ]
   end
 
   private
@@ -60,7 +60,7 @@ class AddUniquenessIndexesToModels < ActiveRecord::Migration[8.0]
 
   def cleanup_duplicate_albums
     # Group by title + artist_id (case insensitive on title)
-    duplicates = Album.all.group_by { |a| [a.title.downcase, a.artist_id] }
+    duplicates = Album.all.group_by { |a| [ a.title.downcase, a.artist_id ] }
     duplicates.each do |key, albums|
       next if albums.size == 1
 
