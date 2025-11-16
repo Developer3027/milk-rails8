@@ -237,8 +237,8 @@ class MilkAdmin::SongsController < ApplicationController
                                   :audio_license,
                                   :additional_credits,
                                   user_ids: [],
-                                  artist_attributes: [:id, :name],
-                                  album_attributes: [:id, :title, genre: [:name]])
+                                  artist_attributes: [ :id, :name ],
+                                  album_attributes: [ :id, :title, genre: [ :name ] ])
   end
 
   # Finds the song with the given id and assigns it to the @song instance variable.

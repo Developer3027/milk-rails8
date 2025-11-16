@@ -34,9 +34,9 @@ class Song < ApplicationRecord
     genre = if attributes.dig(:genre, :name).present?
               genre_name = attributes[:genre][:name].strip
               # Case-insensitive find to match existing genres, then create if not found
-              Genre.where('LOWER(name) = LOWER(?)', genre_name).first ||
+              Genre.where("LOWER(name) = LOWER(?)", genre_name).first ||
               Genre.create!(name: genre_name.titleize)
-            end
+    end
 
     # Find or initialize the album
     album = Album.find_or_initialize_by(
