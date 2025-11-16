@@ -65,6 +65,7 @@ class MilkAdmin::SongsController < ApplicationController
 
   def new
     @song = Song.new
+    @users = User.all
     @song.build_artist
     album = @song.build_album
     album.build_genre
@@ -73,6 +74,7 @@ class MilkAdmin::SongsController < ApplicationController
   end
 
   def edit
+    @users = User.all
     # Build missing associations so form fields render
     @song.build_artist unless @song.artist
     unless @song.album
@@ -132,8 +134,9 @@ class MilkAdmin::SongsController < ApplicationController
       if @song.update(song_params)
         redirect_path = turbo_frame_request? ? milk_admin_songs_dashboard_path : milk_admin_songs_path
         format.html { redirect_to redirect_path, notice: "Song was successfully updated." }
-        format.json { render :show, status: :created, location: @song }
+        format.json { render :show, status: :ok, location: @song }
       else
+        @users = User.all
         format.html { render :edit, status: :unprocessable_entity, layout: !turbo_frame_request? }
         format.json { render json: @song.errors, status: :unprocessable_entity }
       end
@@ -223,18 +226,19 @@ class MilkAdmin::SongsController < ApplicationController
 
   def song_params
     params.require(:song).permit(:image,
-                                 :audio_file,
-                                 :title,
-                                 :focal_point_x,
-                                 :focal_point_y,
-                                 :image_credit,
-                                 :image_credit_url,
-                                 :image_license,
-                                 :audio_source,
-                                 :audio_license,
-                                 :additional_credits,
-                                 artist_attributes: [ :id, :name ],
-                                 album_attributes: [ :id, :title, genre_attributes: [ :id, :name ] ])
+                                  :audio_file,
+                                  :title,
+                                  :focal_point_x,
+                                  :focal_point_y,
+                                  :image_credit,
+                                  :image_credit_url,
+                                  :image_license,
+                                  :audio_source,
+                                  :audio_license,
+                                  :additional_credits,
+                                  user_ids: [],
+                                  artist_attributes: [:id, :name],
+                                  album_attributes: [:id, :title, genre: [:name]])
   end
 
   # Finds the song with the given id and assigns it to the @song instance variable.

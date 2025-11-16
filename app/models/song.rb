@@ -6,23 +6,52 @@ class Song < ApplicationRecord
 
   has_many :song_genres, dependent: :destroy
   has_many :genres, through: :song_genres
+  has_and_belongs_to_many :users
+
+  accepts_nested_attributes_for :artist
+  accepts_nested_attributes_for :album
 
   delegate :name, to: :artist, prefix: true
   delegate :title, to: :album, prefix: true
 
-  before_validation :process_nested_attributes
   before_validation :associate_album_artist
 
-  # Store nested attributes for processing in callback
-  attr_accessor :pending_artist_attributes, :pending_album_attributes
-
-  # Override nested attribute setters to store data for later processing
+  # Custom nested attribute setters to find or create associated records
   def artist_attributes=(attributes)
-    @pending_artist_attributes = attributes
+    if attributes[:name].present?
+      self.artist = Artist.find_or_create_by(name: attributes[:name])
+    end
   end
 
   def album_attributes=(attributes)
-    @pending_album_attributes = attributes
+    # Skip if no title provided
+    return unless attributes[:title].present?
+
+    # Ensure artist is present before processing album
+    return unless artist.present?
+
+    # Find or create the genre first if provided
+    genre = if attributes.dig(:genre, :name).present?
+              genre_name = attributes[:genre][:name].strip
+              # Case-insensitive find to match existing genres, then create if not found
+              Genre.where('LOWER(name) = LOWER(?)', genre_name).first ||
+              Genre.create!(name: genre_name.titleize)
+            end
+
+    # Find or initialize the album
+    album = Album.find_or_initialize_by(
+      title: attributes[:title],
+      artist_id: artist.id
+    )
+
+    # Update genre if it's provided and has changed
+    album.genre = genre if genre && album.genre != genre
+
+    # Save the album if it's new or has changed
+    album.save if album.new_record? || album.changed?
+
+    # Associate the album with the song
+    self.album = album if album.persisted?
   end
 
   # Check if song has any attribution data
@@ -46,51 +75,6 @@ class Song < ApplicationRecord
   end
 
   private
-
-  # Process nested attributes in the correct order
-  def process_nested_attributes
-    # Skip if no pending attributes
-    return unless @pending_artist_attributes.present? || @pending_album_attributes.present?
-
-    # Process artist first
-    if @pending_artist_attributes && @pending_artist_attributes[:name].present?
-      self.artist = Artist.find_or_create_by(name: @pending_artist_attributes[:name])
-    end
-
-    # Then process album (now that artist is set)
-    if @pending_album_attributes && @pending_album_attributes[:title].present?
-      # Handle nested genre
-      genre = if @pending_album_attributes[:genre_attributes] &&
-                 @pending_album_attributes[:genre_attributes][:name].present?
-        Genre.find_or_create_by(name: @pending_album_attributes[:genre_attributes][:name])
-      else
-        nil
-      end
-
-      # Find or create album
-      # Album uniqueness is scoped to title + artist only, so we find/create by those
-      # Then update the genre if needed
-      if self.artist && genre
-        album = Album.find_or_initialize_by(
-          title: @pending_album_attributes[:title],
-          artist_id: self.artist.id
-        )
-
-        # Set or update the genre
-        album.genre_id = genre.id if album.genre_id != genre.id
-
-        # Save the album if it's new or changed
-        album.save if album.new_record? || album.changed?
-
-        # Explicitly set the album_id to ensure Rails tracks the change
-        self.album_id = album.id if album.persisted?
-      end
-    end
-
-    # Clear pending attributes to avoid reprocessing
-    @pending_artist_attributes = nil
-    @pending_album_attributes = nil
-  end
 
   def calculate_mobile_crop
     # Source dimensions (adjust these if your images have different dimensions)

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # User model planned for clients feature
-  # devise_for :users
+  devise_for :users
   devise_for :milk_admins, skip: [ :registrations ]
 
   # root for milk admin

@@ -2,9 +2,21 @@ class ZukeController < ApplicationController
   def index; end
 
   def music
-    @songs = Song.includes(:album, :artist)
-                 .with_attached_image
-                 .with_attached_audio_file
+    if current_user
+      @songs = current_user.songs.includes(:album, :artist)
+                           .with_attached_image
+                           .with_attached_audio_file
+    elsif current_milk_admin
+      @songs = Song.includes(:album, :artist)
+                   .with_attached_image
+                   .with_attached_audio_file
+    else
+      @songs = Song.left_joins(:users).where(users: { id: nil })
+                   .includes(:album, :artist)
+                   .with_attached_image
+                   .with_attached_audio_file
+    end
+
     @songs_data = @songs.map do |song|
       {
         id: song.id,
