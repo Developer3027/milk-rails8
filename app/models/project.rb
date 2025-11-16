@@ -2,12 +2,29 @@ class Project < ApplicationRecord
   has_many :resume_projects
   has_many :resumes, through: :resume_projects
 
+  has_many :tasks, dependent: :destroy
+
   has_rich_text :description
   has_one_attached :project_image, dependent: :destroy
 
   validate :validate_url_fields
 
-  ALLOWED_DOMAINS = [ "github.com", "gitlab.com", "figma.com", "https://milk-00-aa48920a95b8.herokuapp.com/" ]
+  ALLOWED_DOMAINS = [ "github.com", "gitlab.com", "figma.com", "herokuapp.com" ]
+
+  def progress_percentage
+    return 0 if tasks.empty?
+
+    completed_tasks = tasks.where(completed: true)
+    (completed_tasks.count.to_f / tasks.count) * 100
+  end
+
+  def progress_percentage_by_time
+    total_time = tasks.sum(:estimated_time)
+    return 0 if total_time == 0
+
+    completed_time = tasks.where(completed: true).sum(:estimated_time)
+    (completed_time.to_f / total_time) * 100
+  end
 
   private
 

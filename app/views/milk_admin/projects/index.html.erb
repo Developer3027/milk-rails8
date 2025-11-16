@@ -1,47 +1,37 @@
-<div class="flex flex-col justify-center items-center w-full mt-4">
-  <div class="w-fit p-4">
-    <div class="flex justify-between items-center">
-      <h1 class="text-3xl text-left my-2">Projects</h1>
+<%= turbo_frame_tag "dashboard_content" do %>
+  <%= render "shared/admin_breadcrumbs", breadcrumbs: [{ name: "Projects" }] %>
 
-      <%= link_to "Create Project", new_milk_admin_project_path, class: "flex justify-center items-center border border-pill-blue h-fit w-fit rounded-md px-4 py-1" %>
-    </div>
-    <div class="flex flex-col justify-center items-center">
-      <% @projects.each do |project| %>
-        <div class="flex flex-col bg-slate-800 rounded-t-md my-4">
-          <div class="flex w-[575px] h-[280px] p-1 my-2">
-            <% if project.project_image.present? %>
-              <%= image_tag project.project_image, class: "rounded-md object-cover w-[200px] h-[275px]", alt: "Image for the project" %>
-            <% end %>
-            <div class="flex flex-col justify-items-start ml-2 py-4 w-[370px]">
-              <div class="text-white text-2xl font-semibold font-['Albert Sans'] w-fit"><%= project.title %></div>
-              <div class="text-white text-sm font-normal font-['Albert Sans'] w-fit"><%= project.description %></div>
-              <% if project.code_url.present? %>
-                <%= link_to "Click for Code", sanitize(project.code_url), class: "text-white text-sm font-semibold font-['Albert Sans'] my-2" %>
-              <% end %>
-              <% if project.design_url.present? %>
-                <%= link_to "Click for Design", sanitize(project.design_url), class: "text-white text-sm font-semibold font-['Albert Sans'] my-2" %>
-              <% end %>
-              <% if project.live_url.present? %>
-                <%= link_to "Click for Live site", sanitize(project.live_url), class: "text-white text-sm font-semibold font-['Albert Sans'] my-2" %>
-              <% end %>
-            </div>
+  <!-- Header with Actions -->
+  <div class="flex items-center justify-between mb-6">
+    <h2 class="text-3xl font-bold text-gray-900">Projects</h2>
+    <%= link_to new_milk_admin_project_path, data: { turbo_frame: "dashboard_content" }, class: "inline-flex items-center gap-2 px-5 py-3 bg-sky-700 hover:bg-sky-600 text-white rounded-lg font-medium transition-colors" do %>
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+      </svg>
+      New Project
+    <% end %>
+  </div>
+
+  <!-- Featured Projects -->
+  <% if @featured_projects.any? %>
+    <% @featured_projects.each do |f_project| %>
+      <div class="bg-gradient-to-r from-yellow-50 to-orange-50 rounded-lg shadow-sm border-2 border-yellow-400 mb-6 p-6">
+        <div class="flex items-start gap-4">
+          <svg class="w-8 h-8 text-yellow-500 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+          </svg>
+          <div class="flex-1">
+            <h4 class="text-xl font-bold text-gray-900 mb-2"><%= f_project.title %></h4>
           </div>
-          <div class="flex justify-evenly bg-gray-700 rounded-b-md w-full p-2">
-            <!--Edit link-->
-            <%= link_to edit_milk_admin_project_path(project), class: "inline-flex items-center py-2 px-3 text-sm font-medium text-center text-gray-200 rounded-lg bg-blue-600 hover:bg-blue-700" do %>
-              <svg class="w-6 h-6 text-gray-200" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.779 17.779 4.36 19.918 6.5 13.5m4.279 4.279 8.364-8.643a3.027 3.027 0 0 0-2.14-5.165 3.03 3.03 0 0 0-2.14.886L6.5 13.5m4.279 4.279L6.499 13.5m2.14 2.14 6.213-6.504M12.75 7.04 17 11.28"/>
-              </svg>
-            <% end %>
-            <!--Delete Button-->
-            <%= button_to milk_admin_project_path(project), class: "inline-flex items-center px-3 py-2 text-sm font-medium text-center text-gray-200 rounded-lg bg-red-600 hover:bg-red-700", method: :delete, data: { turbo_confirm: "Are you sure?" } do %>
-              <svg class="w-6 h-6 text-gray-200" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 7h14m-9 3v8m4-8v8M10 3h4a1 1 0 0 1 1 1v3H9V4a1 1 0 0 1 1-1ZM6 7h12v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7Z"/>
+          <div class="flex items-center">
+            <%= link_to milk_admin_project_path(f_project), class: "p-2 text-sky-600 hover:text-sky-900 hover:bg-white rounded-lg transition-colors" do %>
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
               </svg>
             <% end %>
           </div>
         </div>
-      <% end %>
-    </div>
-  </div>
-</div>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>

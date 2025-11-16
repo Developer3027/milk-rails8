@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_11_14_165050) do
+ActiveRecord::Schema[8.0].define(version: 2025_11_15_135816) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -388,6 +388,18 @@ ActiveRecord::Schema[8.0].define(version: 2025_11_14_165050) do
     t.index ["artist_id"], name: "index_songs_on_artist_id"
   end
 
+  create_table "tasks", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "status"
+    t.integer "estimated_time"
+    t.boolean "completed"
+    t.bigint "project_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_tasks_on_project_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -420,4 +432,5 @@ ActiveRecord::Schema[8.0].define(version: 2025_11_14_165050) do
   add_foreign_key "song_genres", "songs"
   add_foreign_key "songs", "albums"
   add_foreign_key "songs", "artists"
+  add_foreign_key "tasks", "projects"
 end

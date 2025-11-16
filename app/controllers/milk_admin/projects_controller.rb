@@ -1,19 +1,37 @@
 # Projects controller for the project model in the milk_admin namespace
 class MilkAdmin::ProjectsController < ApplicationController
   before_action :authenticate_milk_admin!
-  before_action :set_project, only: [ :edit, :update, :destroy, :destroy_image ]
+  before_action :set_project, only: [ :show, :edit, :update, :destroy, :destroy_image ]
 
-  # GET /projects
+  # GET /projects - This is the projects dashboard
   #
   # Displays a list of all projects.
   def index
-    @projects = Project.all
-  end
-
-  def dashboard
     @featured_projects = Project.where(featured: true)
     @concept_projects = Project.where(featured: false)
   end
+
+  # GET /project(id) - This is the specific project dashboard
+  def show
+    # @project is set by your before_action :set_project
+
+    # Get all tasks for THIS project
+    @tasks = @project.tasks.order(:created_at)
+
+    # Build a new, blank task for the form
+    @task = @project.tasks.build
+
+    # Get progress for THIS project (make sure these methods are in project.rb)
+    @progress = @project.progress_percentage
+    @progress_time = @project.progress_percentage_by_time
+  end
+  # def dashboard
+  #   @featured_projects = Project.where(featured: true)
+  #   @concept_projects = Project.where(featured: false)
+  #   @tasks = Project.tasks
+  #   @progress = @project.progress_percentage.round
+  #   @progress_time = @project.progress_percentage_by_time
+  # end
 
   # GET /projects/new
   #

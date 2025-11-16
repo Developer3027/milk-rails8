@@ -14,7 +14,7 @@
       </svg>
       Manage Songs
     <% end %>
-    <%= link_to milk_admin_projects_dashboard_path, data: { turbo_frame: "dashboard_content" }, class: "inline-flex items-center gap-2 px-5 py-3 bg-sky-600 hover:bg-sky-500 text-white rounded-lg font-medium transition-colors" do %>
+    <%= link_to milk_admin_projects_path, data: { turbo_frame: "dashboard_content" }, class: "inline-flex items-center gap-2 px-5 py-3 bg-sky-600 hover:bg-sky-500 text-white rounded-lg font-medium transition-colors" do %>
       <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path>
       </svg>
@@ -104,7 +104,7 @@
         <span class="text-orange-600 font-medium"><%= @projects_this_month %> Created This Month</span>
       </div>
       <div class="pt-3 border-t border-gray-200">
-        <%= link_to "View All Projects", milk_admin_projects_dashboard_path, data: { turbo_frame: "dashboard_content" }, class: "text-sm text-sky-600 hover:text-sky-700 font-medium" %>
+        <%= link_to "View All Projects", milk_admin_projects_path, data: { turbo_frame: "dashboard_content" }, class: "text-sm text-sky-600 hover:text-sky-700 font-medium" %>
       </div>
     </div>
   </div>

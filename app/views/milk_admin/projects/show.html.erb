@@ -1,0 +1,75 @@
+<%= turbo_frame_tag "dashboard_content" do %>
+  <%= render "shared/admin_breadcrumbs", breadcrumbs: [ 
+    { name: "Projects", url: milk_admin_projects_path },
+    { name: "Show: #{@project.title}" } 
+  ] %>
+
+  <div class="flex ">
+  </div>
+  <h1><%= @project.title %> Dashboard</h1>
+
+  <p>Progress (by count): <%= @progress %>%</p>
+  <p>Progress (by time): <%= @progress_time %>%</p>
+
+  <hr>
+
+  <h2>New Task</h2>
+  <%# This form talks to your new TasksController! %>
+  <%= form_with(model: [:milk_admin, @project, @task]) do |form| %>
+    
+    <%# Error messages %>
+    <% if @task.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
+        <ul>
+          <% @task.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div>
+      <%= form.label :title %>
+      <%= form.text_field :title %>
+    </div>
+    
+    <div>
+      <%= form.label :description %>
+      <%= form.text_area :description, rows: 5 %>
+    </div>
+
+    <div>
+      <%= form.label :status %>
+      <%= form.select :status, ["To Do", "In Progress", "Done"] %>
+    </div>
+    
+    <div>
+      <%= form.label :estimated_time, "Estimated Time (hours)" %>
+      <%= form.number_field :estimated_time %>
+    </div>
+
+    <div class="border-2 border-red-600 rounded p-2">
+      <%= form.submit %>
+    </div>
+  <% end %>
+
+  <hr>
+
+  <h2>All Tasks</h2>
+  <div id="tasks">
+    <% @tasks.each do |task| %>
+      <div>
+        <h3><%= task.title %></h3>
+        <p><%= task.description %></p>
+        <p>
+          <strong>Status:</strong> <%= task.status %> | 
+          <strong>Time:</strong> <%= task.estimated_time %> hours
+        </p>
+        <%= link_to "Edit", edit_milk_admin_project_task_path(@project, task) %>
+        <%= button_to "Delete", milk_admin_project_task_path(@project, task), method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
+      <hr>
+    <% end %>
+  </div>
+<% end %>
