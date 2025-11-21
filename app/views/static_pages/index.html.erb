@@ -3,28 +3,26 @@
   <section>
     <!-- Welcome Hero with navigation -->
     <div class="flex flex-col-reverse md:flex-row justify-center items-start md:items-stretch gap-2 mt-4 mb-2">
-      <%# 1. Removed src attribute and render initial content directly %>
+      <%# 1. Right side info frame %>
       <turbo-frame id="info" class="flex flex-col justify-start items-start w-full md:w-3/4">
         <%= image_tag "RogueMediaLab-intro.png", 
                   alt: "Welcome to the lab", 
                   class: "border-2 border-gray-800 rounded-lg w-full lg:max-w-[700px] max-h-[525px] overflow-hidden" %>
       </turbo-frame>
-
+      <%# 2. Left side info sidebar %>
       <div id="info-nav" class="hidden md:flex flex-col w-full md:w-1/4">
         <h2 class="text-3xl font-bold dark:text-milk-light text-base-dark">Info</h2>
         <hr class="my-4 w-full dark:border-white border-base-dark">
-
-        <%# Use the home/welcome link to reset the frame %>
-        <%= link_to "Welcome", info_welcome_path, class: "border dark:border-milk-light border-base-dark rounded-md p-2 w-full mb-4", data: { turbo_frame: "info" } %>
-        <%= link_to "About Me", info_about_me_path, class: "border dark:border-milk-light border-base-dark rounded-md p-2 w-full mb-4", data: { turbo_frame: "info" } %>
-        <%= link_to "Skills", skills_path, class: "border dark:border-milk-light border-base-dark rounded-md p-2 w-full mb-4", data: { turbo_frame: "info" } %>
-        <%= link_to "Blog", blogs_path, class: "border dark:border-milk-light border-base-dark rounded-md p-2 w-full mb-4" %>
-        <%= link_to "Projects", projects_path, class: "border dark:border-milk-light border-base-dark rounded-md p-2 w-full mb-4", data: { turbo_frame: "info" } %>
+        <%= info_nav_link "Welcome", info_welcome_path, data: { turbo_frame: "info" } %>
+        <%= info_nav_link "About Me", info_about_me_path, data: { turbo_frame: "info" } %>
+        <%= info_nav_link "Skills", skills_path, data: { turbo_frame: "info" } %>
+        <%= info_nav_link "Blog", blogs_path %>
+        <%= info_nav_link "Projects", projects_path, data: { turbo_frame: "info" } %>
 
         <%# 2. Use proper path helpers for robust links %>
-        <%= link_to "Contact", new_contact_path, class: "border dark:border-milk-light border-base-dark rounded-md p-2 w-full mb-4", data: { turbo_frame: "info" } %>
-        <%= link_to "Erudition", info_erudition_path, class: "border dark:border-milk-light border-base-dark rounded-md p-2 w-full mb-4", data: { turbo_frame: "info" } %>
-        <%= link_to "Code - GitHub", "https://github.com/Developer3027", class: "border dark:border-milk-light border-base-dark rounded-md p-2 w-full mb-4", target: "_blank" %>
+        <%= info_nav_link "Contact", new_contact_path, data: { turbo_frame: "info" } %>
+        <%= info_nav_link "Erudition", info_erudition_path, data: { turbo_frame: "info" } %>
+        <%= info_nav_link "Code - GitHub", "https://github.com/Developer3027", target: "_blank" %>
       </div>
     </div>
     <!-- Featured projects -->
@@ -32,14 +30,7 @@
       <h2 class="text-3xl font-bold dark:text-milk-light text-base-dark">Featured</h2>
       <hr class="my-4 w-full dark:border-white border-base-dark">
         <div class="flex justify-between items-center flex-wrap w-full my-2">
-          <% @small_projects.each do |project| %>
-            <%= link_to project[:path] do %>
-              <div class="flex flex-col justify-center items-center border border-gray-600 rounded-md w-full md:w-[230px] h-[140px] p-4 mb-2">
-                <h2 class="font-semibold text-2xl mb-2 dark:text-milk-light text-base-dark"><%= project[:title] %></h2>
-                <p class="text-xs w-full md:w-[212px] px-4"><%= project[:description] %></p>
-              </div>
-            <% end %>
-          <% end %>
+          <%= render partial: "shared/project_card", collection: @featured_projects, as: :project_card %>
       </div>
     </div>
   </section>

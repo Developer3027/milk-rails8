@@ -1,5 +1,6 @@
 module SidebarHelper
   SIDEBAR_CONTROLLER = "music--sidebar".freeze
+
   def sidebar_link_to(name, path, icon_name, options = {})
     content_tag :li, class: "flex h-11 items-center rounded-xs p-1 hover:bg-[#FFC9A4]/50 transition-colors w-full",
                      data: { "#{SIDEBAR_CONTROLLER}-target": "link",
@@ -14,5 +15,17 @@ module SidebarHelper
   def icon(name)
     # Render SVG icons in icons folder, based on the name
     render "icons/#{name}"
+  end
+
+  # info links used in the main root
+  def info_nav_link(name, path, options = {})
+    # Default classes for the navigation links
+    default_classes = "border dark:border-milk-light border-base-dark rounded-md p-2 w-full mb-4"
+
+    # Merge default classes with any provided classes
+    options[:class] = [ default_classes, options[:class] ].compact.join(" ")
+
+    # Create the link
+    link_to name, path, options
   end
 end

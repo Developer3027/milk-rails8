@@ -1,0 +1,6 @@
+<%= link_to project_card[:path] do %>
+  <div class="flex flex-col justify-center items-center border border-gray-600 rounded-md w-full md:w-[230px] h-[140px] p-4 mb-2">
+    <h2 class="font-semibold text-2xl mb-2 dark:text-milk-light text-base-dark"><%= project_card[:title] %></h2>
+    <p class="text-xs w-full md:w-[212px] px-4"><%= project_card[:description] %></p>
+  </div>
+<% end %>
